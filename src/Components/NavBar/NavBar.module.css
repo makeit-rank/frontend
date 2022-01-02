@@ -1,0 +1,123 @@
+.Wrapper {
+  width: 100%;
+  padding: 1.5rem max(calc((100% - var(--max-width)) / 2), 1rem);
+  display: grid;
+  grid-template-columns: 1fr 50rem 1fr;
+}
+
+.LeftSec {
+  display: flex;
+  align-items: center;
+  grid-gap: 2rem;
+}
+
+.Logo {
+  height: 2.5rem;
+  width: fit-content;
+}
+.LocationInfo {
+  display: flex;
+  grid-gap: 0.6rem;
+}
+
+.LocationPin {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: end;
+}
+.LocationPinImg {
+  margin-bottom: 0.45rem;
+}
+.LocationInfoRightBottom {
+  display: flex;
+  grid-gap: 0.5em;
+}
+.DeliverToTitle {
+  font-size: var(--font-10);
+  font-weight: 500;
+  color: var(--primary-blue);
+}
+.LocationInfoRightBottom {
+  font-size: var(--font-16);
+}
+.DeliverToPincode,
+.DeliverToArea {
+  font-size: 1em;
+  color: var(--sec-black);
+  font-weight: 700;
+}
+
+.DeliverToArea {
+  color: var(--ter-black);
+}
+
+.SearchBar {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  grid-gap: 1.7rem;
+  outline: 1px solid var(--sec-black);
+  border-radius: 999px;
+  transition: box-shadow 0.15s ease-out;
+}
+
+.SearchBar:active,
+.SearchBar:focus-within {
+  box-shadow: 0px 0px 0px 4px rgba(16, 140, 255, 0.2);
+  outline: 1px solid var(--primary-blue);
+}
+
+.SearchIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: fit-content;
+  padding-left: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+}
+.SearchBarImg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.SearchBarInput {
+  outline: none !important;
+  border: none !important;
+  font-size: var(--font-15);
+  width: 100%;
+  padding: 0.9rem 2rem;
+  padding-left: 0;
+  background: none;
+  color: var(--sec-black);
+  border-radius: 999px;
+}
+
+.SearchBarInput:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--white) inset !important;
+  box-shadow: 0 0 0 1000px var(--white) inset !important;
+  -webkit-text-fill-color: black !important;
+}
+
+.RightSec {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  grid-gap: 2.5rem;
+}
+
+.LinkButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 0.7rem;
+}
+
+/* reset deafult href styles */
+
+.LinkButtonText {
+  text-decoration: none;
+  color: var(--primary-black);
+}
