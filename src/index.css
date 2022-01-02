@@ -46,6 +46,8 @@ html {
   --fontv-3: 3vw;
   --fontv-35: 3.5vw;
 
+  --max-width: 110rem;
+
   /* Color styles */
   --white: #ffffff;
   --pure-black: #000000;
@@ -90,4 +92,9 @@ input[type="number"] {
 }
 input {
   font-family: "Manrope", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
