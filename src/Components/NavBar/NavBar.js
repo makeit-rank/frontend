@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { useLocation, useSearchParams, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 import styles from "./NavBar.module.css";
@@ -9,7 +9,10 @@ import { NAVBAR_DATA } from "../../Utils/Constants/StaticData";
 import { getCityFromPincode } from "./../../Services/location.service";
 
 function NavBar({ isLoggedIn }) {
+  const [searchParams] = useSearchParams();
   const location = useLocation();
+  const navigate = useNavigate();
+
   const userData = useSelector((state) => state.userReducer.userData);
 
   const searchInputRef = useRef(null);
@@ -20,8 +23,8 @@ function NavBar({ isLoggedIn }) {
   });
 
   useEffect(() => {
-    console.log(location.pathname);
-  }, [location]);
+    searchInputRef.current.value = searchParams.get("search");
+  }, [searchParams]);
 
   useEffect(async () => {
     let pincode = userData?.addresses?.[0]?.pincode || "394107";
@@ -74,7 +77,9 @@ function NavBar({ isLoggedIn }) {
         }}
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(e.target.elements.search.value);
+          if (searchInputRef.current.value.length > 0) {
+            navigate(`/search?search=${searchInputRef.current.value}`);
+          }
         }}
       >
         <div className={styles.SearchIconWrapper}>

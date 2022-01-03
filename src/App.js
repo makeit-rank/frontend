@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 import styles from "./App.module.css";
@@ -15,6 +15,7 @@ import { ToastContainer } from "react-toastify";
 
 import { getUserData } from "./Services/user.service";
 import notify from "./Utils/Helpers/notifyToast";
+import Search from "./Containers/Search/index";
 
 const App = () => {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -53,6 +54,7 @@ const App = () => {
   }, [cookie]);
 
   useEffect(() => {
+    console.log(userData);
     if (userData) {
       setInitialized(true);
     }
@@ -67,12 +69,12 @@ const App = () => {
       <ToastContainer bodyClassName={styles.ToastBody} />
       {initialized ? (
         <div className={styles.Wrapper}>
-          <img src={BG_LINE_IMG} alt="bg-line" className={styles.BgLine} />
           <NavBar isLoggedIn={userData ? true : false} />
-          <Switch>
-            {/* <Route exact path="/" component={Home} /> */}
-            <Route exact component={Home} />
-          </Switch>
+          <img src={BG_LINE_IMG} alt="bg-line" className={styles.BgLine} />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/search" element={<Search />} />
+          </Routes>
         </div>
       ) : (
         <>

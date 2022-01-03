@@ -6,6 +6,7 @@
 .Wrapper {
   position: relative;
   height: fit-content;
+  min-height: 100vh;
   width: 100%;
   overflow: hidden;
 }
