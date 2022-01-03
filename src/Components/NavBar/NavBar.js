@@ -7,6 +7,9 @@ import styles from "./NavBar.module.css";
 
 import { NAVBAR_DATA } from "../../Utils/Constants/StaticData";
 import { getCityFromPincode } from "./../../Services/location.service";
+import useMediaQuery from "./../../Utils/Helpers/useMediaQuery";
+
+import { convertPixelsToRem } from "./../../Utils/Helpers/pxRemConverter";
 
 function NavBar({ isLoggedIn }) {
   const [searchParams] = useSearchParams();
@@ -16,10 +19,20 @@ function NavBar({ isLoggedIn }) {
   const userData = useSelector((state) => state.userReducer.userData);
 
   const searchInputRef = useRef(null);
+  const wrapperRef = useRef(null);
+
+  const [windowWidthState] = useMediaQuery();
+
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      "--navbar-height",
+      `${convertPixelsToRem(wrapperRef.current.scrollHeight)}rem`
+    );
+  }, [windowWidthState]);
 
   const [locationInfo, setLocationInfo] = useState({
-    city: "",
-    pincode: "",
+    city: "-",
+    pincode: "-",
   });
 
   useEffect(() => {
@@ -42,7 +55,7 @@ function NavBar({ isLoggedIn }) {
   }, [userData]);
 
   return (
-    <div className={styles.Wrapper}>
+    <div className={styles.Wrapper} ref={wrapperRef}>
       <div className={styles.LeftSec}>
         <Link to="/" className={styles.LogoLink}>
           <img
