@@ -22,7 +22,7 @@ function HomeMainSec({ recommendedItems, topPickItems }) {
           />
         </>
       ) : (
-        <Preloader />
+        <Preloader transperant />
       )}
     </div>
   );

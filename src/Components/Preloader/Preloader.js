@@ -4,7 +4,7 @@ import Styles from "./Preloader.module.css";
 
 import prelaoderImg from "../../Assets/_General/Preloader.gif";
 
-function Preloader() {
+function Preloader({ transperant }) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     return () => {
@@ -12,7 +12,14 @@ function Preloader() {
     };
   }, []);
   return (
-    <div className={Styles.Wrapper}>
+    <div
+      className={Styles.Wrapper}
+      style={
+        transperant && {
+          background: "none",
+        }
+      }
+    >
       <img src={prelaoderImg} alt="" className={Styles.Loader} />
     </div>
   );

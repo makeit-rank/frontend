@@ -50,21 +50,11 @@ const Home = () => {
   };
 
   return (
-    // <div className={styles.container}>
-    //   <HomeMainSec
-    //     recommendedItems={highlightsData.recommended}
-    //     topPicksItems={highlightsData.topPicks}
-    //   />
-    // </div>
     <div className={styles.Wrapper}>
-      {/* {highlightsData.recommended && highlightsData.topPicks ? ( */}
       <HomeMainSec
         recommendedItems={highlightsData.recommended}
         topPickItems={highlightsData.topPicks}
       />
-      {/* ) : (
-        <Preloader />
-      )} */}
       <Footer />
     </div>
   );
