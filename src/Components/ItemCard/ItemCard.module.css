@@ -1,0 +1,106 @@
+.Wrapper {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 1rem;
+  overflow: hidden;
+  outline: 1px solid var(--grey-light);
+  transform: translateY(0);
+  transition: transform 0.08s ease-out, box-shadow 0.15s ease-out;
+}
+.Wrapper:hover,
+.Wrapper:focus-within {
+  transform: translateY(-3%);
+  box-shadow: 0px 5px 15px 4px rgba(90, 90, 90, 0.08);
+}
+
+.UpperSec {
+  position: relative;
+  width: 26.5rem;
+  height: 26.5rem;
+}
+
+.Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.AddToWishList {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  width: 3.8rem;
+  height: 3.8rem;
+  border-radius: 999px;
+  background-color: var(--white);
+  color: var(--white);
+  font-size: 1.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.WishListHeart {
+  margin-top: 0.2rem;
+  transition: transform 0.15s cubic-bezier(0.5, 2, 0.9, 2);
+}
+
+.WishListHeart path {
+  transition: fill 0.1s ease-out;
+}
+
+.WishlistedHeart {
+  transform: scale(1.05);
+}
+.WishlistedHeart path {
+  fill: var(--primary-blue);
+}
+
+.LowerSec {
+  padding: 1.1rem;
+}
+
+.Seller {
+  color: var(--ter-black);
+  font-weight: 600;
+  font-size: var(--font-14);
+}
+
+.Title {
+  font-size: var(--font-16);
+  font-weight: 500;
+  color: var(--sec-black);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.Price {
+  font-size: var(--font-20);
+  color: var(--primary-black);
+  font-weight: 500;
+  margin-top: 0.7rem;
+}
+
+.Rating {
+  margin-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  grid-gap: 0.8rem;
+}
+
+.RatingWrapper {
+  font-size: 1rem;
+}
+
+.RatingCount {
+  font-size: var(--font-14);
+  color: var(--ter-black);
+  font-weight: 500;
+}
