@@ -4,7 +4,7 @@ import UpperSec from "./UpperSec";
 import { HOME_DATA } from "./../../Utils/Constants/StaticData";
 import Footer from "./../Footer/Footer";
 
-const tempData = Array(4)
+const tempData = Array(5)
   .fill({})
   .map((_, index) => ({
     id: index,
@@ -22,12 +22,12 @@ function HomeMainSec({ recommendedItems = tempData, topPickItems = tempData }) {
     <div className={styles.Wrapper}>
       <UpperSec />
       <HighlightsItemSec
-        items={recommendedItems}
+        items={recommendedItems.slice(0, 4)}
         redirectTo={"/recommended"}
         title={HOME_DATA.recommended}
       />
       <HighlightsItemSec
-        items={topPickItems}
+        items={topPickItems.slice(0, 4)}
         redirectTo={"/top-pick"}
         title={HOME_DATA.topPicks}
       />
