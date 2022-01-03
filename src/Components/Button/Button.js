@@ -2,12 +2,25 @@ import React from "react";
 
 import styles from "./Button.module.css";
 
-const Button = ({ title, onClick }) => {
+function Button({ name, onClick, primaryColor, inverted, wrapperClass, id, icon }) {
   return (
-    <button onClick={onClick} className={styles.button}>
-      {title}
+    <button
+      id={id}
+      className={
+        styles.Button +
+        " " +
+        (inverted ? styles.Inverted : "") +
+        " " +
+        wrapperClass
+      }
+      style={{
+        "--main-color": primaryColor,
+      }}
+      onClick={onClick}
+    >
+      {name}
     </button>
   );
-};
+}
 
 export default Button;

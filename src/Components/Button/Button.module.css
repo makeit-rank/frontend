@@ -1,8 +1,28 @@
-.button {
-  background-color: #000000;
-  border: none;
+.Button {
+  width: fit-content;
+  display: inline;
+  white-space: nowrap;
   outline: none;
-  color: #ffffff;
-  padding: 1vw;
+  border: none;
+  background-color: transparent;
+  padding: 1rem 3rem;
+  font-weight: 600;
+  color: white;
   cursor: pointer;
+  border-radius: 0.4rem;
+  border-radius: 999px;
+  background: var(--main-color);
+  transition: background 0.15s ease-in-out;
+  font-family: "Manrope", sans-serif;
+  font-size: var(--font-16);
+}
+
+.Inverted {
+  color: var(--main-color);
+  background: var(--white);
+  outline: 2px solid var(--main-color);
+}
+
+.Inverted:hover {
+  background: rgba(0, 71, 255, 0.05);
 }
