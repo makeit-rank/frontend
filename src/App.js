@@ -54,15 +54,14 @@ const App = () => {
   }, [cookie]);
 
   useEffect(() => {
-    console.log(userData);
     if (userData) {
       setInitialized(true);
     }
   }, [userData]);
 
-  useEffect(() => {
-    console.log(cookie.token);
-  }, [cookie.token]);
+  // useEffect(() => {
+  //   console.log(cookie.token);
+  // }, [cookie.token]);
 
   return (
     <>
