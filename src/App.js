@@ -70,7 +70,8 @@ const App = () => {
           <img src={BG_LINE_IMG} alt="bg-line" className={styles.BgLine} />
           <NavBar isLoggedIn={userData ? true : false} />
           <Switch>
-            <Route exact path="/" component={Home} />
+            {/* <Route exact path="/" component={Home} /> */}
+            <Route exact component={Home} />
           </Switch>
         </div>
       ) : (
