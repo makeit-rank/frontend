@@ -19,6 +19,7 @@
 .LeftSecTitle h2 {
   font-size: var(--font-45);
   font-weight: 500;
+  color: var(--primary-black);
 }
 
 .MainImage {
