@@ -2,6 +2,7 @@ import HighlightsItemSec from "./HighlightsItemSec";
 import styles from "./HomeMainSec.module.css";
 import UpperSec from "./UpperSec";
 import { HOME_DATA } from "./../../Utils/Constants/StaticData";
+import Footer from "./../Footer/Footer";
 
 const tempData = Array(4)
   .fill({})
@@ -30,6 +31,7 @@ function HomeMainSec({ recommendedItems = tempData, topPickItems = tempData }) {
         redirectTo={"/top-pick"}
         title={HOME_DATA.topPicks}
       />
+      <Footer />
     </div>
   );
 }
