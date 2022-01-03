@@ -5,4 +5,13 @@
 
 .Wrapper {
   position: relative;
+  height: fit-content;
+  width: 100%;
+}
+
+.BgLine {
+  position: absolute;
+  margin-top: -13rem;
+  margin-left: -2.5rem;
+  width: 95%;
 }

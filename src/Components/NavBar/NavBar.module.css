@@ -3,9 +3,9 @@
   padding: 1.5rem max(calc((100% - var(--max-width)) / 2), 1rem);
   display: grid;
   grid-template-columns: 1fr 50rem 1fr;
-  position: fixed;
+  position: absolute;
   z-index: 15;
-  background: white;
+  /* background: white; */
 }
 
 .LeftSec {
