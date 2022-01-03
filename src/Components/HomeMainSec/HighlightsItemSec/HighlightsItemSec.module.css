@@ -1,0 +1,39 @@
+.Wrapper {
+  width: var(--max-width);
+  height: fit-content;
+  margin: 0 auto;
+  padding-top: 3rem;
+  padding-bottom: 8rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.Title {
+  font-size: var(--font-24);
+  color: var(--primary-black);
+}
+
+.LowerSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  align-items: flex-end;
+  width: 100%;
+}
+
+.Link {
+  color: var(--primary-blue);
+  font-size: var(--font-16);
+  font-weight: 500;
+}
+
+.Items {
+  display: flex;
+  /* grid-gap: auto; */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+  justify-content: space-between;
+  width: 100%;
+}
