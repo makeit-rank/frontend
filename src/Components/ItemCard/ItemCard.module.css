@@ -1,11 +1,12 @@
 .Wrapper {
-  width: fit-content;
+  width: 26.5rem;
   height: fit-content;
   border-radius: 1rem;
   overflow: hidden;
   outline: 1px solid var(--grey-light);
   transform: translateY(0);
   transition: transform 0.08s ease-out, box-shadow 0.15s ease-out;
+  background-color: var(--white);
 }
 .Wrapper:hover,
 .Wrapper:focus-within {
