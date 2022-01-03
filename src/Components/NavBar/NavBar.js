@@ -24,7 +24,7 @@ function NavBar({ isLoggedIn }) {
   }, [location]);
 
   useEffect(async () => {
-    let pincode = userData.addresses?.[0]?.pincode || "394107";
+    let pincode = userData?.addresses?.[0]?.pincode || "394107";
     try {
       const cityInfo = await getCityFromPincode(pincode);
       if (cityInfo) {

@@ -3,6 +3,9 @@
   padding: 1.5rem max(calc((100% - var(--max-width)) / 2), 1rem);
   display: grid;
   grid-template-columns: 1fr 50rem 1fr;
+  position: fixed;
+  z-index: 15;
+  background: white;
 }
 
 .LeftSec {
@@ -120,4 +123,17 @@
 .LinkButtonText {
   text-decoration: none;
   color: var(--primary-black);
+  font-size: var(--font-12);
+}
+
+.LoginButton {
+  background-color: var(--primary-blue);
+  border-radius: 999px;
+}
+
+.LoginButtonText {
+  color: var(--white);
+  font-size: var(--font-14);
+  padding: 0.7rem 2rem;
+  font-weight: 500;
 }
