@@ -9,6 +9,7 @@ import StarImg from "../../Assets/_General/Star.svg";
 
 export const BG_LINE_IMG = bgLineImg;
 export const STAR_IMG = StarImg;
+export const LOGO_IMG = logo;
 
 export const NAVBAR_DATA = {
   deleiverTo: "Deliver to",
@@ -34,4 +35,10 @@ export const HOME_DATA = {
   images: {
     MAIN_IMAGE: homePageImage,
   },
+};
+
+export const CONTACT_LINKS = {
+  Facebook: "https://www.facebook.com/",
+  Linkedin: "https://www.linkedin.com/",
+  Instagram: "https://www.instagram.com/",
 };
