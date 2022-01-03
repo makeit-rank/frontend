@@ -11,6 +11,8 @@ import NavBar from "./Components/NavBar/index";
 import { ToastContainer } from "react-toastify";
 
 import { getUserData } from "./Services/user.service";
+import notify from "./Utils/Helpers/notifyToast";
+import Preloader from "./Components/Preloader";
 
 const App = () => {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -35,7 +37,14 @@ const App = () => {
           type: "UPDATE_USER_DATA",
           data: localeUserData,
         });
-      } catch (err) {}
+      } catch (err) {
+        notify("Internal Server Error", "error");
+        dispatch({
+          type: "UPDATE_USER_DATA",
+          data: null,
+        });
+        setInitialized(true);
+      }
     } else {
       setInitialized(true);
     }
@@ -53,18 +62,18 @@ const App = () => {
 
   return (
     <>
-      <ToastContainer bodyClassName="ToastBody" />
+      <ToastContainer bodyClassName={styles.ToastBody} />
       {initialized ? (
         <div className={styles.Wrapper}>
           <NavBar isLoggedIn={userData ? true : false} />
           <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
+            <Route exact path="/" component={Home} />
           </Switch>
         </div>
       ) : (
-        <></>
+        <>
+          <Preloader />
+        </>
       )}
     </>
   );
