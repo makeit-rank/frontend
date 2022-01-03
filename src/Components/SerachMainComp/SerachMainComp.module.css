@@ -1,0 +1,41 @@
+.Wrapper {
+  width: 100%;
+  height: fit-content;
+  position: relative;
+  padding-top: var(--navbar-height);
+}
+
+.MainContent {
+  width: 100%;
+  min-height: calc(100vh - 25rem);
+  height: fit-content;
+  padding-bottom: 7rem;
+}
+
+.SearchStats {
+  margin-top: 1.5rem;
+  margin-left: calc(50% - var(--max-width) / 2);
+}
+
+.SearchStatsSmall {
+  font-size: var(--font-16);
+  color: var(--ter-black);
+  font-weight: 500;
+}
+.SearchStatsBig {
+  font-size: var(--font-20);
+  color: var(--sec-black);
+  font-weight: 700;
+}
+
+.SearchResults {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  width: var(--max-width);
+  margin: 0 auto;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  grid-row-gap: 1.3rem;
+  grid-gap: auto;
+}
