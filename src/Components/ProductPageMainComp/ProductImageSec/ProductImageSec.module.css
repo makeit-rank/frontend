@@ -1,0 +1,88 @@
+.Wrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  grid-gap: 2rem;
+}
+
+.LeftSecWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  height: fit-content;
+  grid-gap: 1rem;
+}
+
+.ImageWrapper {
+  width: 10rem;
+  height: 10rem;
+  outline: 1px solid var(--grey-light);
+  overflow: hidden;
+  border-radius: 0.3rem;
+  transition: border 0.15s ease-in-out;
+}
+
+.Image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.15s ease-out;
+  border-radius: 0.3rem;
+}
+
+.Active .Image {
+  transform: scale(0.9);
+}
+
+.Active {
+  border: 1px solid var(--primary-blue);
+}
+
+.RightSecWrapper {
+  width: 40rem;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.PrimaryImageWrapper {
+  width: 40rem;
+  height: 40rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: var(--grey-light);
+  position: relative;
+}
+
+.PrimaryImage {
+  width: 40rem;
+  height: 40rem;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.AddToWishListWrapper {
+  font-size: 1.2rem;
+  position: absolute;
+  top: 1.8rem;
+  right: 1.8rem;
+}
+
+.ButtonsWrapper {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.Button {
+  width: 100%;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
