@@ -1,0 +1,13 @@
+.Wrapper {
+  width: 100%;
+  height: fit-content;
+  min-height: calc(100vh);
+  position: relative;
+  padding-top: var(--navbar-height);
+}
+
+.UpperSection {
+  padding-top: 4rem;
+  width: var(--max-width);
+  margin: 0 auto;
+}
