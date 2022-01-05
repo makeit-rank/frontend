@@ -37,6 +37,20 @@ export const HOME_DATA = {
   },
 };
 
+export const PRODUCT_PAGE_DATA = {
+  addToCart: "Add to Cart",
+  placeOrder: "Place Order",
+  deliverTo: "Deliver to",
+  sizes: "Sizes",
+  uploadImage: "Upload Image",
+  requiredAttachments: "Required Attachments",
+  specifications: "Specifications",
+  ratingsAndReviews: "Ratings & Reviews",
+  addReview: "Add Review",
+  customizable: "Customizable",
+  reviews: "Reviews",
+};
+
 export const CONTACT_LINKS = {
   Facebook: "https://www.facebook.com/",
   Linkedin: "https://www.linkedin.com/",
