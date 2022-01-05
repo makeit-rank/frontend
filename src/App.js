@@ -16,6 +16,7 @@ import { ToastContainer } from "react-toastify";
 import { getUserData } from "./Services/user.service";
 import notify from "./Utils/Helpers/notifyToast";
 import Search from "./Containers/Search/index";
+import Product from "./Containers/Product/Product";
 
 const App = () => {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -54,6 +55,7 @@ const App = () => {
   }, [cookie]);
 
   useEffect(() => {
+    console.log("userData", userData);
     if (userData) {
       setInitialized(true);
     }
@@ -73,6 +75,7 @@ const App = () => {
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/search" element={<Search />} />
+            <Route path="/p/:id" element={<Product />} />
           </Routes>
         </div>
       ) : (
