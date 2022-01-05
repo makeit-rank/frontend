@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 import styles from "./ItemCard.module.css";
 
 import Ratings from "../Ratings";
-import { ReactComponent as HeartComp } from "../../Assets/_General/Heart.svg";
 
 import { HOME_DATA } from "./../../Utils/Constants/StaticData";
+import WishlistIcon from "./../WishlistIcon/index";
 
 export default function ItemCard({ itemData }) {
   const [selected, setSelected] = useState(false);
@@ -21,17 +21,8 @@ export default function ItemCard({ itemData }) {
       <Link to={`/p/${itemData.id}`}>
         <div className={styles.UpperSec}>
           <img src={itemData.image} alt="item" className={styles.Image} />
-          <div
-            className={styles.AddToWishList}
-            onClick={() => setSelected(!selected)}
-          >
-            <HeartComp
-              className={
-                styles.WishListHeart +
-                " " +
-                (selected ? styles.WishlistedHeart : "")
-              }
-            />
+          <div className={styles.AddToWishList}>
+            <WishlistIcon productId={itemData.id} />
           </div>
         </div>
         <div className={styles.LowerSec}>
