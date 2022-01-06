@@ -51,6 +51,12 @@ export const PRODUCT_PAGE_DATA = {
   reviews: "Reviews",
 };
 
+export const CART_DATA = {
+  title: "Your cart is empty",
+  subtitle: "Add items to it now",
+  button: "Shop now ->",
+};
+
 export const CONTACT_LINKS = {
   Facebook: "https://www.facebook.com/",
   Linkedin: "https://www.linkedin.com/",
