@@ -1,3 +1,243 @@
-.Wrapper{
-    width: 100%;
+.Wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2.5rem;
+}
+
+.TitleInfoSec {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.Header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.3rem;
+}
+
+.SellerName {
+  font-size: var(--font-20);
+  color: var(--ter-black);
+  font-weight: 600;
+}
+
+.ProductName {
+  font-size: var(--font-24);
+  color: var(--sec-black);
+  font-weight: 600;
+}
+
+.ReviewsSec {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
+}
+
+.NoOfRatings {
+  font-size: var(--font-14);
+  color: var(--ter-black);
+  font-weight: 500;
+}
+.CustomizableTag {
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid var(--primary-blue);
+  border-radius: 999px;
+  padding: 0.5rem 2rem;
+  color: var(--primary-blue);
+  font-size: var(--font-14);
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.Price {
+  margin-top: 0.5rem;
+  font-size: var(--font-32);
+  font-weight: 500;
+  color: var(--primary-black);
+}
+
+.SizesSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.5rem;
+}
+
+.SizesTitle,
+.AddressTitle,
+.AttachmentsTitle {
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 600;
+}
+
+.SizesWrapper {
+  display: flex;
+  grid-gap: 0.5rem;
+}
+
+.Size {
+  width: 3.6rem;
+  height: 3.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--ter-black);
+  color: var(--ter-black);
+  font-size: var(--font-16);
+  font-weight: 600;
+  transition: border 0.15s ease-out, color 0.15s ease-out,
+    background 0.15s ease-out;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.SelectedSize {
+  border: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  background: rgb(246, 248, 255);
+}
+
+.AddressSec,
+.AddressesWrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.Address {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.6rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--sec-grey);
+  transition: border 0.15s ease-out, background 0.15s ease-out;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.SelectedAddress {
+  border: 1px solid var(--primary-blue);
+  background: rgb(246, 248, 255);
+}
+
+.FullAddress,
+.PinCode {
+  font-size: var(--font-14);
+  color: var(--sec-black);
+  font-weight: 500;
+}
+
+.PinCode {
+  font-weight: 600;
+}
+
+.AttachmentsSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+}
+
+.AttachmentsWrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+}
+
+.Attachment {
+  border-bottom: 1px solid var(--sec-grey);
+  display: flex;
+  grid-gap: 1.2rem;
+  padding-bottom: 1.5rem;
+}
+
+.AttachmentInput {
+  display: none;
+  visibility: hidden;
+}
+
+.AttachmentNumber {
+  width: 3.3rem;
+  height: 3.3rem;
+  border-radius: 999px;
+  border: 1px solid var(--primary-blue);
+  background: rgb(246, 248, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary-blue);
+  font-size: var(--font-16);
+  font-weight: 500;
+}
+
+.AttachmentRightSec {
+  width: 100%;
+}
+
+.AttachmentTitle {
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 600;
+}
+
+.AttachmentDesc {
+  font-size: var(--font-14);
+  color: var(--ter-black);
+  font-weight: 500;
+  margin-top: 0.3rem;
+}
+
+.UploadAttachmentBtn {
+  font-size: var(--font-15);
+  border-radius: 0.3rem;
+  padding: 0.7rem 1.5rem;
+  margin-top: 1rem;
+}
+
+.AttachmentPreviewImg {
+  width: 5rem;
+  height: 5rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  margin-top: 1rem;
+  background-color: var(--grey-light);
+}
+
+.SpecificationTitle {
+  font-size: var(--font-20);
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+.SpecificationSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+}
+
+.SpecificationWrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.7rem;
+}
+
+.Specification {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  font-size: var(--font-14);
+  font-weight: 500;
+}
+
+.SpecificationKey {
+  color: var(--ter-black);
+}
+
+.SpecificationValue {
+  color: var(--sec-black);
 }

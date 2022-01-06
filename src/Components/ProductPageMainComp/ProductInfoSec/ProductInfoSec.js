@@ -20,8 +20,10 @@ function ProductInfoSec({ productDetails }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.TitleInfoSec}>
-        <h5 className={styles.SellerName}>{productDetails.seller}</h5>
-        <h4 className={styles.ProductName}>{productDetails.title}</h4>
+        <div className={styles.Header}>
+          <h5 className={styles.SellerName}>{productDetails.seller}</h5>
+          <h4 className={styles.ProductName}>{productDetails.title}</h4>
+        </div>
         <div div className={styles.ReviewsSec}>
           <Ratings rating={productDetails.rating} />
           <span className={styles.NoOfRatings}>
@@ -47,7 +49,7 @@ function ProductInfoSec({ productDetails }) {
                 onClick={() =>
                   setCurrentSelections({
                     ...currentSelections,
-                    size: size.index,
+                    size: index,
                   })
                 }
               >
@@ -73,7 +75,7 @@ function ProductInfoSec({ productDetails }) {
                 onClick={() =>
                   setCurrentSelections({
                     ...currentSelections,
-                    address: address.index,
+                    address: index,
                   })
                 }
               >
@@ -103,25 +105,22 @@ function ProductInfoSec({ productDetails }) {
                     {attachment.description}
                   </div>
                   {currentSelections.attachments[index] ? (
-                    <div className={styles.AttachmentPreview}>
-                      <img
-                        src={currentSelections.attachments[index]}
-                        alt="attachment"
-                      />
-                    </div>
+                    <img
+                      src={currentSelections.attachments[index]}
+                      alt="attachment"
+                      className={styles.AttachmentPreviewImg}
+                    />
                   ) : (
-                    <div className={styles.UploadAttachmentBtn}>
-                      <Button
-                        name={PRODUCT_PAGE_DATA.uploadImage}
-                        onClick={() => {
-                          console.log("upload image");
-                          inputRefs.current[index].click();
-                        }}
-                        primaryColor="var(--primary-blue)"
-                        inverted
-                        wrapperClass={styles.UploadAttachmentBtn}
-                      />
-                    </div>
+                    <Button
+                      name={PRODUCT_PAGE_DATA.uploadImage}
+                      onClick={() => {
+                        console.log("upload image");
+                        inputRefs.current[index].click();
+                      }}
+                      primaryColor="var(--primary-blue)"
+                      inverted
+                      wrapperClass={styles.UploadAttachmentBtn}
+                    />
                   )}
                   <input
                     type="file"
@@ -158,7 +157,7 @@ function ProductInfoSec({ productDetails }) {
         <div className={styles.SpecificationWrapper}>
           {productDetails.specifications.map((specification, index) => (
             <div className={styles.Specification} key={index}>
-              <div className={styles.SpecificationTitle}>
+              <div className={styles.SpecificationKey}>
                 {specification.key}
               </div>
               <div className={styles.SpecificationValue}>
