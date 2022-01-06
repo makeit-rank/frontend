@@ -55,6 +55,17 @@ export const CART_DATA = {
   title: "Your cart is empty",
   subtitle: "Add items to it now",
   button: "Shop now ->",
+  deleiverTo: "Deliver to",
+  addAddress: "Add Address",
+  payment: "Price details",
+  totalItems: "Total Items",
+  totalAmount: "Total Amount",
+  seller: "Seller:",
+  size: "Size:",
+  remove: "Remove",
+  moveToWishlist: "Move to Wishlist",
+  attachedFiles: "Attached Files :",
+  placeOrder: "Place Order",
 };
 
 export const CONTACT_LINKS = {
