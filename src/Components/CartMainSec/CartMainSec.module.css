@@ -1,0 +1,115 @@
+.Wrapper {
+  width: var(--max-width);
+  margin: 0 auto;
+  height: fit-content;
+  min-height: calc(100vh);
+  display: grid;
+  grid-gap: 2rem;
+  grid-template-columns: 77rem 1fr;
+  padding-bottom: 4rem;
+  padding-top: calc(var(--navbar-height) + 4rem);
+}
+
+.LeftSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0;
+  border-radius: 0.6rem;
+  border: 1px solid var(--sec-grey);
+  background: var(--white);
+  padding: 0 2rem;
+}
+
+.RightSec {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  grid-gap: 1.5rem;
+}
+
+.RightSecTop {
+  width: 100%;
+  background: var(--white);
+  border-radius: 0.6rem;
+  border: 1px solid var(--sec-grey);
+  padding: 1.8rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.RightHeading {
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.AddressList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.9rem;
+}
+
+.AddressItem {
+  border-radius: 0.5rem;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--sec-grey);
+  background: var(--white);
+  cursor: pointer;
+  transition: background 0.15s ease-out, border 0.15s ease-out;
+}
+.ActiveAddress {
+  border: 1px solid var(--primary-blue);
+  background: var(--bg-blue);
+}
+.AddressItemContent,
+.Pincode {
+  color: var(--sec-black);
+  font-size: var(--font-14);
+  font-weight: 500;
+}
+.Pincode {
+  font-weight: 600;
+}
+
+.AddNewAddress {
+  align-self: center;
+  margin-top: 1rem;
+  font-size: var(--font-14);
+  font-weight: 500;
+  padding: 0.9rem 1.2rem;
+  border-radius: 0.3rem;
+  outline: 1px solid var(--ter-black);
+}
+
+.PaymentHeading {
+  margin-top: 2rem;
+}
+
+.PaymentList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.2rem;
+}
+
+.PaymentListItem {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--font-16);
+  font-weight: 500;
+}
+
+.PaymentListItemValue {
+  font-weight: 600;
+}
+
+.PlaceOrderButton {
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  width: 100%;
+  font-size: var(--font-16);
+  padding: 1.3rem 1.2rem;
+}
