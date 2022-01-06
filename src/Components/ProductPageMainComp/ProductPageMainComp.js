@@ -4,6 +4,7 @@ import styles from "./ProductPageMainComp.module.css";
 
 import ProductImageSec from "./ProductImageSec";
 import ProductInfoSec from "./ProductInfoSec";
+import ProductReviewSec from "./ProductReviewSec";
 
 function ProductPageMainComp({ productDetails }) {
   return (
@@ -16,7 +17,9 @@ function ProductPageMainComp({ productDetails }) {
           <ProductInfoSec productDetails={productDetails} />
         </div>
       </div>
-      <div className={styles.LowerSection}></div>
+      <div className={styles.LowerSection}>
+        <ProductReviewSec productDetails={productDetails} />
+      </div>
     </div>
   );
 }

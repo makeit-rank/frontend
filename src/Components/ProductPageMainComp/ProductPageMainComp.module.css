@@ -4,6 +4,7 @@
   min-height: calc(100vh);
   position: relative;
   padding-top: var(--navbar-height);
+  padding-bottom: 4rem;
 }
 
 .UpperSection {
