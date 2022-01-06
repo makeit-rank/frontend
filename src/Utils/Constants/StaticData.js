@@ -46,7 +46,7 @@ export const PRODUCT_PAGE_DATA = {
   requiredAttachments: "Required Attachments",
   specifications: "Specifications",
   ratingsAndReviews: "Ratings & Reviews",
-  addReview: "Add Review",
+  addReview: "Add a Review ->",
   customizable: "customizable",
   reviews: "Reviews",
 };
