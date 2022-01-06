@@ -101,7 +101,7 @@
 .SelectedSize {
   border: 1px solid var(--primary-blue);
   color: var(--primary-blue);
-  background: rgb(246, 248, 255);
+  background: var(--bg-blue);
 }
 
 .AddressSec,
@@ -124,7 +124,7 @@
 
 .SelectedAddress {
   border: 1px solid var(--primary-blue);
-  background: rgb(246, 248, 255);
+  background: var(-bg-blue);
 }
 
 .FullAddress,
@@ -167,7 +167,7 @@
   height: 3.3rem;
   border-radius: 999px;
   border: 1px solid var(--primary-blue);
-  background: rgb(246, 248, 255);
+  background: var(--bg-blue);
   display: flex;
   align-items: center;
   justify-content: center;
