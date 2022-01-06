@@ -1,0 +1,132 @@
+.Wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.2rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--sec-grey);
+}
+
+.UpperSec {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.LeftSec {
+  display: flex;
+  grid-gap: 2rem;
+}
+
+.Image {
+  height: 12rem;
+  width: 12rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
+
+.SubRightSec {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.2rem 0;
+  max-width: 40rem;
+}
+
+.ProductInfo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.4rem;
+}
+
+.ProductName {
+  width: 100%;
+  font-size: var(--font-16);
+  font-weight: 600;
+  color: var(--sec-black);
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.ProductInfoList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  grid-gap: 0.3rem;
+}
+
+.ProductInfoItem {
+  display: flex;
+  grid-gap: 0.5em;
+  font-size: var(--font-14);
+  font-weight: 500;
+  align-items: center;
+}
+
+.ProductInfoItemKey {
+  color: var(--ter-black);
+}
+.ProductInfoItemValue {
+  color: var(--sec-black);
+}
+.Size {
+  color: var(--primary-blue);
+  border: 1px solid var(--primary-blue);
+  border-radius: 999px;
+  padding: 0.2rem 1rem;
+  min-width: 2rem;
+}
+.ProductPrice {
+  justify-self: flex-end;
+  font-size: var(--font-20);
+  color: var(--primary-black);
+  font-weight: 500;
+}
+
+.RightSec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  grid-gap: 0.8rem;
+  padding-top: 0.2rem;
+}
+
+.ButtonWrapper {
+  padding: 0.7rem 1.2rem;
+  border-radius: 0.3rem;
+  font-size: var(--font-14);
+  outline: 1px solid var(--ter-black);
+  font-weight: 500;
+}
+
+.LowerSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.7rem;
+}
+
+.LowerHeading {
+  font-size: var(--font-14);
+  color: var(--sec-black);
+  font-weight: 500;
+}
+
+.AttachedFilesList {
+  display: flex;
+  grid-gap: 1rem;
+}
+
+.AttchedItemImage {
+  height: 5.5rem;
+  width: 5.5rem;
+  border-radius: 0.5rem;
+  object-fit: cover;
+}
