@@ -17,6 +17,7 @@ import { getUserData } from "./Services/user.service";
 import notify from "./Utils/Helpers/notifyToast";
 import Search from "./Containers/Search/index";
 import Product from "./Containers/Product/Product";
+import Cart from "./Containers/Cart/index";
 
 const App = () => {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -76,6 +77,7 @@ const App = () => {
             <Route exact path="/" element={<Home />} />
             <Route exact path="/search" element={<Search />} />
             <Route path="/p/:id" element={<Product />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </div>
       ) : (
