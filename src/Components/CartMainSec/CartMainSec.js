@@ -74,9 +74,9 @@ function CartMainSec({ cartData, addresses }) {
                 {CART_DATA.totalAmount}
               </div>
               <div className={styles.PaymentListItemValue}>
-                {cartData.reduce((acc, item) => {
+                {`₹${cartData.reduce((acc, item) => {
                   return acc + item.price;
-                }, 0)}
+                }, 0)}`}
               </div>
             </div>
           </div>
