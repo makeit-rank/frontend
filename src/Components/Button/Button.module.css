@@ -24,5 +24,7 @@
 }
 
 .Inverted:hover {
-  background: rgb(238, 243, 255);
+  background: var(--main-hover-bg-color);
+  color: var(--main-hover-color);
+  outline: 2px solid var(--main-hover-color);
 }
