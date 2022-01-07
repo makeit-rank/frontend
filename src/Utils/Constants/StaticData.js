@@ -93,7 +93,7 @@ export const SIGN_UP_DATA = {
 };
 
 export const SIGN_IN_DATA = {
-  title: "Sign In",
+  title: "Login",
   bottomContent: {
     upperText: {
       title: "Don't have an account?",

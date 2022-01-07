@@ -73,6 +73,7 @@ const App = () => {
         <div className={styles.Wrapper}>
           <NavBar isLoggedIn={userData ? true : false} />
           <img src={BG_LINE_IMG} alt="bg-line" className={styles.BgLine} />
+
           <Routes>
             {["/", "login", "signup"].map((path, index) => (
               <Route key={index} path={path} element={<Home />} />
