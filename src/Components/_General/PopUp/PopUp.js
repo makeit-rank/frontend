@@ -4,7 +4,7 @@ import Styles from "./PopUp.module.css";
 
 function PopUp({
   ContentComp,
-  isOpen,
+  isOpen = true,
   closeFun,
   isClosable = true,
   withBorder = true,
