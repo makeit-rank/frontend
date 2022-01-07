@@ -2,13 +2,13 @@
   /* margin-top: 1.4rem; */
 }
 .TextBlack {
-  font-weight: 500;
-  color: var(--black);
+  font-weight: 400;
+  color: var(--sec-black);
   font-size: var(--font-14);
   margin: auto;
 }
 .TextOrange {
-  font-weight: 600;
+  font-weight: 500;
   color: var(--primary-blue);
   font-size: var(--font-14);
   padding-left: 0.5rem;
