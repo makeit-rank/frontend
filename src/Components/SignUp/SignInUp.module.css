@@ -1,0 +1,33 @@
+.Wrapper {
+  width: 43rem;
+  padding: 3.6rem 4.3rem;
+  height: fit-content;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
+}
+
+.Title {
+  font-size: var(--font-24);
+  font-weight: 600;
+  color: var(--primary-black);
+  align-self: center;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.ButtonWrapper {
+  width: 100%;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  margin-top: 2.5rem;
+}
+
+.BottomSecWrapper {
+  margin-top: 4rem;
+}

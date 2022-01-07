@@ -1,0 +1,21 @@
+.Wrapper {
+  /* margin-top: 1.4rem; */
+}
+.TextBlack {
+  font-weight: 500;
+  color: var(--black);
+  font-size: var(--font-14);
+  margin: auto;
+}
+.TextOrange {
+  font-weight: 600;
+  color: var(--primary-blue);
+  font-size: var(--font-14);
+  padding-left: 0.5rem;
+  text-decoration: none;
+}
+.BorderLine {
+  margin: auto;
+  margin-top: 0.8rem;
+  margin-bottom: 1rem;
+}
