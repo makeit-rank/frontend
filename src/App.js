@@ -74,10 +74,12 @@ const App = () => {
           <NavBar isLoggedIn={userData ? true : false} />
           <img src={BG_LINE_IMG} alt="bg-line" className={styles.BgLine} />
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            {["/", "login", "signup"].map((path, index) => (
+              <Route key={index} path={path} element={<Home />} />
+            ))}
             <Route exact path="/search" element={<Search />} />
-            <Route path="/p/:id" element={<Product />} />
-            <Route path="/cart" element={<Cart />} />
+            <Route path="p/:id" element={<Product />} />
+            <Route path="cart" element={<Cart />} />
           </Routes>
         </div>
       ) : (
