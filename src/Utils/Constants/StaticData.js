@@ -73,3 +73,39 @@ export const CONTACT_LINKS = {
   Linkedin: "https://www.linkedin.com/",
   Instagram: "https://www.instagram.com/",
 };
+
+export const SIGN_UP_DATA = {
+  title: "Sign Up",
+  bottomContent: {
+    upperText: {
+      title: "Already have an account?",
+      link: "Sign In",
+      linkTo: "/login",
+    },
+    bottomText: {
+      title: "By signing up you agree to Makeit's",
+      link: "Terms of Service",
+      link2: " Privacy Policy",
+      linkTo: "/terms",
+      linkTo2: "/privacy",
+    },
+  },
+};
+
+export const SIGN_IN_DATA = {
+  title: "Sign In",
+  bottomContent: {
+    upperText: {
+      title: "Don't have an account?",
+      link: "Sign Up",
+      linkTo: "/signup",
+    },
+    bottomText: {
+      title: "By signing in you agree to Makeit's",
+      link: "Terms of Service",
+      link2: " Privacy Policy",
+      linkTo: "/terms",
+      linkTo2: "/privacy",
+    },
+  },
+};
