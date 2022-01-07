@@ -24,7 +24,7 @@ const Legal = [
   "Offer Terms",
 ];
 const LegalRoutes = ["", "", "", "", ""];
-const Support = ["help@evian.abc", "(+91) 1234567890", "(+91) 1234567891"];
+const Support = ["help@makeit.abc", "(+91) 1234567890", "(+91) 1234567891"];
 const SupportHrefs = [
   "mailto:help@abc.xyz",
   "tel:+911234567890",
