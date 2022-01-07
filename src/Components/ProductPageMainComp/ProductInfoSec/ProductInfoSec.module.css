@@ -124,7 +124,7 @@
 
 .SelectedAddress {
   border: 1px solid var(--primary-blue);
-  background: var(-bg-blue);
+  background: var(--bg-blue);
 }
 
 .FullAddress,
