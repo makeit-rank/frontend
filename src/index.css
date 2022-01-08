@@ -73,6 +73,8 @@ input {
   --green-bg-light: #e6ffe6;
   --yellow-primary: #ffa800;
   --yellow-bg: #fffef4;
+  --red-primary: #ff2b2b;
+  --red-bg: #ffecec;
 }
 
 html::-webkit-scrollbar {
