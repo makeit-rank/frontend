@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useCookies } from "react-cookie";
 
 import styles from "./ProfileLeftSec.module.css";
@@ -48,7 +48,7 @@ function ProfileLeftSec() {
               (link.onlySeller && !userData.isSeller) ||
               (link.onlyUser && userData.isSeller)
             ) && (
-              <Link
+              <NavLink
                 key={index}
                 className={
                   styles.BottomItem +
@@ -66,7 +66,7 @@ function ProfileLeftSec() {
                 to={`/profile${link.to}`}
               >
                 {link.title}
-              </Link>
+              </NavLink>
             )
           );
         })}
