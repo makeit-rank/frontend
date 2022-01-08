@@ -4,7 +4,9 @@ import { useSelector } from "react-redux";
 import styles from "./PersonalInfoSec.module.css";
 
 import { PROFILE_DATA } from "../../../../Utils/Constants/StaticData";
+
 import Button from "./../../../Button";
+import { ReactComponent as PlusImg } from "../../../../Assets/Profile/Plus.svg";
 
 function PersonalInfoSec() {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -68,6 +70,8 @@ function PersonalInfoSec() {
               inverted
               hoverBgColor={`var(--white)`}
               wrapperClass={styles.AddAddressBtn}
+              withButton
+              ButtonComp={PlusImg}
             />
           </div>
         </div>
