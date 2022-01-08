@@ -53,8 +53,9 @@ function ProfileLeftSec() {
                 className={
                   styles.BottomItem +
                   " " +
-                  (location.pathname.startsWith(link.to) &&
-                    styles.BottomItemActive)
+                  (location.pathname.endsWith(link.to)
+                    ? styles.BottomItemActive
+                    : "")
                 }
                 style={
                   link.colors && {
@@ -62,7 +63,7 @@ function ProfileLeftSec() {
                     "--background-color": link.colors.secondary,
                   }
                 }
-                to={`/profile/${link.to}`}
+                to={`/profile${link.to}`}
               >
                 {link.title}
               </Link>
