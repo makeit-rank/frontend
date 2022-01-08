@@ -1,6 +1,10 @@
 .Button {
   width: fit-content;
-  display: inline;
+  /* display: inline; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  grid-gap: 1rem;
   white-space: nowrap;
   outline: none;
   border: none;
@@ -15,6 +19,11 @@
   transition: background 0.15s ease-in-out;
   font-family: "Manrope", sans-serif;
   font-size: var(--font-16);
+}
+
+.Icon {
+  width: fit-content;
+  height: fit-content;
 }
 
 .Inverted {
