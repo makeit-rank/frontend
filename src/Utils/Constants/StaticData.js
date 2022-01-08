@@ -109,3 +109,53 @@ export const SIGN_IN_DATA = {
     },
   },
 };
+
+export const SECONDARY_FOOTER_DATA = {
+  title: "Need help?",
+  linkText: "Contact us ",
+  linkTo: "/contact",
+};
+
+export const PROFILE_DATA = {
+  images: {
+    profileImg: profileImg,
+  },
+  logout: "Logout",
+  links: [
+    {
+      title: "Personal Information",
+      to: "",
+    },
+    {
+      title: "Dashboard",
+      to: "dashboard",
+      onlySeller: true,
+      colors: {
+        primary: "var(--green-dark)",
+        secondary: "var(--green-bg-light)",
+      },
+    },
+    {
+      title: "Products",
+      to: "products",
+      onlySeller: true,
+    },
+    {
+      title: "Orders",
+      to: "orders",
+    },
+    {
+      title: "Wishlist",
+      to: "wishlist",
+    },
+    {
+      title: "Become a Seller",
+      to: "become-a-seller",
+      onlyUser: true,
+      colors: {
+        primary: "var(--yellow-primary)",
+        secondary: "var(--yellow-bg)",
+      },
+    },
+  ],
+};
