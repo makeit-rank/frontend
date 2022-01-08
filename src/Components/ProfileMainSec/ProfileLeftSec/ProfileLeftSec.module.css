@@ -49,7 +49,7 @@
 }
 
 .LinksAndButtonsSec {
-  padding-bottom: 0.8rem;
+  padding: 0.8rem 0rem;
   display: flex;
   flex-direction: column;
 }
