@@ -124,11 +124,11 @@ export const PROFILE_DATA = {
   links: [
     {
       title: "Personal Information",
-      to: "",
+      to: "/",
     },
     {
       title: "Dashboard",
-      to: "dashboard",
+      to: "/dashboard",
       onlySeller: true,
       colors: {
         primary: "var(--green-dark)",
@@ -137,20 +137,20 @@ export const PROFILE_DATA = {
     },
     {
       title: "Products",
-      to: "products",
+      to: "/products",
       onlySeller: true,
     },
     {
       title: "Orders",
-      to: "orders",
+      to: "/orders",
     },
     {
       title: "Wishlist",
-      to: "wishlist",
+      to: "/wishlist",
     },
     {
       title: "Become a Seller",
-      to: "become-a-seller",
+      to: "/become-a-seller",
       onlyUser: true,
       colors: {
         primary: "var(--yellow-primary)",
@@ -158,4 +158,19 @@ export const PROFILE_DATA = {
       },
     },
   ],
+  personalInfoSec: {
+    title: "Personal Information",
+
+    feilds: [
+      { key: "Name", value: "name" },
+      { key: "Email", value: "email" },
+      { key: "Phone Number", value: "mobile" },
+      { key: "Shop Name", value: "shopName" },
+      { key: "GST IN", value: "gstIn" },
+      { key: "Pickup Address", value: "pickupAddress" },
+    ],
+
+    addresses: "Addresses",
+    addAddress: "Add Address",
+  },
 };
