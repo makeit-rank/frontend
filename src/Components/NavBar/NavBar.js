@@ -117,9 +117,9 @@ function NavBar({ isLoggedIn }) {
       </form>
       <div className={styles.RightSec}>
         {isLoggedIn ? (
-          location.pathname !== "/profile" && (
+          !location.pathname.startsWith("/profile") && (
             <Link
-              to="/profile"
+              to="/profile/"
               className={styles.ProfileButton + " " + styles.LinkButton}
             >
               <img
