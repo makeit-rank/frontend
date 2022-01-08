@@ -16,11 +16,11 @@ const Cart = () => {
 
   useEffect(() => {
     setTimeout(() => {
-      getHighlightsData();
+      getCartData();
     }, 1000);
   }, [userData]);
 
-  const getHighlightsData = async () => {
+  const getCartData = async () => {
     setCartData({
       recommended: null,
       topPicks: null,

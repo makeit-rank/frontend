@@ -16,7 +16,7 @@ function Product() {
     setProductDetails(null);
     console.log(productID);
     setTimeout(() => {
-      getSearchResults();
+      getProductDetails();
     }, 1000);
   }, [productID]);
 
@@ -24,7 +24,7 @@ function Product() {
     console.log(productDetails);
   }, [productDetails]);
 
-  const getSearchResults = async () => {
+  const getProductDetails = async () => {
     setProductDetails({
       product_id: Math.floor(Math.random() * 100),
       images: [
