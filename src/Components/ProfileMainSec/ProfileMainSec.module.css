@@ -1,0 +1,12 @@
+.Wrapper {
+  display: flex;
+  grid-gap: 2rem;
+  width: var(--max-width);
+  margin: 0 auto;
+  padding-top: calc(var(--navbar-height) + 2rem);
+  min-height: calc(100vh - 5rem);
+}
+
+.LeftSec {
+  width: 30.5rem;
+}
