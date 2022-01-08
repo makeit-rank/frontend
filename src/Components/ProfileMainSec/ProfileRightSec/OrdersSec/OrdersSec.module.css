@@ -1,0 +1,8 @@
+.Wrapper {
+  width: 100%;
+}
+
+.Order {
+  border-bottom: 1px solid var(--sec-grey);
+  margin: 0 2rem;
+}

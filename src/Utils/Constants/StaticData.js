@@ -173,4 +173,12 @@ export const PROFILE_DATA = {
     addresses: "Addresses",
     addAddress: "Add Address",
   },
+  ordersSec: {
+    orderPlaced: "Order Placed",
+    total: "Total",
+    id: "ID",
+    seller: "Seller:",
+    size: "Size:",
+    attachedFiles: "Attached Files :",
+  },
 };
