@@ -70,8 +70,8 @@ function PersonalInfoSec() {
               inverted
               hoverBgColor={`var(--white)`}
               wrapperClass={styles.AddAddressBtn}
-              withButton
-              ButtonComp={PlusImg}
+              withIcon
+              IconComp={PlusImg}
             />
           </div>
         </div>
