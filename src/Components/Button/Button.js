@@ -9,11 +9,11 @@ function Button({
   inverted,
   wrapperClass,
   id,
-  withButton,
-  ButtonComp,
+  withIcon,
+  IconComp,
+  iconClass,
   hoverBgColor,
   hoverColor,
-  iconClass,
 }) {
   return (
     <button
@@ -34,7 +34,7 @@ function Button({
       }}
       onClick={onClick}
     >
-      {withButton && <ButtonComp className={styles.Icon + " " + iconClass} />}{" "}
+      {withIcon && <IconComp className={styles.Icon + " " + iconClass} />}{" "}
       {name}
     </button>
   );
