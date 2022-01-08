@@ -29,17 +29,24 @@ const App = () => {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(async () => {
-    setCookie(
-      "token",
-      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDEyZjUwYmQ3ODY4NzBiODdmMmY4ZiIsImlhdCI6MTY0MTA5OTA4OH0.kY_HiMKWRfbAZoeH2MSwb8F7zdWzKrmDU79AZ_3BoJI",
-      { sameSite: "strict" }
-    );
+    // setCookie(
+    //   "token",
+    //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDEyZjUwYmQ3ODY4NzBiODdmMmY4ZiIsImlhdCI6MTY0MTA5OTA4OH0.kY_HiMKWRfbAZoeH2MSwb8F7zdWzKrmDU79AZ_3BoJI",
+    //   { sameSite: "strict" }
+    // );
 
     if (cookie.token) {
       try {
         const localeUserData = await getUserData(cookie.token);
         localeUserData.accessToken = cookie.token;
         localeUserData.isSeller = false;
+        // localeUserData.isSeller = true;
+        // localeUserData.shopName = "London hills fashion";
+        // localeUserData.gstIn = "GST123456789";
+        // localeUserData.pickupAddress = {
+        //   Address: "123, ABC Street, XYZ City, ABC State,",
+        //   pincode: "123456",
+        // };
 
         dispatch({
           type: "UPDATE_USER_DATA",
