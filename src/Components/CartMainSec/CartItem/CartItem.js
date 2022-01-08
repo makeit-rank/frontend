@@ -4,6 +4,9 @@ import styles from "./CartItem.module.css";
 import { CART_DATA } from "./../../../Utils/Constants/StaticData";
 import Button from "./../../Button/index";
 
+import { ReactComponent as DeleteIcon } from "../../../Assets/Cart/Delete.svg";
+import { ReactComponent as HeartIcon } from "../../../Assets/Cart/Heart.svg";
+
 function CartItem({ itemData, isLast }) {
   return (
     <div
@@ -52,6 +55,8 @@ function CartItem({ itemData, isLast }) {
             primaryColor={`var(--ter-black)`}
             hoverBgColor={`var(--white)`}
             wrapperClass={styles.RemoveButton + " " + styles.ButtonWrapper}
+            withIcon
+            IconComp={DeleteIcon}
             // hoverBgColor={`#FFF6F6`}
             // hoverColor={`#FF1212`}
           />
@@ -64,6 +69,8 @@ function CartItem({ itemData, isLast }) {
             wrapperClass={
               styles.MoveToWishlistButton + " " + styles.ButtonWrapper
             }
+            withIcon
+            IconComp={HeartIcon}
           />
         </div>
       </div>

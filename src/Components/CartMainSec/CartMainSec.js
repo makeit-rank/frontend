@@ -2,9 +2,11 @@ import React from "react";
 
 import styles from "./CartMainSec.module.css";
 
-import CartItem from "./CartItem";
 import { CART_DATA } from "./../../Utils/Constants/StaticData";
+
+import CartItem from "./CartItem";
 import Button from "./../Button/index";
+import { ReactComponent as PlusIcon } from "../../Assets/Cart/Plus.svg";
 
 function CartMainSec({ cartData, addresses }) {
   const [currentAddressIndex, setCurrentAddressIndex] = React.useState(0);
@@ -56,6 +58,8 @@ function CartMainSec({ cartData, addresses }) {
             inverted
             primaryColor={`var(--ter-black)`}
             hoverBgColor={`var(--white)`}
+            withIcon
+            IconComp={PlusIcon}
           />
           <h5 className={styles.RightHeading + " " + styles.PaymentHeading}>
             {CART_DATA.payment}
