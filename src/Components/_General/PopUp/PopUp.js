@@ -4,7 +4,7 @@ import Styles from "./PopUp.module.css";
 
 function PopUp({
   ContentComp,
-  isOpen = true,
+  isOpen,
   closeFun,
   isClosable = true,
   withBorder = true,
@@ -26,13 +26,14 @@ function PopUp({
     if (primaryWrapperRef.current.style) {
       if (isOpen) {
         primaryWrapperRef.current.style.display = "flex";
-        setTimeout(() => {
+        clearTimeout(timeOutRef.current);
+        timeOutRef.current = setTimeout(() => {
           primaryWrapperRef.current.style.opacity = 1;
           primaryWrapperRef.current.style.pointerEvents = "all";
 
           primaryWrapperRef.current.childNodes[0].style.transform = "scale(1)";
           primaryWrapperRef.current.childNodes[0].style.opacity = 1;
-        }, 10);
+        }, 1);
       } else {
         primaryWrapperRef.current.style.opacity = 0;
         primaryWrapperRef.current.childNodes[0].style.transform = "scale(0.7)";
