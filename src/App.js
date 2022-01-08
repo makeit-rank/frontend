@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+
 import { useCookies } from "react-cookie";
 
 import styles from "./App.module.css";
@@ -18,6 +19,7 @@ import notify from "./Utils/Helpers/notifyToast";
 import Search from "./Containers/Search/index";
 import Product from "./Containers/Product/Product";
 import Cart from "./Containers/Cart/index";
+import Profile from "./Containers/Profile/index";
 
 const App = () => {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -37,6 +39,7 @@ const App = () => {
       try {
         const localeUserData = await getUserData(cookie.token);
         localeUserData.accessToken = cookie.token;
+        localeUserData.isSeller = false;
 
         dispatch({
           type: "UPDATE_USER_DATA",
@@ -81,6 +84,8 @@ const App = () => {
             <Route exact path="/search" element={<Search />} />
             <Route path="p/:id" element={<Product />} />
             <Route path="cart" element={<Cart />} />
+            <Route path="profile/*" element={<Profile />} />
+            <Route path="*" element={<Navigate to="/" />} />
           </Routes>
         </div>
       ) : (
