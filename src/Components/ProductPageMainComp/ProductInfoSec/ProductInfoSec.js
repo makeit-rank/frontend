@@ -6,6 +6,8 @@ import Ratings from "./../../Ratings/Ratings";
 import { PRODUCT_PAGE_DATA } from "../../../Utils/Constants/StaticData";
 import Button from "./../../Button/index";
 
+import { ReactComponent as PlusIcon } from "../../../Assets/Product/Plus.svg";
+
 function ProductInfoSec({ productDetails }) {
   const userData = useSelector((state) => state.userReducer.userData);
 
@@ -120,6 +122,8 @@ function ProductInfoSec({ productDetails }) {
                       primaryColor="var(--primary-blue)"
                       inverted
                       wrapperClass={styles.UploadAttachmentBtn}
+                      withIcon
+                      IconComp={PlusIcon}
                     />
                   )}
                   <input
@@ -157,9 +161,7 @@ function ProductInfoSec({ productDetails }) {
         <div className={styles.SpecificationWrapper}>
           {productDetails.specifications.map((specification, index) => (
             <div className={styles.Specification} key={index}>
-              <div className={styles.SpecificationKey}>
-                {specification.key}
-              </div>
+              <div className={styles.SpecificationKey}>{specification.key}</div>
               <div className={styles.SpecificationValue}>
                 {specification.value}
               </div>
