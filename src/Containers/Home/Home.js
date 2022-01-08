@@ -26,7 +26,7 @@ const Home = () => {
       getHighlightsData();
     }, 1000);
     if (!userData) {
-      navigate("/signup");
+      navigate("/login");
     }
   }, [userData]);
 
