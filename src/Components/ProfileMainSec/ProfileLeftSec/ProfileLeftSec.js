@@ -1,6 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import { Link, useLocation } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 import styles from "./ProfileLeftSec.module.css";
 
@@ -8,8 +9,20 @@ import { PROFILE_DATA } from "../../../Utils/Constants/StaticData";
 
 function ProfileLeftSec() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const [, , removeCookie] = useCookies(["token"]);
 
   const userData = useSelector((state) => state.userReducer.userData);
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    removeCookie("token");
+    dispatch({
+      type: "UPDATE_USER_DATA",
+      data: null,
+    });
+    navigate("/login");
+  };
 
   return (
     <div className={styles.Wrapper}>
@@ -62,6 +75,7 @@ function ProfileLeftSec() {
             "--primary-text-color": `var(--red-primary)`,
             "--background-color": `var(--red-bg)`,
           }}
+          onClick={logout}
         >
           {PROFILE_DATA.logout}
         </div>

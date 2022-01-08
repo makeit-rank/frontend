@@ -29,11 +29,11 @@ const App = () => {
   const [initialized, setInitialized] = useState(false);
 
   useEffect(async () => {
-    // setCookie(
-    //   "token",
-    //   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDEyZjUwYmQ3ODY4NzBiODdmMmY4ZiIsImlhdCI6MTY0MTA5OTA4OH0.kY_HiMKWRfbAZoeH2MSwb8F7zdWzKrmDU79AZ_3BoJI",
-    //   { sameSite: "strict" }
-    // );
+    setCookie(
+      "token",
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxZDEyZjUwYmQ3ODY4NzBiODdmMmY4ZiIsImlhdCI6MTY0MTA5OTA4OH0.kY_HiMKWRfbAZoeH2MSwb8F7zdWzKrmDU79AZ_3BoJI",
+      { sameSite: "strict" }
+    );
 
     if (cookie.token) {
       try {
@@ -65,9 +65,9 @@ const App = () => {
     }
   }, [userData]);
 
-  // useEffect(() => {
-  //   console.log(cookie.token);
-  // }, [cookie.token]);
+  useEffect(() => {
+    console.log(cookie.token);
+  }, [cookie.token]);
 
   return (
     <>
