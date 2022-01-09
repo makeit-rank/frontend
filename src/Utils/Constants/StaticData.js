@@ -215,6 +215,12 @@ export const PROFILE_DATA = {
     status: "Status",
     size: "Size:",
     attachedFiles: "Attached Files :",
+    ordersReceived: "Orders Received",
     highlights: ["Total Orders", "This Month Earnings", "Total Earnings"],
+  },
+  productsSec: {
+    title: "Your Products",
+    addNewProduct: "Add New Product",
+    reviews: "Reviews",
   },
 };

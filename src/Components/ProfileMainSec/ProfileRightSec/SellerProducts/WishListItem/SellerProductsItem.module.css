@@ -1,0 +1,67 @@
+.Wrapper {
+  width: 100%;
+  padding: 1.5rem 0;
+  display: flex;
+  grid-gap: 2rem;
+}
+
+.ProductImg {
+  width: 11.8rem;
+  height: 11.8rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.SmoothLoading {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.ProductInfo {
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem 0;
+}
+
+.ProductName {
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 600;
+  max-width: 58rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.Rating {
+  display: flex;
+  grid-gap: 0.7rem;
+  align-items: center;
+  margin-top: 0.7rem;
+}
+
+.RatingWrapper {
+  font-size: 1rem;
+}
+
+.RatingCount {
+  font-size: var(--font-14);
+  color: var(--ter-black);
+  font-weight: 500;
+}
+
+.ProductInfoBottom {
+  width: fit-content;
+  height: fit-content;
+}
+
+.Price {
+  font-size: var(--font-20);
+  color: var(--primary-black);
+  font-weight: 500;
+  margin-top: 1.5rem;
+}
