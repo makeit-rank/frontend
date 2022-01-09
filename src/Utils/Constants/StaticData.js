@@ -181,4 +181,8 @@ export const PROFILE_DATA = {
     size: "Size:",
     attachedFiles: "Attached Files :",
   },
+  wishlistSec: {
+    remove: "Remove",
+    reviews: "Reviews",
+  },
 };

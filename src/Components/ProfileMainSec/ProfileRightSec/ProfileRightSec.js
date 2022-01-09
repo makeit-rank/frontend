@@ -5,6 +5,7 @@ import styles from "./ProfileRightSec.module.css";
 
 import PersonalInfoSec from "./PersonalInfoSec/PersonalInfoSec";
 import OrdersSec from "./OrdersSec/index";
+import WishList from "./WishList/WishList";
 
 function ProfileRightSec() {
   return (
@@ -12,6 +13,7 @@ function ProfileRightSec() {
       <Routes>
         <Route exact path="/" element={<PersonalInfoSec />} />
         <Route path="/orders" element={<OrdersSec />} />
+        <Route path="/wishlist" element={<WishList />} />
         <Route path="*" element={<Navigate to="/profile/" />} />
       </Routes>
     </>
