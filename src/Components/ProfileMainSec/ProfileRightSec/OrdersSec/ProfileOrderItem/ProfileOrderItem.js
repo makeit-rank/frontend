@@ -3,6 +3,10 @@ import { PROFILE_DATA } from "../../../../../Utils/Constants/StaticData";
 
 import styles from "./ProfileOrderItem.module.css";
 function ProfileOrderItem({ OrderDetails }) {
+  const smoothLoading = (e) => {
+    e.target.style.opacity = "1";
+  };
+
   return (
     <div className={styles.Wrapper}>
       <div className={styles.TopSec}>
@@ -25,7 +29,8 @@ function ProfileOrderItem({ OrderDetails }) {
         <img
           src={OrderDetails.productDetails.image}
           alt="productImg"
-          className={styles.ProductImg}
+          className={styles.ProductImg + " " + styles.SmoothLoading}
+          onLoad={smoothLoading}
         />
         <div className={styles.ProductInfo}>
           <div className={styles.ProductInfoTop}>
@@ -65,8 +70,11 @@ function ProfileOrderItem({ OrderDetails }) {
                     return (
                       <img
                         key={index}
-                        className={styles.AttachedFile}
+                        className={
+                          styles.AttachedFile + " " + styles.SmoothLoading
+                        }
                         src={file}
+                        onLoad={smoothLoading}
                       />
                     );
                   }
