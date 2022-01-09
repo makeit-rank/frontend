@@ -185,4 +185,28 @@ export const PROFILE_DATA = {
     remove: "Remove",
     reviews: "Reviews",
   },
+  becomeASellerSec: {
+    title: "Become a Seller",
+    feilds: [
+      { label: "Shop Name", id: "ShopName", placeholder: "Enter Shop Name" },
+      { label: "Your GSTIN", id: "GstIn", placeholder: "Enter GSTIN" },
+      {
+        label: "Pickup Address",
+
+        subFeilds: [
+          {
+            id: "PickupAddress",
+            placeholder: "Enter Pickup Address",
+          },
+          {
+            id: "PickupPincode",
+            placeholder: "Enter Pickup Pincode",
+            type: "number",
+          },
+        ],
+      },
+    ],
+    tnc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis urna tortor, mollis morbi bibendum vitae. Convallis suspendisse tempus pulvinar lacinia porttitor eget felis. Purus nibh malesuada facilisi ac et donec vivamus. Velit urna, tristique enim lacus, cursus morbi consequat nisl. Eget quam morbi molestie aliquam ac faucibus felis arcu, tempor. A est neque sollicitudin aliquet in dui integer. Sed a morbi ultricies vestibulum diam.",
+    registerAsASeller: "Register as a Seller ->",
+  },
 };
