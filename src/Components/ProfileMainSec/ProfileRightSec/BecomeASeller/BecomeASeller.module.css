@@ -1,0 +1,98 @@
+.Wrapper {
+  width: 100%;
+}
+
+.TopSec {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 2.5rem;
+  height: 6rem;
+  border-bottom: 1px solid var(--sec-grey);
+}
+
+.Title {
+  font-size: var(--font-20);
+  color: var(--primary-black);
+  font-weight: 500;
+}
+
+.BottomSec {
+  width: 100%;
+  padding: 2rem 2.5rem;
+  padding-bottom: 3rem;
+}
+.KeyValuePairs {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+}
+
+.KeyValuePair {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  grid-gap: 1rem;
+}
+
+.Key {
+  font-size: var(--font-16);
+  color: var(--ter-black);
+  font-weight: 500;
+}
+
+.ValueInput {
+  width: fit-content;
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 500;
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.4rem;
+  border: 1px solid var(--sec-grey);
+
+  transition: border 0.2s ease-out, box-shadow 0.15s ease-out;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ValueInput::-webkit-scrollbar {
+  display: none;
+}
+
+.ValueInput:focus {
+  outline: none;
+  box-shadow: 0px 0px 0px 3px rgb(199, 228, 255);
+  border: 1px solid var(--primary-blue);
+}
+
+.PickupAddressPair {
+  align-items: start;
+  margin-top: 1rem;
+}
+
+.PickupAddress textarea {
+  width: 50rem;
+  height: 6rem;
+  resize: none;
+}
+.PickupAddress {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.TnC {
+  margin-top: 6.6rem;
+  font-size: var(--font-14);
+  font-weight: 400;
+  color: var(--primary-black);
+  width: 64rem;
+}
+
+.RegisterBtn {
+  border-radius: 0.5rem;
+  font-weight: 500;
+  margin-top: 4rem;
+}
