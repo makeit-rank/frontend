@@ -209,4 +209,12 @@ export const PROFILE_DATA = {
     tnc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis urna tortor, mollis morbi bibendum vitae. Convallis suspendisse tempus pulvinar lacinia porttitor eget felis. Purus nibh malesuada facilisi ac et donec vivamus. Velit urna, tristique enim lacus, cursus morbi consequat nisl. Eget quam morbi molestie aliquam ac faucibus felis arcu, tempor. A est neque sollicitudin aliquet in dui integer. Sed a morbi ultricies vestibulum diam.",
     registerAsASeller: "Register as a Seller ->",
   },
+  dashboardSec: {
+    orderPlaced: "Order Placed",
+    total: "Total",
+    status: "Status",
+    size: "Size:",
+    attachedFiles: "Attached Files :",
+    highlights: ["Total Orders", "This Month Earnings", "Total Earnings"],
+  },
 };

@@ -1,0 +1,120 @@
+.Wrapper {
+  width: 100%;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+}
+
+.TopSec {
+  background: var(--trans-blue-bg);
+  border-radius: 0.5rem;
+  display: grid;
+  grid-template-columns: 15rem 1fr 1fr;
+  padding: 1.3rem;
+}
+
+.KeyValuePair {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  grid-gap: 0.3rem;
+}
+
+.KeyValuePair:last-child {
+  align-items: flex-end;
+}
+.Key {
+  font-size: var(--font-14);
+  color: var(--sec-black);
+  font-weight: 500;
+}
+
+.Value {
+  font-size: var(--font-16);
+  color: var(--primary-blue);
+  font-weight: 600;
+}
+
+.BottomSec {
+  display: flex;
+  grid-gap: 1.5rem;
+}
+
+.ProductImg {
+  width: 11.8rem;
+  height: 11.8rem;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+.SmoothLoading {
+  opacity: 0;
+  transition: opacity 0.3s ease-out;
+}
+
+.ProductInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ProductName {
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 600;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1; /* number of lines to show */
+  line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.SubKeyValuePairList {
+  margin-top: 0.4rem;
+  display: flex;
+  grid-gap: 1.5rem;
+}
+
+.SubKeyValuePair {
+  display: flex;
+  grid-gap: 0.5rem;
+}
+
+.SubKey {
+  font-size: var(--font-14);
+  font-weight: 500;
+  color: var(--ter-black);
+}
+
+.SubValue {
+  font-size: var(--font-14);
+  font-weight: 600;
+  color: var(--sec-black);
+}
+
+.AttchedFilesSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.4rem;
+}
+
+.AttchedFilesTitle {
+  font-size: var(--font-14);
+  font-weight: 500;
+  color: var(--sec-black);
+}
+
+.AttachedFilesList {
+  display: flex;
+  grid-gap: 0.8rem;
+}
+
+.AttachedFile {
+  font-size: var(--primary-blue);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.3rem;
+}

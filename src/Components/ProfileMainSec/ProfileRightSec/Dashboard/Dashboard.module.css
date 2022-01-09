@@ -1,0 +1,41 @@
+.Wrapper {
+  width: 100%;
+}
+
+.TopWrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 2rem;
+  grid-gap: 1.5rem;
+  height: fit-content;
+  border-bottom: 1px solid var(--sec-grey);
+}
+
+.Highlight {
+  width: 100%;
+  background-color: var(--trans-blue-bg);
+  padding: 1.5rem 2rem;
+  border-radius: 0.4rem;
+  outline: 1px solid var(--primary-blue);
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.6rem;
+}
+
+.HighlightTitle {
+  font-size: var(--font-16);
+  font-weight: 500;
+  color: var(--ter-black);
+}
+
+.HighlightValue {
+  font-size: var(--font-20);
+  font-weight: 600;
+  color: var(--sec-black);
+}
+
+.Order {
+  border-bottom: 1px solid var(--sec-grey);
+  margin: 0 2rem;
+}
