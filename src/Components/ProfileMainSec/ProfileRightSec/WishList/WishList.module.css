@@ -1,0 +1,9 @@
+.Wrapper {
+  width: 100%;
+}
+
+.LIstItemWrapper {
+  border-bottom: 1px solid var(--sec-grey);
+  margin: 0 2rem;
+  padding: 0.5rem 0;
+}
