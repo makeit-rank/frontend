@@ -12,6 +12,14 @@
   border-bottom: 1px solid var(--sec-grey);
 }
 
+.Title {
+  font-size: var(--font-20);
+  font-weight: 500;
+  color: var(--primary-black);
+  margin-left: 2rem;
+  margin-top: 2rem;
+}
+
 .Highlight {
   width: 100%;
   background-color: var(--trans-blue-bg);

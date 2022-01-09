@@ -75,6 +75,9 @@ function Dashboard() {
             })}
           </div>
           <div className={styles.BottomWrapper}>
+            <h3 className={styles.Title}>
+              {PROFILE_DATA.dashboardSec.ordersReceived}
+            </h3>
             {orders.map((order, index) => {
               return (
                 <div
