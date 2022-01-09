@@ -6,6 +6,7 @@ import { useCookies } from "react-cookie";
 import styles from "./ProfileLeftSec.module.css";
 
 import { PROFILE_DATA } from "../../../Utils/Constants/StaticData";
+import { UPDATE_USER_DATA } from "./../../../Redux/ActionTypes";
 
 function ProfileLeftSec() {
   const location = useLocation();
@@ -18,7 +19,7 @@ function ProfileLeftSec() {
   const logout = () => {
     removeCookie("token");
     dispatch({
-      type: "UPDATE_USER_DATA",
+      type: UPDATE_USER_DATA,
       data: null,
     });
     navigate("/login");

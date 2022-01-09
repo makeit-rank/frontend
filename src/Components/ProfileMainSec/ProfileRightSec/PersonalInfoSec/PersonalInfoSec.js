@@ -1,5 +1,5 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./PersonalInfoSec.module.css";
 
@@ -7,9 +7,11 @@ import { PROFILE_DATA } from "../../../../Utils/Constants/StaticData";
 
 import Button from "./../../../Button";
 import { ReactComponent as PlusImg } from "../../../../Assets/Profile/Plus.svg";
+import { UPDATE_ADD_ADDRESS_POPUP_STATE } from "../../../../Redux/ActionTypes";
 
 function PersonalInfoSec() {
   const userData = useSelector((state) => state.userReducer.userData);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.Wrapper}>
@@ -72,6 +74,12 @@ function PersonalInfoSec() {
               wrapperClass={styles.AddAddressBtn}
               withIcon
               IconComp={PlusImg}
+              onClick={() => {
+                dispatch({
+                  type: UPDATE_ADD_ADDRESS_POPUP_STATE,
+                  value: true,
+                });
+              }}
             />
           </div>
         </div>

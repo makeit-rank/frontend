@@ -1,14 +1,17 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+
+import { UPDATE_ADD_ADDRESS_POPUP_STATE } from "../../Redux/ActionTypes";
+import { CART_DATA } from "./../../Utils/Constants/StaticData";
 
 import styles from "./CartMainSec.module.css";
-
-import { CART_DATA } from "./../../Utils/Constants/StaticData";
 
 import CartItem from "./CartItem";
 import Button from "./../Button/index";
 import { ReactComponent as PlusIcon } from "../../Assets/Cart/Plus.svg";
 
 function CartMainSec({ cartData, addresses }) {
+  const dispatch = useDispatch();
   const [currentAddressIndex, setCurrentAddressIndex] = React.useState(0);
 
   console.log("cartData", cartData);
@@ -54,7 +57,12 @@ function CartMainSec({ cartData, addresses }) {
           <Button
             wrapperClass={styles.AddNewAddress}
             name={CART_DATA.addAddress}
-            onClick={() => {}}
+            onClick={() => {
+              dispatch({
+                type: UPDATE_ADD_ADDRESS_POPUP_STATE,
+                value: true,
+              });
+            }}
             inverted
             primaryColor={`var(--ter-black)`}
             hoverBgColor={`var(--white)`}

@@ -224,3 +224,14 @@ export const PROFILE_DATA = {
     reviews: "Reviews",
   },
 };
+
+export const ADD_ADDRESS_POPUP_DATA = {
+  title: "Add Address",
+  placeholders: {
+    address: "Enter Address",
+    pincode: "Enter Pincode",
+  },
+  button: {
+    addAddress: "Add Address ->",
+  },
+};

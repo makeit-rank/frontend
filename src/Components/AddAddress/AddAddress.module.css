@@ -1,0 +1,55 @@
+.Wrapper {
+  background: var(--white);
+  padding: 2.5rem;
+  padding-bottom: 2.8rem;
+  border-radius: 0.7rem;
+  width: 60rem;
+
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+}
+
+.Heading {
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 600;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1.5rem;
+}
+
+.Input {
+  outline: none;
+  border: none;
+  resize: none;
+  width: 100%;
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  outline: 1px solid var(--sec-grey);
+  border-radius: 0.3rem;
+  padding: 1rem 1.2rem;
+  transition: box-shadow 0.15s ease-out;
+}
+
+.Input:active,
+.Input:focus-within {
+  box-shadow: 0px 0px 0px 4px rgba(16, 140, 255, 0.2);
+  outline: 1px solid var(--primary-blue);
+}
+
+.Address {
+  width: 50rem;
+}
+
+.Pincode {
+  width: fit-content;
+}
+
+.ButtonWrapper {
+  border-radius: 0.5rem;
+  font-weight: 500;
+}
