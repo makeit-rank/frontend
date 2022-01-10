@@ -23,6 +23,7 @@ import Profile from "./Containers/Profile/index";
 import PopUp from "./Components/_General/PopUp/PopUp";
 import AddAddress from "./Components/AddAddress/index";
 import AddProduct from "./Components/AddProduct/AddProduct";
+import Order from "./Containers/Order/index";
 import {
   UPDATE_USER_DATA,
   UPDATE_ADD_ADDRESS_POPUP_STATE,
@@ -128,6 +129,7 @@ const App = () => {
             ))}
             <Route exact path="/search" element={<Search />} />
             <Route path="p/:id" element={<Product />} />
+            <Route path="o/:id" element={<Order />} />
             <Route path="cart" element={<Cart />} />
             <Route path="profile/*" element={<Profile />} />
             <Route path="*" element={<Navigate to="/" />} />

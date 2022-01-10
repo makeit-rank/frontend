@@ -269,3 +269,45 @@ export const ADD_PRODUCT_POPUP_DATA = {
   addProduct: "Add Product ->",
   discard: "Discard",
 };
+
+export const ORDER_DETAILS_DATA = {
+  title: "Order Details",
+  total: "Total",
+  id: "ID",
+  seller: "Seller:",
+  size: "Size:",
+  attachedFiles: "Attached Files :",
+  deliveryAddress: "Delivery Address",
+  orderPlaced: "Order Placed",
+  statusData: {
+    userPerspective: {
+      titles: {
+        Ordered: "Ordered",
+        Confimed: "Order confirmed by seller",
+        AskedForApprove: "Seller Uploaded designs for approval",
+        AskedForChange: "Asked for change",
+        ApproveDesign: "Approve Designs",
+        ApproveDesigns: "You approved designs",
+        Delivered: "Delivered",
+      },
+      approve: "Approve ->",
+      suggestChange: "Suggest some changes",
+      askForChanges: "Ask for changes ->",
+    },
+    sellerPerspective: {
+      titles: {
+        Ordered: "Ordered",
+        Confirm: "Confirm Order",
+        Confimed: "You confirmed order",
+        AskForApprove: "Upload custom designs for approval ",
+        AskedForApprove: "You Uploaded designs for approval",
+        AskedForChange: "Customer Asked for change",
+        ApprovedDesigns: "Customer approved designs",
+        Delivered: "Delivered",
+      },
+      approve: "Approve ->",
+      addImage: "Add Image",
+      submit: "Submit ->",
+    },
+  },
+};
