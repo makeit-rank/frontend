@@ -22,10 +22,11 @@ import Cart from "./Containers/Cart/index";
 import Profile from "./Containers/Profile/index";
 import PopUp from "./Components/_General/PopUp/PopUp";
 import AddAddress from "./Components/AddAddress/index";
-
+import AddProduct from "./Components/AddProduct/AddProduct";
 import {
   UPDATE_USER_DATA,
   UPDATE_ADD_ADDRESS_POPUP_STATE,
+  UPDATE_ADD_PRODUCT_POPUP_STATE,
 } from "./Redux/ActionTypes";
 
 const App = () => {
@@ -67,7 +68,6 @@ const App = () => {
 
     if (cookie.token) {
       try {
-        console.log("SHit");
         const localeUserData = await getUserData(cookie.token);
         localeUserData.accessToken = cookie.token;
         localeUserData.isSeller = false;
@@ -107,6 +107,13 @@ const App = () => {
     });
   };
 
+  const closeAddProductPopup = () => {
+    dispatch({
+      type: UPDATE_ADD_PRODUCT_POPUP_STATE,
+      value: false,
+    });
+  };
+
   return (
     <>
       <ToastContainer bodyClassName={styles.ToastBody} />
@@ -135,6 +142,14 @@ const App = () => {
               />
             }
             closeFun={closeAddAddressPopup}
+            withBorder={false}
+          />
+          <PopUp
+            isOpen={userData.isSeller && popupStates.addProduct}
+            ContentComp={
+              <AddProduct closePopupFunction={closeAddProductPopup} />
+            }
+            closeFun={closeAddProductPopup}
             withBorder={false}
           />
         </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import styles from "./SellerProducts.module.css";
 
@@ -9,9 +9,12 @@ import Preloader from "../../../Preloader/Preloader";
 import SellerProductsItem from "./WishListItem/index";
 import Button from "./../../../Button/index";
 import { ReactComponent as PlusIcon } from "../../../../Assets/SellerProductList/Plus.svg";
+import { UPDATE_ADD_PRODUCT_POPUP_STATE } from "./../../../../Redux/ActionTypes";
 
 function SellerProducts() {
   const userData = useSelector((state) => state.userReducer.userData);
+  const dispatch = useDispatch();
+
   const [wishlist, setWishlist] = useState(null);
 
   useEffect(() => {
@@ -54,8 +57,11 @@ function SellerProducts() {
               primaryColor={`var(--primary-blue)`}
               inverted
               wrapperClass={styles.AddNewProductBtn}
-              onClick={(e) => {
-                e.preventDefault();
+              onClick={() => {
+                dispatch({
+                  type: UPDATE_ADD_PRODUCT_POPUP_STATE,
+                  value: true,
+                });
               }}
               withIcon
               IconComp={PlusIcon}

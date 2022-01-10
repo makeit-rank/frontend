@@ -12,11 +12,8 @@ function AddAddress({ closePopupFunction, refreshDataFunction }) {
     console.log("inputElems", e.target.elements);
 
     await refreshDataFunction();
+    e.target.reset();
     closePopupFunction();
-
-    for (let i = 0; i < e.target.elements.length - 1; i++) {
-      e.target.elements[i].value = " ";
-    }
     console.log("addAddress");
   };
 

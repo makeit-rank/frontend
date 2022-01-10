@@ -235,3 +235,37 @@ export const ADD_ADDRESS_POPUP_DATA = {
     addAddress: "Add Address ->",
   },
 };
+
+export const ADD_PRODUCT_POPUP_DATA = {
+  title: "Add product",
+  feilds: {
+    title: {
+      label: "Title:",
+      placeholder: "Enter Title",
+    },
+    price: {
+      label: "Price:",
+      placeholder: "Enter Price",
+    },
+  },
+  images: "Images :",
+  addImage: "Add Image",
+  specifications: "Specifications",
+  addSpecificationItem: "Add Specification Item",
+  specificationsPlaceholders: {
+    key: "Enter Name",
+    value: "Enter Value",
+  },
+  variousSizes: "Does this product have various sizes?",
+  availableSizes: "Available Sizes :",
+  addSizeVarient: "Add Size Varient",
+  customisable: "Is this product customizable?",
+  requiredAttachments: "Required Attachments :",
+  addAttachmentInfo: "Add Attachment Info",
+  customisePlaceholders: {
+    title: "Attachment Title",
+    description: "Attachment Description",
+  },
+  addProduct: "Add Product ->",
+  discard: "Discard",
+};
