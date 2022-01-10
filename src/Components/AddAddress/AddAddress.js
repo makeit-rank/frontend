@@ -6,19 +6,17 @@ import { ADD_ADDRESS_POPUP_DATA } from "./../../Utils/Constants/StaticData";
 import Button from "../Button";
 
 function AddAddress({ closePopupFunction, refreshDataFunction }) {
-  const inputRefs = React.useRef({});
-
   const addAddress = async (e) => {
     e.preventDefault();
 
-    console.log(
-      "inputRefs",
-      inputRefs.current.address.value,
-      inputRefs.current.pincode.value
-    );
+    console.log("inputElems", e.target.elements);
+
     await refreshDataFunction();
     closePopupFunction();
 
+    for (let i = 0; i < e.target.elements.length - 1; i++) {
+      e.target.elements[i].value = " ";
+    }
     console.log("addAddress");
   };
 
@@ -32,7 +30,6 @@ function AddAddress({ closePopupFunction, refreshDataFunction }) {
           className={styles.Input + " " + styles.Address}
           id="AddAdressText"
           autoComplete="address-line1"
-          ref={(ref) => (inputRefs.current.address = ref)}
         />
         <input
           type="number"
@@ -40,7 +37,6 @@ function AddAddress({ closePopupFunction, refreshDataFunction }) {
           className={styles.Input + " " + styles.Pincode}
           id="AddAdressPincode"
           autoComplete="postal-code"
-          ref={(ref) => (inputRefs.current.pincode = ref)}
         />
         <Button
           name={ADD_ADDRESS_POPUP_DATA.button.addAddress}
