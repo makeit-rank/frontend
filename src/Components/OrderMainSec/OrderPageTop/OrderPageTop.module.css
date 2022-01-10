@@ -1,6 +1,5 @@
 .Wrapper {
-  width: var(--max-width);
-  margin: 0 auto;
+  width: 100%;
 }
 
 .OrderDetailsTitle {

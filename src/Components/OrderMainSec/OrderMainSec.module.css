@@ -1,4 +1,20 @@
 .Wrapper {
   padding-top: calc(var(--navbar-height) + 1.5rem);
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
+}
+
+.TopSec {
+  width: var(--max-width);
+  margin: 0 auto;
+}
+
+.BottomSec {
+  border-radius: 0.5rem;
+  border: 1px solid var(--sec-black);
+  overflow: hidden;
+  width: var(--max-width);
+  margin: 0 auto;
 }
