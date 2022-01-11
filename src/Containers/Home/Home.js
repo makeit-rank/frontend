@@ -22,10 +22,14 @@ const Home = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      getHighlightsData();
-    }, 1000);
-    if (!userData) {
+    if (userData) {
+      if (location.pathname !== "/") {
+        navigate("/");
+      }
+      setTimeout(() => {
+        getHighlightsData();
+      }, 1000);
+    } else {
       navigate("/login");
     }
   }, [userData]);
