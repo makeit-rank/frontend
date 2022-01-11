@@ -279,11 +279,12 @@ export const ORDER_DETAILS_DATA = {
   attachedFiles: "Attached Files :",
   deliveryAddress: "Delivery Address",
   orderPlaced: "Order Placed",
+  status: "Status",
   statusData: {
     userPerspective: {
       titles: {
         Ordered: "Ordered",
-        Confimed: "Order confirmed by seller",
+        Confirmed: "Order confirmed by seller",
         AskedForApprove: "Seller Uploaded designs for approval",
         AskedForChange: "Asked for change",
         ApproveDesign: "Approve Designs",

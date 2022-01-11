@@ -135,25 +135,29 @@ const App = () => {
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
 
-          <PopUp
-            isOpen={popupStates.addAddress}
-            ContentComp={
-              <AddAddress
-                closePopupFunction={closeAddAddressPopup}
-                refreshDataFunction={fetchUserData}
+          {userData && (
+            <>
+              <PopUp
+                isOpen={popupStates.addAddress}
+                ContentComp={
+                  <AddAddress
+                    closePopupFunction={closeAddAddressPopup}
+                    refreshDataFunction={fetchUserData}
+                  />
+                }
+                closeFun={closeAddAddressPopup}
+                withBorder={false}
               />
-            }
-            closeFun={closeAddAddressPopup}
-            withBorder={false}
-          />
-          <PopUp
-            isOpen={userData.isSeller && popupStates.addProduct}
-            ContentComp={
-              <AddProduct closePopupFunction={closeAddProductPopup} />
-            }
-            closeFun={closeAddProductPopup}
-            withBorder={false}
-          />
+              <PopUp
+                isOpen={userData.isSeller && popupStates.addProduct}
+                ContentComp={
+                  <AddProduct closePopupFunction={closeAddProductPopup} />
+                }
+                closeFun={closeAddProductPopup}
+                withBorder={false}
+              />
+            </>
+          )}
         </div>
       ) : (
         <>

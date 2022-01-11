@@ -1,0 +1,63 @@
+.Wrapper {
+  display: flex;
+  grid-gap: 1.2rem;
+}
+
+.LeftSec {
+  width: 2rem;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  position: relative;
+}
+
+.Line {
+  height: 100%;
+  width: 1px;
+  background: var(--sec-grey);
+}
+
+.Dot {
+  width: 2rem;
+  height: 2rem;
+  position: absolute;
+  border-radius: 999px;
+  border: 1px solid var(--primary-blue);
+  background: var(--white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.DotInner {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 999px;
+  background: var(--primary-blue);
+}
+
+.RightSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.3rem;
+  padding-bottom: 1.5rem;
+}
+
+.Info {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.Title {
+  font-size: var(--font-16);
+  color: var(--primary-blue);
+  font-weight: 500;
+}
+
+.TimeStamp {
+  font-size: var(--font-14);
+  color: var(--ter-black);
+  font-weight: 500;
+}
