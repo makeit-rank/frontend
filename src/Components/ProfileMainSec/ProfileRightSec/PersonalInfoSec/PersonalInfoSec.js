@@ -41,8 +41,8 @@ function PersonalInfoSec() {
               </h4>
               <h5 className={styles.PickupAddress}>
                 {/* {userData[PROFILE_DATA.personalInfoSec.feilds[5].value]} */}
-                <p className={styles.Value}>{userData.pickupAddress.address}</p>
-                <p className={styles.Value}>{userData.pickupAddress.pincode}</p>
+                <p className={styles.Value}>{userData.pickup_address.address}</p>
+                <p className={styles.Value}>{userData.pickup_address.pincode}</p>
               </h5>
             </div>
           )}

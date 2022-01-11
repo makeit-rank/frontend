@@ -1,19 +1,49 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import styles from "./BecomeASeller.module.css";
 
 import { PROFILE_DATA } from "../../../../Utils/Constants/StaticData";
 
 import Button from "../../../Button";
+import { becomeASeller } from "./../../../../Services/user.service";
+import notify from "./../../../../Utils/Helpers/notifyToast";
 
 function BecomeASellerSec() {
+  const userData = useSelector((state) => state.userReducer.userData);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const elements = e.target.elements;
+    console.log(elements.ShopName.value);
+    console.log(elements.GstIn.value);
+    console.log(elements.PickupAddress.value);
+    console.log(elements.PickupPincode.value);
+
+    try {
+      const data = becomeASeller(
+        userData.accessToken,
+        elements.ShopName.value,
+        elements.GstIn.value,
+        {
+          address: elements.PickupAddress.value,
+          pincode: elements.PickupPincode.value,
+        }
+      );
+      notify("Successfully become a seller", "success");
+    } catch (err) {
+      notify(err.response.data, "error");
+      console.log(err);
+    }
+  };
+
   return (
     <div className={styles.Wrapper}>
       <div className={styles.TopSec}>
         <h3 className={styles.Title}>{PROFILE_DATA.becomeASellerSec.title}</h3>
       </div>
 
-      <div className={styles.BottomSec}>
+      <form className={styles.BottomSec} onSubmit={handleSubmit}>
         <div className={styles.KeyValuePairs}>
           {PROFILE_DATA.becomeASellerSec.feilds
             .slice(0, 2)
@@ -70,7 +100,7 @@ function BecomeASellerSec() {
           name={PROFILE_DATA.becomeASellerSec.registerAsASeller}
           primaryColor={`var(--primary-blue)`}
         />
-      </div>
+      </form>
     </div>
   );
 }

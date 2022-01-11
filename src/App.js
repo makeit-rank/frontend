@@ -72,14 +72,7 @@ const App = () => {
       try {
         const localeUserData = await getUserData(cookie.token);
         localeUserData.accessToken = cookie.token;
-        localeUserData.isSeller = false;
-        // localeUserData.isSeller = true;
-        // localeUserData.shopName = "London hills fashion";
-        // localeUserData.gstIn = "GST123456789";
-        // localeUserData.pickupAddress = {
-        //   Address: "123, ABC Street, XYZ City, ABC State,",
-        //   pincode: "123456",
-        // };
+        localeUserData.isSeller = localeUserData.role === "seller";
 
         dispatch({
           type: UPDATE_USER_DATA,

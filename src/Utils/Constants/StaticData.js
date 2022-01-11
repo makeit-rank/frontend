@@ -165,8 +165,8 @@ export const PROFILE_DATA = {
       { key: "Name", value: "name" },
       { key: "Email", value: "email" },
       { key: "Phone Number", value: "mobile" },
-      { key: "Shop Name", value: "shopName" },
-      { key: "GST IN", value: "gstIn" },
+      { key: "Shop Name", value: "shop_name" },
+      { key: "GST IN", value: "gst_id" },
       { key: "Pickup Address", value: "pickupAddress" },
     ],
 

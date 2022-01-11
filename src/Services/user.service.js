@@ -30,3 +30,29 @@ export const addAddress = async (accessToken, address) => {
     throw err;
   }
 };
+
+export const becomeASeller = async (
+  accessToken,
+  shop_name,
+  gst_id,
+  pickup_address
+) => {
+  try {
+    const { data } = await axios.post(
+      BECOME_A_SELLER_URL,
+      {
+        shop_name,
+        gst_id,
+        pickup_address,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
