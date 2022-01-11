@@ -17,7 +17,7 @@ function ProfileLeftSec() {
   const dispatch = useDispatch();
 
   const logout = () => {
-    removeCookie("token");
+    removeCookie("token", { path: "/" });
     dispatch({
       type: UPDATE_USER_DATA,
       data: null,

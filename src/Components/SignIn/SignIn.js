@@ -37,6 +37,7 @@ function SignIn() {
         console.log("LoginStatus", authToken);
         setCookie("token", authToken, {
           sameSite: "strict",
+          path: "/",
         });
       } catch (err) {
         notify(err.response.data, "error");

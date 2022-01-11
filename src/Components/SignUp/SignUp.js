@@ -39,6 +39,7 @@ function SignUp() {
         console.log("signupStatus", authToken);
         setCookie("token", authToken, {
           sameSite: "strict",
+          path: "/",
         });
       } catch (err) {
         notify(err.response.data, "error");
