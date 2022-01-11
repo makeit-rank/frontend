@@ -70,7 +70,7 @@ function OrderPageBottom({ status, staticData, sellerPerspective }) {
             </StatusItemWrapper>
           )
         )}
-        {status.AskedForApprove?.map((item, index) => {
+        { status.Confirmed && status.AskedForApprove?.map((item, index) => {
           return (
             <>
               <StatusItemWrapper
@@ -157,10 +157,10 @@ function OrderPageBottom({ status, staticData, sellerPerspective }) {
             </>
           );
         })}
-        {(!status.AskedForApprove && status.Confirmed) ||
+        {(sellerPerspective && !status.AskedForApprove && status.Confirmed) ||
         (sellerPerspective &&
           status.AskedForApprove?.length === status.AskedForChange?.length &&
-          status.AskedForChange[status?.AskedForChange?.length - 1]
+          status.AskedForChange?.[status?.AskedForChange?.length - 1]
             .changeStatus) ? (
           <>
             <StatusItemWrapper title={staticData.titles.AskForApprove}>
