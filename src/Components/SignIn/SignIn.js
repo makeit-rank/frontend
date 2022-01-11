@@ -1,19 +1,67 @@
 import React, { useState, useRef } from "react";
+import { useCookies } from "react-cookie";
 
 import styles from "../SignUp/SignInUp.module.css";
 
-import Button from "../Button";
-import BottomText from "../SignUp/Helpers/BottomText";
-import { StyledMUIInput } from "./../../Utils/Helpers/styledMUIInput";
 import { SIGN_IN_DATA } from "./../../Utils/Constants/StaticData";
 
+import notify from "./../../Utils/Helpers/notifyToast";
+import { validateEmail } from "./../SignUp/Helpers/validateEmail";
+
+import Button from "../Button";
+import { StyledMUIInput } from "./../../Utils/Helpers/styledMUIInput";
+import BottomText from "../SignUp/Helpers/BottomText";
+import { loginUser } from "../../Services/auth.service";
+
 function SignIn() {
+  const [, setCookie] = useCookies();
+
   const [isDisabled, setIsDisabled] = useState(false);
   const formRef = useRef(null);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    setIsDisabled(true);
     e.preventDefault();
-    console.log(formRef.current.elements);
+
+    const validation = handleDataValidation();
+
+    if (validation) {
+      let LoginUserData = {
+        email: formRef.current.SignInEmail.value,
+        password: formRef.current.SignInPassword.value,
+      };
+
+      console.log("loginUserData", LoginUserData);
+      try {
+        const authToken = await loginUser(LoginUserData);
+        console.log("LoginStatus", authToken);
+        setCookie("token", authToken, {
+          sameSite: "strict",
+        });
+      } catch (err) {
+        notify(err.response.data, "error");
+        console.log(err.response.data);
+      }
+    }
+
+    setIsDisabled(false);
+  };
+
+  const handleDataValidation = () => {
+    if (
+      !formRef.current.elements.SignInEmail.value ||
+      !validateEmail(formRef.current.elements.SignInEmail.value)
+    ) {
+      notify("Please enter valid Email address", "warning");
+      return false;
+    }
+
+    if (formRef.current.elements.SignInPassword.value.length < 6) {
+      notify("Password should be atleast 6 characters long", "warning");
+      return false;
+    }
+
+    return true;
   };
 
   return (
