@@ -14,4 +14,6 @@ export const PRODUCT_URL = PRIMARY_API + "product/";
 export const SIGNUP_URL = AUTH_URL + "signup";
 export const LOGIN_URL = AUTH_URL + "login";
 export const GET_USER_DATA = USER_URL + "getuserdata";
+export const ADD_ADDESS_URL = USER_URL + "addAddress";
+export const BECOME_A_SELLER_URL = USER_URL + "becomeaseller";
 export const SEARCH_PRODUCTS = PRODUCT_URL + "atlassearch";
