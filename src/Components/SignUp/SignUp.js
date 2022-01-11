@@ -28,7 +28,7 @@ function SignUp() {
     if (validation) {
       let signUpUserData = {
         name: formRef.current.Name.value,
-        mobile: formRef.current.Mobile.value,
+        mobile: parseInt(formRef.current.Mobile.value),
         email: formRef.current.SignUpEmail.value,
         password: formRef.current.SignUpPassword.value,
       };
