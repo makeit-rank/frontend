@@ -8,7 +8,7 @@ const PrivateRoute = ({ inverted = false, children }) => {
   return (userData !== undefined) !== inverted ? (
     children
   ) : (
-    <Navigate to="/profile" />
+    <Navigate to="/" />
   );
 };
 
