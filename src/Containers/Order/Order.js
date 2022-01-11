@@ -45,7 +45,7 @@ function Order() {
       status: {
         Ordered: new Date().getTime(),
         Confirmed: new Date().getTime(),
-        AskedForApprove: Array(3).fill({
+        AskedForApprove: Array(2).fill({
           date: new Date().getTime(),
           data: [
             "https://images.unsplash.com/photo-1508138221679-760a23a2285b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",

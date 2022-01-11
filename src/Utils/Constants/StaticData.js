@@ -288,7 +288,7 @@ export const ORDER_DETAILS_DATA = {
         AskedForApprove: "Seller Uploaded designs for approval",
         AskedForChange: "Asked for change",
         ApproveDesign: "Approve Designs",
-        ApproveDesigns: "You approved designs",
+        ApprovedDesigns: "You approved designs",
         Delivered: "Delivered",
       },
       approve: "Approve ->",
@@ -299,7 +299,7 @@ export const ORDER_DETAILS_DATA = {
       titles: {
         Ordered: "Ordered",
         Confirm: "Confirm Order",
-        Confimed: "You confirmed order",
+        Confirmed: "You confirmed order",
         AskForApprove: "Upload custom designs for approval ",
         AskedForApprove: "You Uploaded designs for approval",
         AskedForChange: "Customer Asked for change",

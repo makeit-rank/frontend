@@ -92,3 +92,41 @@
   color: var(--sec-black);
   font-weight: 500;
 }
+
+.ConfirmOrderBtn {
+  margin-bottom: 0.5rem;
+}
+
+.ImagesSec {
+  margin-top: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.ImagesList {
+  display: flex;
+  grid-gap: 0.8rem;
+  align-items: center;
+}
+
+.Image {
+  width: 6rem;
+  height: 6rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.AddImageInput {
+  display: none;
+  visibility: hidden;
+}
+
+.AddImageButton {
+  font-size: var(--font-15);
+  padding: 0.9rem 2rem;
+}

@@ -18,9 +18,9 @@ function OrderMainSec({ orderDetails }) {
   useEffect(() => {
     //check if orderDetails.sellerID == userData.id
     setStaticDataAccToPerspective(
-      ORDER_DETAILS_DATA.statusData.userPerspective
+      ORDER_DETAILS_DATA.statusData.sellerPerspective
     );
-    setSellerPerspective(false);
+    setSellerPerspective(true);
   }, [orderDetails, userData]);
 
   return (
@@ -37,6 +37,7 @@ function OrderMainSec({ orderDetails }) {
             <OrderPageBottom
               status={orderDetails.status}
               staticData={staticDataAccToPerspective}
+              sellerPerspective={sellerPerspective}
             />
           </div>
         </>
