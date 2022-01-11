@@ -6,12 +6,7 @@ import { ADD_PRODUCT_POPUP_DATA } from "../../Utils/Constants/StaticData";
 import notify from "./../../Utils/Helpers/notifyToast";
 
 import Button from "../Button";
-import {
-  Checkbox,
-  FormControlLabel,
-  RadioGroup,
-  Typography,
-} from "@mui/material";
+import { Checkbox } from "@mui/material";
 import { ReactComponent as PlusIcon } from "../../Assets/AddProduct/Plus.svg";
 import { ReactComponent as DeleteIcon } from "../../Assets/AddProduct/Delete.svg";
 
