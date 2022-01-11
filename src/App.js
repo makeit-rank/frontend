@@ -8,14 +8,19 @@ import styles from "./App.module.css";
 import "react-toastify/dist/ReactToastify.css";
 
 import { BG_LINE_IMG } from "./Utils/Constants/StaticData";
-
-import Home from "./Containers/Home";
-import NavBar from "./Components/NavBar/index";
-import Preloader from "./Components/Preloader";
-import { ToastContainer } from "react-toastify";
+import {
+  UPDATE_USER_DATA,
+  UPDATE_ADD_ADDRESS_POPUP_STATE,
+  UPDATE_ADD_PRODUCT_POPUP_STATE,
+} from "./Redux/ActionTypes";
 
 import { getUserData } from "./Services/user.service";
 import notify from "./Utils/Helpers/notifyToast";
+
+import { ToastContainer } from "react-toastify";
+import NavBar from "./Components/NavBar/index";
+import Preloader from "./Components/Preloader";
+import Home from "./Containers/Home";
 import Search from "./Containers/Search/index";
 import Product from "./Containers/Product/Product";
 import Cart from "./Containers/Cart/index";
@@ -24,17 +29,13 @@ import PopUp from "./Components/_General/PopUp/PopUp";
 import AddAddress from "./Components/AddAddress/index";
 import AddProduct from "./Components/AddProduct/AddProduct";
 import Order from "./Containers/Order/index";
-import {
-  UPDATE_USER_DATA,
-  UPDATE_ADD_ADDRESS_POPUP_STATE,
-  UPDATE_ADD_PRODUCT_POPUP_STATE,
-} from "./Redux/ActionTypes";
+import PrivateRoute from "./Utils/Helpers/PrivateRoute";
 
 const App = () => {
   const userData = useSelector((state) => state.userReducer.userData);
   const popupStates = useSelector((state) => state.popUpReducer);
   const dispatch = useDispatch();
-  const [cookie] = useCookies(["token"]);
+  const [cookie, setCookie] = useCookies(["token"]);
 
   const [initialized, setInitialized] = useState(false);
 
@@ -72,13 +73,13 @@ const App = () => {
         const localeUserData = await getUserData(cookie.token);
         localeUserData.accessToken = cookie.token;
         localeUserData.isSeller = false;
-        localeUserData.isSeller = true;
-        localeUserData.shopName = "London hills fashion";
-        localeUserData.gstIn = "GST123456789";
-        localeUserData.pickupAddress = {
-          Address: "123, ABC Street, XYZ City, ABC State,",
-          pincode: "123456",
-        };
+        // localeUserData.isSeller = true;
+        // localeUserData.shopName = "London hills fashion";
+        // localeUserData.gstIn = "GST123456789";
+        // localeUserData.pickupAddress = {
+        //   Address: "123, ABC Street, XYZ City, ABC State,",
+        //   pincode: "123456",
+        // };
 
         dispatch({
           type: UPDATE_USER_DATA,
@@ -124,14 +125,45 @@ const App = () => {
           <img src={BG_LINE_IMG} alt="bg-line" className={styles.BgLine} />
 
           <Routes>
-            {["/", "login", "signup"].map((path, index) => (
-              <Route key={index} path={path} element={<Home />} />
+            <Route exact path={"/"} element={<Home />} />
+            {["login", "signup"].map((path, index) => (
+              <Route
+                key={index}
+                path={path}
+                element={
+                  <PrivateRoute inverted>
+                    <Home />
+                  </PrivateRoute>
+                }
+              />
             ))}
             <Route exact path="/search" element={<Search />} />
             <Route path="p/:id" element={<Product />} />
-            <Route path="o/:id" element={<Order />} />
-            <Route path="cart" element={<Cart />} />
-            <Route path="profile/*" element={<Profile />} />
+            <Route
+              path="o/:id"
+              element={
+                <PrivateRoute>
+                  <Order />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="cart"
+              element={
+                <PrivateRoute>
+                  <Cart />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              exact
+              path="/profile/*"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            ></Route>
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
 
