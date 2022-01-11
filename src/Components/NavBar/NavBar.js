@@ -40,7 +40,7 @@ function NavBar({ isLoggedIn }) {
   }, [searchParams]);
 
   useEffect(async () => {
-    let pincode = userData?.addresses?.[0]?.pincode || "394107";
+    let pincode = userData?.address?.[0]?.pincode || "394107";
     setLocationInfo({
       ...locationInfo,
       pincode,
