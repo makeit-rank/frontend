@@ -6,6 +6,8 @@ import styles from "./Search.module.css";
 import SerachMainComp from "../../Components/SerachMainComp";
 import Preloader from "../../Components/Preloader";
 import Footer from "../../Components/Footer";
+import { searchProducts } from "./../../Services/product.service";
+import notify from "./../../Utils/Helpers/notifyToast";
 
 function Search() {
   const [searchParams] = useSearchParams();
@@ -16,9 +18,7 @@ function Search() {
     setSearchResults(null);
     console.log(searchParams.get("search"));
     // Get Search Results
-    setTimeout(() => {
-      getSearchResults();
-    }, 1000);
+    getSearchResults();
   }, [searchParams]);
 
   const getSearchResults = async () => {
@@ -38,6 +38,16 @@ function Search() {
           image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
         }))
     );
+    try {
+      const searchResultsLocale = await searchProducts(
+        searchParams.get("search")
+      );
+      // setSearchResults(searchResults);
+      console.log(searchResultsLocale);
+    } catch (err) {
+      notify(err.response.data, "error");
+      console.log(err);
+    }
   };
 
   return (

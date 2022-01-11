@@ -9,7 +9,9 @@ export const STORAGE_API =
 
 export const AUTH_URL = PRIMARY_API + "auth/";
 export const USER_URL = PRIMARY_API + "user/";
+export const PRODUCT_URL = PRIMARY_API + "product/";
 
 export const SIGNUP_URL = AUTH_URL + "signup";
 export const LOGIN_URL = AUTH_URL + "login";
 export const GET_USER_DATA = USER_URL + "getuserdata";
+export const SEARCH_PRODUCTS = PRODUCT_URL + "atlassearch";
