@@ -81,7 +81,7 @@ function ProductInfoSec({ productDetails }) {
                   })
                 }
               >
-                <div className={styles.FullAddress}>{address.Address}</div>
+                <div className={styles.FullAddress}>{address.address}</div>
                 <div className={styles.PinCode}>{address.pincode}</div>
               </div>
             ))}

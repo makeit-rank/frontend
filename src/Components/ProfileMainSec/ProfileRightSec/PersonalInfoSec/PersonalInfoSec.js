@@ -41,7 +41,7 @@ function PersonalInfoSec() {
               </h4>
               <h5 className={styles.PickupAddress}>
                 {/* {userData[PROFILE_DATA.personalInfoSec.feilds[5].value]} */}
-                <p className={styles.Value}>{userData.pickupAddress.Address}</p>
+                <p className={styles.Value}>{userData.pickupAddress.address}</p>
                 <p className={styles.Value}>{userData.pickupAddress.pincode}</p>
               </h5>
             </div>
@@ -61,7 +61,7 @@ function PersonalInfoSec() {
             {userData.address.map((address, index) => {
               return (
                 <div className={styles.Address} key={index}>
-                  <h5 className={styles.AddressLine}>{address.Address}</h5>
+                  <h5 className={styles.AddressLine}>{address.address}</h5>
                   <h5 className={styles.Pincode}>{address.pincode}</h5>
                 </div>
               );

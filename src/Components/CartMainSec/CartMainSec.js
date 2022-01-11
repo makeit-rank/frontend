@@ -47,7 +47,7 @@ function CartMainSec({ cartData, addresses }) {
                   onClick={() => setCurrentAddressIndex(index)}
                 >
                   <div className={styles.AddressItemContent}>
-                    {address.Address}
+                    {address.address}
                   </div>
                   <div className={styles.Pincode}>{address.pincode}</div>
                 </div>
