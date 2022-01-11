@@ -1,6 +1,7 @@
 import React, { useRef } from "react";
 
 import styles from "./AddProduct.module.css";
+import { useSelector } from "react-redux";
 
 import { ADD_PRODUCT_POPUP_DATA } from "../../Utils/Constants/StaticData";
 import notify from "./../../Utils/Helpers/notifyToast";
@@ -9,8 +10,12 @@ import Button from "../Button";
 import { Checkbox } from "@mui/material";
 import { ReactComponent as PlusIcon } from "../../Assets/AddProduct/Plus.svg";
 import { ReactComponent as DeleteIcon } from "../../Assets/AddProduct/Delete.svg";
+import { uploadImage } from "./../../Services/storage.service";
+import { addProduct } from "../../Services/product.service";
 
-function AddProduct({ closePopupFunction }) {
+function AddProduct({ closePopupFunction, refreshDataFunction }) {
+  const userData = useSelector((state) => state.userReducer.userData);
+
   const addImageInputRef = useRef();
   const formRef = useRef();
 
@@ -23,24 +28,39 @@ function AddProduct({ closePopupFunction }) {
   const [isCustomizable, setIsCustomizable] = React.useState(false);
   const [requiredAttachments, setRequiredAttachments] = React.useState([]);
 
-  const addProduct = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    resetForm();
-    console.log("addProduct");
-    closePopupFunction();
+    const productData = {
+      title: formRef.current.AddAdressTitle.value,
+      price: parseInt(formRef.current.AddAdressPrice.value),
+      specification: specifications,
+      images: images,
+      various_size: sizes,
+      requiredAttachments: requiredAttachments,
+    };
+
+    try {
+      const data = await addProduct(userData.accessToken, productData);
+      notify("Product added successfully", "success");
+      resetForm();
+      closePopupFunction();
+      refreshDataFunction();
+    } catch (err) {
+      notify("Something went wrong", "error");
+      console.log(err);
+    }
   };
 
-  const handleFileChange = (e) => {
+  const handleFileChange = async (e) => {
     const [file] = addImageInputRef.current.files;
     try {
       if (file) {
         notify("Uploading profile picture...", "info");
 
-        let src = URL.createObjectURL(file);
-        setImages([...images, src]);
+        let urls = await uploadImage(file);
 
-        // await upload picture
+        setImages([...images, urls[0]]);
 
         notify("Profile picture updated successfully", "success");
       }
@@ -56,7 +76,7 @@ function AddProduct({ closePopupFunction }) {
     setSpecifications([
       ...specifications,
       {
-        key: "",
+        name: "",
         value: "",
       },
     ]);
@@ -99,7 +119,7 @@ function AddProduct({ closePopupFunction }) {
   return (
     <div className={styles.Wrapper}>
       <h3 className={styles.HeadingPrimary}>{ADD_PRODUCT_POPUP_DATA.title}</h3>
-      <form className={styles.Form} onSubmit={addProduct} ref={formRef}>
+      <form className={styles.Form} onSubmit={handleSubmit} ref={formRef}>
         <div className={styles.PrimaryInfoSec}>
           <div className={styles.PrimaryInfoSecKeyValuePair}>
             <label className={styles.PrimaryInfoSecKey}>
@@ -190,14 +210,14 @@ function AddProduct({ closePopupFunction }) {
                       ADD_PRODUCT_POPUP_DATA.specificationsPlaceholders.key
                     }
                     className={styles.Input + " " + styles.SpecificationKey}
-                    value={specification.key}
+                    value={specification.name}
                     onChange={(e) => {
                       setSpecifications(
                         specifications.map((spec, i) => {
                           if (i === index) {
                             return {
                               ...spec,
-                              key: e.target.value,
+                              name: e.target.value,
                             };
                           }
                           return spec;

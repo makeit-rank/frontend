@@ -167,7 +167,10 @@ const App = () => {
               <PopUp
                 isOpen={userData.isSeller && popupStates.addProduct}
                 ContentComp={
-                  <AddProduct closePopupFunction={closeAddProductPopup} />
+                  <AddProduct
+                    closePopupFunction={closeAddProductPopup}
+                    refreshDataFunction={fetchUserData}
+                  />
                 }
                 closeFun={closeAddProductPopup}
                 withBorder={false}
