@@ -9,6 +9,7 @@ import WishList from "./WishList/WishList";
 import BecomeASellerSec from "./BecomeASeller";
 import Dashboard from "./Dashboard/Dashboard";
 import SellerProducts from "./SellerProducts";
+import SellerSafeRoute from "../../../Utils/Helpers/SellerSafeRoute";
 
 function ProfileRightSec() {
   return (
@@ -17,9 +18,30 @@ function ProfileRightSec() {
         <Route exact path="/" element={<PersonalInfoSec />} />
         <Route path="/orders" element={<OrdersSec />} />
         <Route path="/wishlist" element={<WishList />} />
-        <Route path="become-a-seller" element={<BecomeASellerSec />} />
-        <Route path="dashboard" element={<Dashboard />} />
-        <Route path="products" element={<SellerProducts />} />
+        <Route
+          path="become-a-seller"
+          element={
+            <SellerSafeRoute reversed redirectPath="/profile/">
+              <BecomeASellerSec />
+            </SellerSafeRoute>
+          }
+        />
+        <Route
+          path="dashboard"
+          element={
+            <SellerSafeRoute redirectPath="/profile/">
+              <Dashboard />
+            </SellerSafeRoute>
+          }
+        />
+        <Route
+          path="products"
+          element={
+            <SellerSafeRoute redirectPath="/profile/">
+              <SellerProducts />
+            </SellerSafeRoute>
+          }
+        />
         <Route path="*" element={<Navigate to="/profile/" />} />
       </Routes>
     </>
