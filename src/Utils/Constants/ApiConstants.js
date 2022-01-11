@@ -16,4 +16,6 @@ export const LOGIN_URL = AUTH_URL + "login";
 export const GET_USER_DATA = USER_URL + "getuserdata";
 export const ADD_ADDESS_URL = USER_URL + "addAddress";
 export const BECOME_A_SELLER_URL = USER_URL + "becomeaseller";
+export const GET_CART_DATA = USER_URL + "getcart";
+export const REMOVE_CART_ITEM = USER_URL + "removefromcart";
 export const SEARCH_PRODUCTS = PRODUCT_URL + "atlassearch";
