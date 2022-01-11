@@ -9,10 +9,10 @@ import Button from "../../../Button";
 import { becomeASeller } from "./../../../../Services/user.service";
 import notify from "./../../../../Utils/Helpers/notifyToast";
 
-function BecomeASellerSec() {
+function BecomeASellerSec({ refreshUserData }) {
   const userData = useSelector((state) => state.userReducer.userData);
 
-  const handleSubmit = (e) => {
+  const handleSubmit  = async (e) => {
     e.preventDefault();
     const elements = e.target.elements;
     console.log(elements.ShopName.value);
@@ -21,7 +21,7 @@ function BecomeASellerSec() {
     console.log(elements.PickupPincode.value);
 
     try {
-      const data = becomeASeller(
+      const data = await becomeASeller(
         userData.accessToken,
         elements.ShopName.value,
         elements.GstIn.value,
@@ -30,6 +30,8 @@ function BecomeASellerSec() {
           pincode: elements.PickupPincode.value,
         }
       );
+      refreshUserData();
+      console.log(refreshUserData)
       notify("Successfully become a seller", "success");
     } catch (err) {
       notify(err.response.data, "error");

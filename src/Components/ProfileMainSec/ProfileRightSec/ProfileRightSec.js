@@ -11,7 +11,7 @@ import Dashboard from "./Dashboard/Dashboard";
 import SellerProducts from "./SellerProducts";
 import SellerSafeRoute from "../../../Utils/Helpers/SellerSafeRoute";
 
-function ProfileRightSec() {
+function ProfileRightSec({ refreshUserData }) {
   return (
     <>
       <Routes>
@@ -22,7 +22,7 @@ function ProfileRightSec() {
           path="become-a-seller"
           element={
             <SellerSafeRoute reversed redirectPath="/profile/">
-              <BecomeASellerSec />
+              <BecomeASellerSec refreshUserData={refreshUserData} />
             </SellerSafeRoute>
           }
         />

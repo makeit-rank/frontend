@@ -144,7 +144,7 @@ const App = () => {
               path="/profile/*"
               element={
                 <PrivateRoute>
-                  <Profile />
+                  <Profile refreshUserData={fetchUserData} />
                 </PrivateRoute>
               }
             ></Route>

@@ -7,10 +7,10 @@ import styles from "./Profile.module.css";
 import ProfileMainSec from "./../../Components/ProfileMainSec/ProfileMainSec";
 import SecondaryFooter from "./../../Components/SecondaryFooter/index";
 
-const Profile = () => {
+const Profile = ({ refreshUserData }) => {
   return (
     <div className={styles.Wrapper}>
-      <ProfileMainSec />
+      <ProfileMainSec refreshUserData={refreshUserData} />
       <SecondaryFooter />
     </div>
   );
