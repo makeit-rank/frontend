@@ -2,14 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-const PrivateRoute = ({ inverted = false, children }) => {
+const PrivateRoute = ({ children }) => {
   const userData = useSelector((state) => state.userReducer.userData);
 
-  return (userData !== undefined) !== inverted ? (
-    children
-  ) : (
-    <Navigate to="/" />
-  );
+  return userData !== null ? children : <Navigate to="/login" />;
 };
 
 export default PrivateRoute;

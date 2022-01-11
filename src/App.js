@@ -125,17 +125,8 @@ const App = () => {
           <img src={BG_LINE_IMG} alt="bg-line" className={styles.BgLine} />
 
           <Routes>
-            <Route exact path={"/"} element={<Home />} />
-            {["login", "signup"].map((path, index) => (
-              <Route
-                key={index}
-                path={path}
-                element={
-                  <PrivateRoute inverted>
-                    <Home />
-                  </PrivateRoute>
-                }
-              />
+            {["/", "login", "signup"].map((path, index) => (
+              <Route key={index} path={path} element={<Home />} />
             ))}
             <Route exact path="/search" element={<Search />} />
             <Route path="p/:id" element={<Product />} />
