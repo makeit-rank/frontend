@@ -16,8 +16,8 @@ function HighlightsItemSec({ title, items, redirectTo }) {
         </Link>
 
         <div className={styles.Items}>
-          {items?.map((item) => (
-            <div className={styles.Item} key={item.id}>
+          {items?.map((item, index) => (
+            <div className={styles.Item} key={index}>
               <ItemCard itemData={item} />
             </div>
           ))}
