@@ -5,6 +5,7 @@ import {
   BECOME_A_SELLER_URL,
   GET_CART_DATA,
   REMOVE_CART_ITEM,
+  ADD_TO_CART_URL,
 } from "../Utils/Constants/ApiConstants";
 
 export const getUserData = async (accessToken) => {
@@ -78,6 +79,32 @@ export const removeCartItem = async (accessToken, cart_id) => {
       REMOVE_CART_ITEM,
       {
         cart_id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const addProductToCart = async (
+  accessToken,
+  product_id,
+  size,
+  attachedFiles
+) => {
+  try {
+    const { data } = await axios.post(
+      ADD_TO_CART_URL,
+      {
+        product_id,
+        size,
+        attachedFiles,
       },
       {
         headers: {

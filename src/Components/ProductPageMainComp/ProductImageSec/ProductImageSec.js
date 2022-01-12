@@ -1,12 +1,55 @@
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 import styles from "./ProductImageSec.module.css";
 import Button from "./../../Button/index";
 import { PRODUCT_PAGE_DATA } from "../../../Utils/Constants/StaticData";
 import WishlistIcon from "./../../WishlistIcon/index";
+import notify from "./../../../Utils/Helpers/notifyToast";
+import { addProductToCart } from "../../../Services/user.service";
+import { addProductToOrder } from "./../../../Services/order.service";
 
-function ProductImageSec({ images, productId }) {
+function ProductImageSec({
+  images,
+  productId,
+  productDetails,
+  currentSelections,
+}) {
+  const userData = useSelector((state) => state.userReducer.userData);
+
   const [currentImage, setCurrentImage] = useState(0);
+
+  const addToCart = async () => {
+    try {
+      const response = await addProductToCart(
+        userData.accessToken,
+        productId,
+        productDetails.various_size[currentSelections.size],
+        Object.values(currentSelections.attachments)
+      );
+      notify("Successfully added to cart", "success");
+    } catch (err) {
+      console.log(err);
+      notify("Failed to add product to cart", "error");
+    }
+  };
+
+  const placeOrder = async () => {
+    console.log("Place order");
+    try {
+      const response = await addProductToOrder(
+        userData.accessToken,
+        productId,
+        productDetails.various_size[currentSelections.size],
+        Object.values(currentSelections.attachments),
+        userData.address[currentSelections.address]
+      );
+      notify("Successfully placed order", "success");
+    } catch (err) {
+      console.log(err);
+      notify("Failed to place order", "error");
+    }
+  };
 
   return (
     <div className={styles.Wrapper}>
@@ -42,18 +85,14 @@ function ProductImageSec({ images, productId }) {
         <div className={styles.ButtonsWrapper}>
           <Button
             name={PRODUCT_PAGE_DATA.addToCart}
-            onClick={() => {
-              console.log("add to cart");
-            }}
+            onClick={addToCart}
             primaryColor="var(--primary-blue)"
             inverted
             wrapperClass={styles.AddToCartButton + " " + styles.Button}
           />
           <Button
             name={PRODUCT_PAGE_DATA.placeOrder}
-            onClick={() => {
-              console.log("place order");
-            }}
+            onClick={placeOrder}
             primaryColor="var(--primary-blue)"
             wrapperClass={styles.PlaceOrderButton + " " + styles.Button}
           />
