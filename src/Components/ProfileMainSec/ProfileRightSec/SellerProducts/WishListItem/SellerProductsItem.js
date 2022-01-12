@@ -13,32 +13,27 @@ function SellerProductsItem({ itemData }) {
   };
 
   return (
-    <Link className={styles.Wrapper} to={`/p/${itemData.productDetails.id}`}>
+    <Link className={styles.Wrapper} to={`/p/${itemData._id}`}>
       <img
-        src={itemData.productDetails.image}
+        src={itemData.images[0]}
         alt="productImg"
         className={styles.ProductImg + " " + styles.SmoothLoading}
         onLoad={smoothLoading}
       />
       <div className={styles.ProductInfo}>
         <div className={styles.ProductInfoTop}>
-          <h4 className={styles.ProductName}>
-            {itemData.productDetails.title}
-          </h4>
+          <h4 className={styles.ProductName}>{itemData.title}</h4>
           <div className={styles.Rating}>
             <div className={styles.RatingWrapper}>
-              <Ratings rating={itemData.productDetails.star} />
+              <Ratings rating={itemData.star} />
             </div>
             <div className={styles.RatingCount}>
-              {itemData.productDetails.count}{" "}
-              {PROFILE_DATA.wishlistSec.reviews}
+              {itemData.count} {PROFILE_DATA.wishlistSec.reviews}
             </div>
           </div>
         </div>
         <div className={styles.ProductInfoBottom}>
-          <h5
-            className={styles.Price}
-          >{`₹${itemData.productDetails.price}`}</h5>
+          <h5 className={styles.Price}>{`₹${itemData.price}`}</h5>
         </div>
       </div>
     </Link>
