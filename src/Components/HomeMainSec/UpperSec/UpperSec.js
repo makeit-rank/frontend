@@ -3,12 +3,15 @@ import React from "react";
 import styles from "./UpperSec.module.css";
 
 import Button from "./../../Button";
+import { useNavigate } from "react-router-dom";
 
 import { HOME_DATA } from "../../../Utils/Constants/StaticData";
 
 function UpperSec() {
+  const navigate = useNavigate();
   const handleClick = (e) => {
-    console.log(e.target);
+    navigate("/search?search=top-picks");
+    
   };
 
   return (
