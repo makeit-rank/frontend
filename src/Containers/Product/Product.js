@@ -16,14 +16,12 @@ function Product() {
   const [productDetails, setProductDetails] = useState(null);
 
   useEffect(() => {
-    console.log(productID);
     getProductDetails();
   }, [productID]);
 
   const getProductDetails = async () => {
     try {
       const response = await getProductDataById(productID);
-      console.log(response);
       setProductDetails(response);
     } catch (err) {
       notify("Internal Server Error", "error");
@@ -35,7 +33,10 @@ function Product() {
   return (
     <div className={styles.Wrapper}>
       {productDetails ? (
-        <ProductPageMainComp productDetails={productDetails} refreshDataFun={getProductDetails} />
+        <ProductPageMainComp
+          productDetails={productDetails}
+          refreshDataFun={getProductDetails}
+        />
       ) : (
         <Preloader />
       )}

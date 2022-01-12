@@ -22,7 +22,7 @@ export default function ItemCard({ itemData }) {
         <div className={styles.UpperSec}>
           <img src={itemData.images[0]} alt="item" className={styles.Image} />
           <div className={styles.AddToWishList}>
-            <WishlistIcon productId={itemData.id} />
+            <WishlistIcon productId={itemData._id} />
           </div>
         </div>
         <div className={styles.LowerSec}>

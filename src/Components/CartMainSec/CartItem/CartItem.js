@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 import styles from "./CartItem.module.css";
 import { CART_DATA } from "./../../../Utils/Constants/StaticData";
@@ -6,8 +7,40 @@ import Button from "./../../Button/index";
 
 import { ReactComponent as DeleteIcon } from "../../../Assets/Cart/Delete.svg";
 import { ReactComponent as HeartIcon } from "../../../Assets/Cart/Heart.svg";
+import {
+  moveProductFromCartToWishlist,
+  removeCartItem,
+} from "./../../../Services/user.service";
+import notify from "./../../../Utils/Helpers/notifyToast";
 
-function CartItem({ itemData, isLast }) {
+function CartItem({ itemData, isLast, refreshDataFunction }) {
+  const userData = useSelector((state) => state.userReducer.userData);
+
+  const removeItem = async () => {
+    try {
+      const response = await removeCartItem(userData.accessToken, itemData._id);
+      await refreshDataFunction();
+      notify("Item successfully removed from cart", "success");
+    } catch (err) {
+      console.log(err);
+      notify("Something went wrong", "error");
+    }
+  };
+
+  const moveToWishlist = async () => {
+    try {
+      const response = await moveProductFromCartToWishlist(
+        userData.accessToken,
+        itemData._id
+      );
+      await refreshDataFunction();
+      notify("Item successfully moved to wishlist", "success");
+    } catch (err) {
+      console.log(err);
+      notify("Something went wrong", "error");
+    }
+  };
+
   return (
     <div
       className={styles.Wrapper}
@@ -15,17 +48,23 @@ function CartItem({ itemData, isLast }) {
     >
       <div className={styles.UpperSec}>
         <div className={styles.LeftSec}>
-          <img src={itemData.image} alt="product" className={styles.Image} />
+          <img
+            src={itemData.product_details.images[0]}
+            alt="product"
+            className={styles.Image}
+          />
           <div className={styles.SubRightSec}>
             <div className={styles.ProductInfo}>
-              <div className={styles.ProductName}>{itemData.title}</div>
+              <div className={styles.ProductName}>
+                {itemData.product_details.title}
+              </div>
               <div className={styles.ProductInfoList}>
                 <div className={styles.ProductInfoItem}>
                   <div className={styles.ProductInfoItemKey}>
                     {CART_DATA.seller}
                   </div>
                   <div className={styles.ProductInfoItemValue}>
-                    {itemData.seller}
+                    {itemData.product_details.shop_name}
                   </div>
                 </div>
                 {itemData.size && (
@@ -44,13 +83,15 @@ function CartItem({ itemData, isLast }) {
                 )}
               </div>
             </div>
-            <div className={styles.ProductPrice}>{`₹${itemData.price}`}</div>
+            <div
+              className={styles.ProductPrice}
+            >{`₹${itemData.product_details.price}`}</div>
           </div>
         </div>
         <div className={styles.RightSec}>
           <Button
             name={CART_DATA.remove}
-            onClick={() => {}}
+            onClick={removeItem}
             inverted
             primaryColor={`var(--ter-black)`}
             hoverBgColor={`var(--white)`}
@@ -62,7 +103,7 @@ function CartItem({ itemData, isLast }) {
           />
           <Button
             name={CART_DATA.moveToWishlist}
-            onClick={() => {}}
+            onClick={moveToWishlist}
             inverted
             primaryColor={`var(--ter-black)`}
             hoverBgColor={`var(--white)`}
@@ -74,11 +115,11 @@ function CartItem({ itemData, isLast }) {
           />
         </div>
       </div>
-      {itemData.attachedImages?.length > 0 && (
+      {itemData.product_details.attachedImages?.length > 0 && (
         <div className={styles.LowerSec}>
           <h4 className={styles.LowerHeading}>{CART_DATA.attachedFiles}</h4>
           <div className={styles.AttachedFilesList}>
-            {itemData.attachedImages.map((image, index) => {
+            {itemData.product_details.attachedImages.map((image, index) => {
               return (
                 <img
                   src={image}

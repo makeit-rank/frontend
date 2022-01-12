@@ -8,6 +8,8 @@ import Footer from "../../Components/Footer/index";
 import Preloader from "./../../Components/Preloader/Preloader";
 import CartMainSec from "./../../Components/CartMainSec/index";
 import EmptyCartComp from "./../../Components/EmptyCartComp/index";
+import { getCartItemsData } from "../../Services/user.service";
+import notify from "./../../Utils/Helpers/notifyToast";
 
 const Cart = () => {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -15,46 +17,31 @@ const Cart = () => {
   const [cartData, setCartData] = useState();
 
   useEffect(() => {
-    setTimeout(() => {
-      getCartData();
-    }, 1000);
+    getCartData();
   }, [userData]);
 
   const getCartData = async () => {
-    setCartData({
-      recommended: null,
-      topPicks: null,
-    });
-    console.log("get highlights data");
+    setCartData(null);
 
-    const tempData = Array(4)
-      .fill({})
-      .map((_, index) => ({
-        id: index,
-        image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-        title: `Printed Men Hooded Block Round Neck Black T-Shirt`,
-        seller: `Blive  enterprise ${index + 1}`,
-        size: "XL",
-        // size: Math.random() > 0.5 ? "S" : undefined,
-        price: Math.floor(Math.random() * 500) + 500,
-        attachedImages:
-          Math.random() > 0.5
-            ? [
-                `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-                `https://images.unsplash.com/photo-1571945153237-4929e783af4a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHsx8&auto=format&fit=crop&w=387&q=80`,
-                `https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-              ]
-            : undefined,
-      }));
-
-    setCartData(tempData);
+    try {
+      const response = await getCartItemsData(userData.accessToken);
+      console.log(response);
+      setCartData(response);
+    } catch (err) {
+      console.log(err);
+      notify("Something went wrong", "error");
+    }
   };
 
   return (
     <div className={styles.Wrapper}>
       {cartData ? (
         cartData.length > 0 ? (
-          <CartMainSec cartData={cartData} addresses={userData.address} />
+          <CartMainSec
+            cartData={cartData}
+            addresses={userData.address}
+            refreshDataFunction={getCartData}
+          />
         ) : (
           <EmptyCartComp />
         )
