@@ -17,13 +17,6 @@ function ProductReviewSec({ productDetails, refreshDataFun }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log(
-      userData.accessToken,
-      productDetails._id,
-      ratingsValue,
-      e.target.elements.ReviewText.value
-    );
-
     try {
       const response = await addReviewToProduct(
         userData.accessToken,
@@ -78,7 +71,6 @@ function ProductReviewSec({ productDetails, refreshDataFun }) {
       </form>
       <div className={styles.ReviewsList}>
         {productDetails.reviews.map((review, index) => {
-          console.log(review);
           return (
             <div
               key={index}
