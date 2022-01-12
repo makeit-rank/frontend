@@ -10,16 +10,20 @@ import { ReactComponent as PlusIcon } from "../../../Assets/Product/Plus.svg";
 import notify from "./../../../Utils/Helpers/notifyToast";
 import { uploadImage } from "./../../../Services/storage.service";
 
-function ProductInfoSec({ productDetails }) {
+function ProductInfoSec({
+  productDetails,
+  currentSelections,
+  setCurrentSelections,
+}) {
   const userData = useSelector((state) => state.userReducer.userData);
 
   const inputRefs = useRef([]);
 
-  const [currentSelections, setCurrentSelections] = useState({
-    size: 0,
-    address: 0,
-    attachments: {},
-  });
+  // const [currentSelections, setCurrentSelections] = useState({
+  //   size: 0,
+  //   address: 0,
+  //   attachments: {},
+  // });
 
   const handleFileChange = async (e, index) => {
     const [file] = e.target.files;
