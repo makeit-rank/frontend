@@ -17,7 +17,6 @@ function WishlistIcon({ productId }) {
   }, [productId]);
 
   const handleOnClick = async () => {
-    console.log(userData.accessToken);
     if (selected) {
       try {
         const result = await removeProductFromWishlist(
@@ -30,7 +29,6 @@ function WishlistIcon({ productId }) {
         console.log(err);
         notify("Error removing product from wishlist", "error");
       }
-      // remove from wishlist
     } else {
       try {
         const result = await addProductToWishlist(
@@ -43,8 +41,6 @@ function WishlistIcon({ productId }) {
         console.log(err);
         notify("Error adding product to wishlist", "error");
       }
-
-      // add to wishlist
     }
   };
 
