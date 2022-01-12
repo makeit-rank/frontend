@@ -36,10 +36,10 @@ function WishListItem({ wishlistItem }) {
             </h5>
             <div className={styles.Rating}>
               <div className={styles.RatingWrapper}>
-                <Ratings rating={wishlistItem.productDetails.rating} />
+                <Ratings rating={wishlistItem.productDetails.star} />
               </div>
               <div className={styles.RatingCount}>
-                {wishlistItem.productDetails.noOfRatings}{" "}
+                {wishlistItem.productDetails.count}{" "}
                 {PROFILE_DATA.wishlistSec.reviews}
               </div>
             </div>

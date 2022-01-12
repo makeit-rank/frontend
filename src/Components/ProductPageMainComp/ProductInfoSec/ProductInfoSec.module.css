@@ -120,6 +120,7 @@
   transition: border 0.15s ease-out, background 0.15s ease-out;
   border-radius: 0.5rem;
   cursor: pointer;
+  background: var(--white);
 }
 
 .SelectedAddress {

@@ -7,6 +7,8 @@ import { PRODUCT_PAGE_DATA } from "../../../Utils/Constants/StaticData";
 import Button from "./../../Button/index";
 
 import { ReactComponent as PlusIcon } from "../../../Assets/Product/Plus.svg";
+import notify from "./../../../Utils/Helpers/notifyToast";
+import { uploadImage } from "./../../../Services/storage.service";
 
 function ProductInfoSec({ productDetails }) {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -19,17 +21,42 @@ function ProductInfoSec({ productDetails }) {
     attachments: {},
   });
 
+  const handleFileChange = async (e, index) => {
+    const [file] = e.target.files;
+    try {
+      if (file) {
+        notify("Uploading profile picture...", "info");
+
+        let urls = await uploadImage(file);
+
+        setCurrentSelections({
+          ...currentSelections,
+          attachments: {
+            ...currentSelections.attachments,
+            [index]: urls[0],
+          },
+        });
+
+        notify("Image updated successfully", "success");
+      }
+    } catch (err) {
+      console.log(err);
+      console.log(err.response);
+      notify(err, "error");
+    }
+  };
+
   return (
     <div className={styles.Wrapper}>
       <div className={styles.TitleInfoSec}>
         <div className={styles.Header}>
-          <h5 className={styles.SellerName}>{productDetails.seller}</h5>
+          <h5 className={styles.SellerName}>{productDetails.shop_name}</h5>
           <h4 className={styles.ProductName}>{productDetails.title}</h4>
         </div>
         <div div className={styles.ReviewsSec}>
-          <Ratings rating={productDetails.rating} />
+          <Ratings rating={productDetails.star} />
           <span className={styles.NoOfRatings}>
-            {productDetails.noOfRatings} {PRODUCT_PAGE_DATA.reviews}
+            {productDetails.count} {PRODUCT_PAGE_DATA.reviews}
           </span>
         </div>
         {productDetails.requiredAttachments.length > 0 && (
@@ -39,12 +66,13 @@ function ProductInfoSec({ productDetails }) {
         )}
         <h3 className={styles.Price}> {`₹${productDetails.price}`}</h3>
       </div>
-      {productDetails.sizes && (
+      {productDetails.various_size && (
         <div className={styles.SizesSec}>
           <h5 className={styles.SizesTitle}>{PRODUCT_PAGE_DATA.sizes}</h5>
           <div className={styles.SizesWrapper}>
-            {productDetails.sizes.map((size, index) => (
+            {productDetails.various_size.map((size, index) => (
               <div
+                key={index}
                 className={`${styles.Size} ${
                   currentSelections.size === index ? styles.SelectedSize : ""
                 }`}
@@ -61,7 +89,7 @@ function ProductInfoSec({ productDetails }) {
           </div>
         </div>
       )}
-      {userData.address?.length > 0 && (
+      {userData?.address?.length > 0 && (
         <div className={styles.AddressSec}>
           <div className={styles.AddressTitle}>
             {PRODUCT_PAGE_DATA.deliverTo}
@@ -69,6 +97,7 @@ function ProductInfoSec({ productDetails }) {
           <div className={styles.AddressesWrapper}>
             {userData.address.map((address, index) => (
               <div
+                key={index}
                 className={`${styles.Address} ${
                   currentSelections.address === index
                     ? styles.SelectedAddress
@@ -132,19 +161,22 @@ function ProductInfoSec({ productDetails }) {
                       inputRefs.current[index] = ref;
                     }}
                     onChange={(e) => {
-                      const file = e.target.files[0];
-                      const reader = new FileReader();
-                      reader.onload = (e) => {
-                        setCurrentSelections({
-                          ...currentSelections,
-                          attachments: {
-                            ...currentSelections.attachments,
-                            [index]: e.target.result,
-                          },
-                        });
-                      };
-                      reader.readAsDataURL(file);
+                      handleFileChange(e, index);
                     }}
+                    // onChange={(e) => {
+                    //   const file = e.target.files[0];
+                    //   const reader = new FileReader();
+                    //   reader.onload = (e) => {
+                    //     setCurrentSelections({
+                    //       ...currentSelections,
+                    //       attachments: {
+                    //         ...currentSelections.attachments,
+                    //         [index]: e.target.result,
+                    //       },
+                    //     });
+                    //   };
+                    //   reader.readAsDataURL(file);
+                    // }}
                     className={styles.AttachmentInput}
                   />
                 </div>
@@ -159,9 +191,11 @@ function ProductInfoSec({ productDetails }) {
           {PRODUCT_PAGE_DATA.specifications}
         </h5>
         <div className={styles.SpecificationWrapper}>
-          {productDetails.specifications.map((specification, index) => (
+          {productDetails.specification.map((specification, index) => (
             <div className={styles.Specification} key={index}>
-              <div className={styles.SpecificationKey}>{specification.key}</div>
+              <div className={styles.SpecificationKey}>
+                {specification.name}
+              </div>
               <div className={styles.SpecificationValue}>
                 {specification.value}
               </div>

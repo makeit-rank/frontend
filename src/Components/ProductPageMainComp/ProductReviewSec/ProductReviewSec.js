@@ -10,8 +10,8 @@ function ProductReviewSec({ productDetails }) {
       <div className={styles.UpperSec}>
         <h4 className={styles.Title}>{PRODUCT_PAGE_DATA.ratingsAndReviews}</h4>
         <div className={styles.ReviewHighlights}>
-          <Ratings rating={productDetails.rating} />
-          <span className={styles.NoOfRatings}>
+          <Ratings rating={productDetails.star} />
+          <span className={styles.count}>
             {productDetails.noOfRatings} {PRODUCT_PAGE_DATA.reviews}
           </span>
         </div>
@@ -34,6 +34,7 @@ function ProductReviewSec({ productDetails }) {
           console.log(review);
           return (
             <div
+              key={index}
               className={styles.Review}
               style={
                 index === productDetails.reviews.length - 1
@@ -49,7 +50,9 @@ function ProductReviewSec({ productDetails }) {
               <div className={styles.ReviewRightSec}>
                 <div className={styles.ReviewText}>{review.description}</div>
                 <div className={styles.AuthorAndDate}>
-                  {`${review.name} || ${review.timestamp}`}
+                  {`${review.name} || ${new Date(
+                    review.timestamp
+                  ).toDateString()}`}
                 </div>
               </div>
             </div>

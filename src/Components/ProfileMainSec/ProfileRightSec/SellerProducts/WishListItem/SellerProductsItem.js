@@ -27,10 +27,10 @@ function SellerProductsItem({ itemData }) {
           </h4>
           <div className={styles.Rating}>
             <div className={styles.RatingWrapper}>
-              <Ratings rating={itemData.productDetails.rating} />
+              <Ratings rating={itemData.productDetails.star} />
             </div>
             <div className={styles.RatingCount}>
-              {itemData.productDetails.noOfRatings}{" "}
+              {itemData.productDetails.count}{" "}
               {PROFILE_DATA.wishlistSec.reviews}
             </div>
           </div>

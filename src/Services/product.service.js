@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   SEARCH_PRODUCTS,
   ADD_PRODUCT_URL,
+  GET_PRODUCT_DATA_BY_ID,
 } from "../Utils/Constants/ApiConstants";
 
 export const searchProducts = async (query) => {
@@ -20,6 +21,17 @@ export const addProduct = async (authToken, productData) => {
         Authorization: `Bearer ${authToken}`,
       },
     });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getProductDataById = async (productId) => {
+  try {
+    const { data } = await axios.get(
+      GET_PRODUCT_DATA_BY_ID + `?product_id="${productId}"`
+    );
     return data;
   } catch (err) {
     throw err;
