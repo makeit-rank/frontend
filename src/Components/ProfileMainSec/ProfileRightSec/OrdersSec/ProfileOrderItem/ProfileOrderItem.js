@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { PROFILE_DATA } from "../../../../../Utils/Constants/StaticData";
 
 import styles from "./ProfileOrderItem.module.css";
@@ -8,26 +9,28 @@ function ProfileOrderItem({ OrderDetails }) {
   };
 
   return (
-    <div className={styles.Wrapper}>
+    <Link className={styles.Wrapper} to={`/o/${OrderDetails._id}`}>
       <div className={styles.TopSec}>
         <div className={styles.KeyValuePair}>
           <h4 className={styles.Key}>{PROFILE_DATA.ordersSec.orderPlaced}</h4>
           <h5 className={styles.Value}>
-            {new Date(OrderDetails.timestamp).toLocaleDateString()}
+            {new Date(OrderDetails.created_at).toLocaleDateString()}
           </h5>
         </div>
         <div className={styles.KeyValuePair}>
           <h4 className={styles.Key}>{PROFILE_DATA.ordersSec.total}</h4>
-          <h5 className={styles.Value}>{`₹${OrderDetails.total}`}</h5>
+          <h5
+            className={styles.Value}
+          >{`₹${OrderDetails.product_details.price}`}</h5>
         </div>
         <div className={styles.KeyValuePair}>
           <h4 className={styles.Key}>{PROFILE_DATA.ordersSec.id}</h4>
-          <h5 className={styles.Value}>{OrderDetails.id}</h5>
+          <h5 className={styles.Value}>{OrderDetails._id}</h5>
         </div>
       </div>
       <div className={styles.BottomSec}>
         <img
-          src={OrderDetails.productDetails.image}
+          src={OrderDetails.product_details.images[0]}
           alt="productImg"
           className={styles.ProductImg + " " + styles.SmoothLoading}
           onLoad={smoothLoading}
@@ -35,7 +38,7 @@ function ProfileOrderItem({ OrderDetails }) {
         <div className={styles.ProductInfo}>
           <div className={styles.ProductInfoTop}>
             <h4 className={styles.ProductName}>
-              {OrderDetails.productDetails.title}
+              {OrderDetails.product_details.title}
             </h4>
             <div className={styles.SubKeyValuePairList}>
               <div className={styles.SubKeyValuePair}>
@@ -43,48 +46,46 @@ function ProfileOrderItem({ OrderDetails }) {
                   {PROFILE_DATA.ordersSec.seller}
                 </h4>
                 <h5 className={styles.SubValue}>
-                  {OrderDetails.productDetails.seller}
+                  {OrderDetails.product_details.shop_name}
                 </h5>
               </div>
-              {OrderDetails.productDetails.size && (
+              {OrderDetails.product_details.size && (
                 <div className={styles.SubKeyValuePair}>
                   <h4 className={styles.SubKey}>
                     {PROFILE_DATA.ordersSec.size}
                   </h4>
                   <h5 className={styles.SubValue}>
-                    {OrderDetails.productDetails.size}
+                    {OrderDetails.product_details.size}
                   </h5>
                 </div>
               )}
             </div>
           </div>
 
-          {OrderDetails.productDetails.attachedFiles && (
+          {OrderDetails.attachedFiles?.length > 0 && (
             <div className={styles.AttchedFilesSec}>
               <h4 className={styles.AttchedFilesTitle}>
                 {PROFILE_DATA.ordersSec.attachedFiles}
               </h4>
               <div className={styles.AttachedFilesList}>
-                {OrderDetails.productDetails.attachedFiles.map(
-                  (file, index) => {
-                    return (
-                      <img
-                        key={index}
-                        className={
-                          styles.AttachedFile + " " + styles.SmoothLoading
-                        }
-                        src={file}
-                        onLoad={smoothLoading}
-                      />
-                    );
-                  }
-                )}
+                {OrderDetails.attachedFiles.map((file, index) => {
+                  return (
+                    <img
+                      key={index}
+                      className={
+                        styles.AttachedFile + " " + styles.SmoothLoading
+                      }
+                      src={file}
+                      onLoad={smoothLoading}
+                    />
+                  );
+                })}
               </div>
             </div>
           )}
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
