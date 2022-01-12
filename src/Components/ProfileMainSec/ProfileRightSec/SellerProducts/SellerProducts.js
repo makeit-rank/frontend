@@ -10,45 +10,32 @@ import SellerProductsItem from "./WishListItem/index";
 import Button from "./../../../Button/index";
 import { ReactComponent as PlusIcon } from "../../../../Assets/SellerProductList/Plus.svg";
 import { UPDATE_ADD_PRODUCT_POPUP_STATE } from "./../../../../Redux/ActionTypes";
+import { getSellerProduct } from "../../../../Services/product.service";
+import notify from "../../../../Utils/Helpers/notifyToast";
 
 function SellerProducts() {
   const userData = useSelector((state) => state.userReducer.userData);
   const dispatch = useDispatch();
 
-  const [wishlist, setWishlist] = useState(null);
+  const [product, setProducts] = useState(null);
 
   useEffect(() => {
-    setTimeout(() => {
-      setWishlist(null);
-      fetchWishlist();
-    }, 300);
+    getSellerProducts();
   }, [userData]);
 
-  const fetchWishlist = () => {
-    let tmpData = Array(7)
-      .fill({})
-      .map((_, index) => {
-        return {
-          id: Math.floor(Math.random() * 100000000),
-          productDetails: {
-            id: Math.floor(Math.random() * 100000000),
-            image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-            title: `Printed Men Hooded Block Round Neck Black T-Shirt`,
-            price: Math.floor(Math.random() * 1000),
-            rating:
-              Math.floor(Math.random()) * 3 +
-              1 +
-              Math.floor(Math.random() * 10) / 10,
-            noOfRatings: Math.floor(Math.random() * 100),
-          },
-        };
-      });
-    setWishlist(tmpData);
+  const getSellerProducts = async () => {
+    try {
+      setProducts(null);
+      const response = await getSellerProduct(userData.accessToken);
+      setProducts(response);
+    } catch (err) {
+      notify("Something went wrong", "error");
+    }
   };
 
   return (
     <>
-      {wishlist ? (
+      {product ? (
         <div className={styles.Wrapper}>
           <div className={styles.TopSec}>
             <h3 className={styles.Title}>{PROFILE_DATA.productsSec.title}</h3>
@@ -69,15 +56,13 @@ function SellerProducts() {
           </div>
 
           <div className={styles.BottomSec}>
-            {wishlist.map((listItem, index) => {
+            {product.map((listItem, index) => {
               return (
                 <div
                   className={styles.LIstItemWrapper}
                   key={index}
                   style={
-                    index === wishlist.length - 1
-                      ? { borderBottom: "none" }
-                      : {}
+                    index === product.length - 1 ? { borderBottom: "none" } : {}
                   }
                 >
                   <SellerProductsItem itemData={listItem} />
