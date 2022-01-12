@@ -5,40 +5,17 @@ import styles from "./WishList.module.css";
 
 import Preloader from "../../../Preloader/Preloader";
 import WishListItem from "./WishListItem/index";
+import { getWishlist } from "../../../../Services/user.service";
 
 function WishList() {
   const userData = useSelector((state) => state.userReducer.userData);
   const [wishlist, setWishlist] = useState(null);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setWishlist(null);
-      fetchWishlist();
-    }, 300);
+  useEffect(async () => {
+    await getWishlist(userData.accessToken).then((data) => {
+      setWishlist(data);
+    });
   }, [userData]);
-
-  const fetchWishlist = () => {
-    let tmpData = Array(7)
-      .fill({})
-      .map((_, index) => {
-        return {
-          id: Math.floor(Math.random() * 100000000),
-          productDetails: {
-            id: Math.floor(Math.random() * 100000000),
-            image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-            title: `Printed Men Hooded Block Round Neck Black T-Shirt`,
-            seller: `Blive  Enterprise`,
-            price: Math.floor(Math.random() * 1000),
-            rating:
-              Math.floor(Math.random()) * 3 +
-              1 +
-              Math.floor(Math.random() * 10) / 10,
-            noOfRatings: Math.floor(Math.random() * 100),
-          },
-        };
-      });
-    setWishlist(tmpData);
-  };
 
   return (
     <>
