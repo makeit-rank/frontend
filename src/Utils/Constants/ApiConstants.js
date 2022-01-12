@@ -4,7 +4,7 @@ export const BASE_URL =
   "http://makeit.centralindia.cloudapp.azure.com:8080/api/v1/";
 export const PRIMARY_API =
   "http://localhost:8080/api/v1/";
-export const STORAGE_API = "http://localhost:3200/";
+export const STORAGE_API = "https://mongodb-storage.herokuapp.com/";
 // export const BASE_URL =
 //   "http://makeit.centralindia.cloudapp.azure.com:8080/api/v1/";
 // export const STORAGE_API =
