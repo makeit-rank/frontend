@@ -49,13 +49,13 @@ function ProfileOrderItem({ OrderDetails }) {
                   {OrderDetails.product_details.shop_name}
                 </h5>
               </div>
-              {OrderDetails.product_details.size && (
+              {OrderDetails.size && (
                 <div className={styles.SubKeyValuePair}>
                   <h4 className={styles.SubKey}>
                     {PROFILE_DATA.ordersSec.size}
                   </h4>
                   <h5 className={styles.SubValue}>
-                    {OrderDetails.product_details.size}
+                    {OrderDetails.size}
                   </h5>
                 </div>
               )}
