@@ -22,28 +22,11 @@ function Search() {
   }, [searchParams]);
 
   const getSearchResults = async () => {
-    setSearchResults(
-      Array(15)
-        .fill({})
-        .map((_, index) => ({
-          id: index,
-          title: `${searchParams.get("search")} Printed Men Hooded Neck Da..`,
-          seller: `Blive  enterprise ${index + 1}`,
-          price: Math.floor(Math.random() * 500) + 500,
-          rating:
-            Math.floor(Math.random() * 3) +
-            1 +
-            Math.floor(Math.random() * 10) / 10,
-          noOfRatings: Math.floor(Math.random() * 100) + 100,
-          image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-        }))
-    );
     try {
       const searchResultsLocale = await searchProducts(
         searchParams.get("search")
       );
-      // setSearchResults(searchResults);
-      console.log(searchResultsLocale);
+      setSearchResults(searchResultsLocale);
     } catch (err) {
       notify(err.response.data, "error");
       console.log(err);
