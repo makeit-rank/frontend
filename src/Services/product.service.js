@@ -6,9 +6,7 @@ import {
 
 export const searchProducts = async (query) => {
   try {
-    const { data } = await axios.get(SEARCH_PRODUCTS, {
-      query: query,
-    });
+    const { data } = await axios.get(SEARCH_PRODUCTS + `?query="${query}"`);
     return data;
   } catch (err) {
     throw err;
