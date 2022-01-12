@@ -44,7 +44,6 @@ const Home = () => {
 
     try {
       const response = await searchProducts("top-picks");
-      console.log("response", response);
       setHighlightsData({
         ...highlightsData,
         topPicks: response,
@@ -52,26 +51,6 @@ const Home = () => {
     } catch (error) {
       console.log("error", error);
     }
-
-    // const tempData = Array(5)
-    //   .fill({})
-    //   .map((_, index) => ({
-    //     id: index,
-    //     title: `Printed Men Hooded Neck Da..`,
-    //     seller: `Blive  enterprise ${index + 1}`,
-    //     price: Math.floor(Math.random() * 500) + 500,
-    //     rating:
-    //       Math.floor(Math.random() * 3) +
-    //       1 +
-    //       Math.floor(Math.random() * 10) / 10,
-    //     noOfRatings: Math.floor(Math.random() * 100) + 100,
-    //     image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-    //   }));
-
-    // setHighlightsData({
-    //   recommended: null,
-    //   topPicks: tempData,
-    // });
   };
 
   return (
@@ -82,7 +61,6 @@ const Home = () => {
       />
       <Footer />
       <PopUp
-        // isOpen={popUpState.signUp}
         isOpen={location.pathname === "/signup"}
         ContentComp={<SignUp />}
         closeFun={() => {
