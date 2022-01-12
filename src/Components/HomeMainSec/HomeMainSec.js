@@ -17,7 +17,7 @@ function HomeMainSec({ recommendedItems, topPickItems }) {
           /> */}
           <HighlightsItemSec
             items={topPickItems.slice(0, 4)}
-            redirectTo={"/top-pick"}
+            redirectTo={`search?search=top-pick`}
             title={HOME_DATA.topPicks}
           />
         </>
