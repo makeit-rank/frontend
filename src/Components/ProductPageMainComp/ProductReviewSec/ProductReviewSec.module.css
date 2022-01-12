@@ -56,7 +56,12 @@
   padding: 1rem 1.2rem;
   transition: box-shadow 0.15s ease-out;
 }
-
+.ReviewStars {
+  width: fit-content;
+  transform: scale(1.4);
+  transform-origin: 0% 50%;
+  margin-bottom: 0.5rem;
+}
 .ReviewTextArea:active,
 .ReviewTextArea:focus-within {
   box-shadow: 0px 0px 0px 4px rgba(16, 140, 255, 0.2);
