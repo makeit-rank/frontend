@@ -21,8 +21,8 @@ function SerachMainComp({ searchResults }) {
           </span>
         </h4>
         <div className={styles.SearchResults}>
-          {searchResults.map((result) => (
-            <div className={styles.SearchResult} key={result.id}>
+          {searchResults.map((result, index) => (
+            <div className={styles.SearchResult} key={index}>
               <ItemCard itemData={result} />
             </div>
           ))}
