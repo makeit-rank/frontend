@@ -13,41 +13,32 @@ function WishListItem({ wishlistItem }) {
   const smoothLoading = (e) => {
     e.target.style.opacity = "1";
   };
+  console.log(wishlistItem);
 
   return (
-    <Link
-      className={styles.Wrapper}
-      to={`/p/${wishlistItem.productDetails.id}`}
-    >
+    <Link className={styles.Wrapper} to={`/p/${wishlistItem._id}`}>
       <div className={styles.LeftSec}>
         <img
-          src={wishlistItem.productDetails.image}
+          src={wishlistItem.images[0]}
           alt="productImg"
           className={styles.ProductImg + " " + styles.SmoothLoading}
           onLoad={smoothLoading}
         />
         <div className={styles.ProductInfo}>
           <div className={styles.ProductInfoTop}>
-            <h4 className={styles.ProductName}>
-              {wishlistItem.productDetails.title}
-            </h4>
-            <h5 className={styles.SellerName}>
-              {wishlistItem.productDetails.seller}
-            </h5>
+            <h4 className={styles.ProductName}>{wishlistItem.title}</h4>
+            <h5 className={styles.SellerName}>{wishlistItem.seller}</h5>
             <div className={styles.Rating}>
               <div className={styles.RatingWrapper}>
-                <Ratings rating={wishlistItem.productDetails.star} />
+                <Ratings rating={wishlistItem.star} />
               </div>
               <div className={styles.RatingCount}>
-                {wishlistItem.productDetails.count}{" "}
-                {PROFILE_DATA.wishlistSec.reviews}
+                {wishlistItem.count} {PROFILE_DATA.wishlistSec.reviews}
               </div>
             </div>
           </div>
           <div className={styles.ProductInfoBottom}>
-            <h5
-              className={styles.Price}
-            >{`₹${wishlistItem.productDetails.price}`}</h5>
+            <h5 className={styles.Price}>{`₹${wishlistItem.price}`}</h5>
           </div>
         </div>
       </div>

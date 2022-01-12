@@ -10,6 +10,7 @@ import {
   REMOVE_FROM_WISHLIST_URL,
   MOVE_TO_WISHLIST_URL,
   ADD_CART_TO_ORDER_URL,
+  GET_WISHLIST_DATA,
 } from "../Utils/Constants/ApiConstants";
 
 export const getUserData = async (accessToken) => {
@@ -92,7 +93,18 @@ export const removeCartItem = async (accessToken, cart_id) => {
     throw err;
   }
 };
-
+export const getWishlist = async (accessToken) => {
+  try {
+    const { data } = await axios.get(GET_WISHLIST_DATA, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
 export const addProductToCart = async (
   accessToken,
   product_id,
