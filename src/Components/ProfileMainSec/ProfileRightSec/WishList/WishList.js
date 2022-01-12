@@ -7,7 +7,7 @@ import Preloader from "../../../Preloader/Preloader";
 import WishListItem from "./WishListItem/index";
 import { getWishlist } from "../../../../Services/user.service";
 
-function WishList() {
+function WishList({ refreshUserData }) {
   const userData = useSelector((state) => state.userReducer.userData);
   const [wishlist, setWishlist] = useState(null);
 
@@ -30,7 +30,10 @@ function WishList() {
                   index === wishlist.length - 1 ? { borderBottom: "none" } : {}
                 }
               >
-                <WishListItem wishlistItem={listItem} />
+                <WishListItem
+                  wishlistItem={listItem}
+                  refreshUserData={refreshUserData}
+                />
               </div>
             );
           })}

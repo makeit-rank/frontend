@@ -17,7 +17,10 @@ function ProfileRightSec({ refreshUserData }) {
       <Routes>
         <Route exact path="/" element={<PersonalInfoSec />} />
         <Route path="/orders" element={<OrdersSec />} />
-        <Route path="/wishlist" element={<WishList />} />
+        <Route
+          path="/wishlist"
+          element={<WishList refreshUserData={refreshUserData} />}
+        />
         <Route
           path="become-a-seller"
           element={
