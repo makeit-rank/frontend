@@ -6,16 +6,26 @@ import styles from "./WishList.module.css";
 import Preloader from "../../../Preloader/Preloader";
 import WishListItem from "./WishListItem/index";
 import { getWishlist } from "../../../../Services/user.service";
+import notify from "./../../../../Utils/Helpers/notifyToast";
 
 function WishList() {
   const userData = useSelector((state) => state.userReducer.userData);
   const [wishlist, setWishlist] = useState(null);
 
-  useEffect(async () => {
-    await getWishlist(userData.accessToken).then((data) => {
-      setWishlist(data);
-    });
+  useEffect(() => {
+    getWishlistItems();
   }, [userData]);
+
+  const getWishlistItems = async () => {
+    setWishlist(null);
+    try {
+      const response = await getWishlist(userData.accessToken);
+      setWishlist(response);
+    } catch (error) {
+      console.log(error);
+      notify("Something went wrong", "error");
+    }
+  };
 
   return (
     <>
