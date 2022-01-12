@@ -26,7 +26,7 @@ export const NAVBAR_DATA = {
 };
 
 export const HOME_DATA = {
-  title: "Only you can make it perfect for your self,",
+  title: "Only you can make it perfect for your self",
   description: "so why wait? Let's get started!",
 
   button: "See top picks ->",
