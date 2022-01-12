@@ -7,6 +7,7 @@ import { PRODUCT_PAGE_DATA } from "../../../Utils/Constants/StaticData";
 import WishlistIcon from "./../../WishlistIcon/index";
 import notify from "./../../../Utils/Helpers/notifyToast";
 import { addProductToCart } from "../../../Services/user.service";
+import { addProductToOrder } from "./../../../Services/order.service";
 
 function ProductImageSec({
   images,
@@ -33,8 +34,21 @@ function ProductImageSec({
     }
   };
 
-  const placeOrder = () => {
+  const placeOrder = async () => {
     console.log("Place order");
+    try {
+      const response = await addProductToOrder(
+        userData.accessToken,
+        productId,
+        productDetails.various_size[currentSelections.size],
+        Object.values(currentSelections.attachments),
+        userData.address[currentSelections.address]
+      );
+      notify("Successfully placed order", "success");
+    } catch (err) {
+      console.log(err);
+      notify("Failed to place order", "error");
+    }
   };
 
   return (
@@ -78,9 +92,7 @@ function ProductImageSec({
           />
           <Button
             name={PRODUCT_PAGE_DATA.placeOrder}
-            onClick={() => {
-              console.log("place order");
-            }}
+            onClick={placeOrder}
             primaryColor="var(--primary-blue)"
             wrapperClass={styles.PlaceOrderButton + " " + styles.Button}
           />

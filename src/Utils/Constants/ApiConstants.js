@@ -12,6 +12,7 @@ export const STORAGE_API = "https://mongodb-storage.herokuapp.com/";
 export const AUTH_URL = PRIMARY_API + "auth/";
 export const USER_URL = PRIMARY_API + "user/";
 export const PRODUCT_URL = PRIMARY_API + "product/";
+export const ORDER_URL = PRIMARY_API + "order/";
 
 export const SIGNUP_URL = AUTH_URL + "signup";
 export const LOGIN_URL = AUTH_URL + "login";
@@ -25,5 +26,6 @@ export const SEARCH_PRODUCTS = PRODUCT_URL + "atlassearch";
 export const ADD_PRODUCT_URL = PRODUCT_URL + "addproduct";
 export const GET_PRODUCT_DATA_BY_ID = PRODUCT_URL + "getproductbyid";
 export const ADD_REVIEW_URL = PRODUCT_URL + "addreview";
+export const ADD_PRODUCT_TO_ORDER_URL = ORDER_URL + "addorder";  
 
 export const UPLOAD_IMAGE_URL = STORAGE_API + "addImages";
