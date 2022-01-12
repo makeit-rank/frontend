@@ -8,13 +8,13 @@ function HomeMainSec({ recommendedItems, topPickItems }) {
   return (
     <div className={styles.Wrapper}>
       <UpperSec />
-      {recommendedItems && topPickItems ? (
+      {topPickItems ? (
         <>
-          <HighlightsItemSec
+          {/* <HighlightsItemSec
             items={recommendedItems.slice(0, 4)}
             redirectTo={"/recommended"}
             title={HOME_DATA.recommended}
-          />
+          /> */}
           <HighlightsItemSec
             items={topPickItems.slice(0, 4)}
             redirectTo={"/top-pick"}

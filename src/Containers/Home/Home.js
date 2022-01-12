@@ -9,6 +9,7 @@ import Footer from "./../../Components/Footer/index";
 import PopUp from "./../../Components/_General/PopUp/index";
 import SignUp from "../../Components/SignUp";
 import SignIn from "./../../Components/SignIn/index";
+import { searchProducts } from "./../../Services/product.service";
 
 const Home = () => {
   const location = useLocation();
@@ -22,9 +23,7 @@ const Home = () => {
   });
 
   useEffect(() => {
-    setTimeout(() => {
-      getHighlightsData();
-    }, 1000);
+    getHighlightsData();
     if (userData) {
       if (location.pathname !== "/") {
         navigate("/");
@@ -43,31 +42,42 @@ const Home = () => {
     });
     console.log("get highlights data");
 
-    const tempData = Array(5)
-      .fill({})
-      .map((_, index) => ({
-        id: index,
-        title: `Printed Men Hooded Neck Da..`,
-        seller: `Blive  enterprise ${index + 1}`,
-        price: Math.floor(Math.random() * 500) + 500,
-        rating:
-          Math.floor(Math.random() * 3) +
-          1 +
-          Math.floor(Math.random() * 10) / 10,
-        noOfRatings: Math.floor(Math.random() * 100) + 100,
-        image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
-      }));
+    try {
+      const response = await searchProducts("top-picks");
+      console.log("response", response);
+      setHighlightsData({
+        ...highlightsData,
+        topPicks: response,
+      });
+    } catch (error) {
+      console.log("error", error);
+    }
 
-    setHighlightsData({
-      recommended: tempData,
-      topPicks: tempData,
-    });
+    // const tempData = Array(5)
+    //   .fill({})
+    //   .map((_, index) => ({
+    //     id: index,
+    //     title: `Printed Men Hooded Neck Da..`,
+    //     seller: `Blive  enterprise ${index + 1}`,
+    //     price: Math.floor(Math.random() * 500) + 500,
+    //     rating:
+    //       Math.floor(Math.random() * 3) +
+    //       1 +
+    //       Math.floor(Math.random() * 10) / 10,
+    //     noOfRatings: Math.floor(Math.random() * 100) + 100,
+    //     image: `https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`,
+    //   }));
+
+    // setHighlightsData({
+    //   recommended: null,
+    //   topPicks: tempData,
+    // });
   };
 
   return (
     <div className={styles.Wrapper}>
       <HomeMainSec
-        recommendedItems={highlightsData.recommended}
+        // recommendedItems={highlightsData.recommended}
         topPickItems={highlightsData.topPicks}
       />
       <Footer />

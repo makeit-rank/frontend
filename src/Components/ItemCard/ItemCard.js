@@ -20,7 +20,7 @@ export default function ItemCard({ itemData }) {
     <div className={styles.Wrapper}>
       <Link to={`/p/${itemData.id}`}>
         <div className={styles.UpperSec}>
-          <img src={itemData.image} alt="item" className={styles.Image} />
+          <img src={itemData.images[0]} alt="item" className={styles.Image} />
           <div className={styles.AddToWishList}>
             <WishlistIcon productId={itemData.id} />
           </div>
