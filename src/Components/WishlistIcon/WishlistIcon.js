@@ -16,7 +16,8 @@ function WishlistIcon({ productId }) {
     setSelected(userData.wishlist.includes(productId));
   }, [productId]);
 
-  const handleOnClick = async () => {
+  const handleOnClick = async (e) => {
+    e.preventDefault();
     if (selected) {
       try {
         const result = await removeProductFromWishlist(
