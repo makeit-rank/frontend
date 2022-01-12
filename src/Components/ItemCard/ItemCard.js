@@ -18,7 +18,7 @@ export default function ItemCard({ itemData }) {
 
   return (
     <div className={styles.Wrapper}>
-      <Link to={`/p/${itemData.id}`}>
+      <Link to={`/p/${itemData._id}`}>
         <div className={styles.UpperSec}>
           <img src={itemData.images[0]} alt="item" className={styles.Image} />
           <div className={styles.AddToWishList}>
@@ -33,10 +33,10 @@ export default function ItemCard({ itemData }) {
           </div>
           <div className={styles.Rating}>
             <div className={styles.RatingWrapper}>
-              <Ratings rating={itemData.rating} />
+              <Ratings rating={itemData.star} />
             </div>
             <div className={styles.RatingCount}>
-              {itemData.noOfRatings} {HOME_DATA.ratings}
+              {itemData.count} {HOME_DATA.ratings}
             </div>
           </div>
         </div>
