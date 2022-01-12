@@ -24,6 +24,7 @@ export const REMOVE_CART_ITEM = USER_URL + "removefromcart";
 export const ADD_TO_CART_URL = USER_URL + "addtocart";
 export const ADD_TO_WISHLIST_URL = USER_URL + "addtowishlist";
 export const REMOVE_FROM_WISHLIST_URL = USER_URL + "removefromwishlist";
+export const MOVE_TO_WISHLIST_URL = USER_URL + "movetowishlist";
 export const SEARCH_PRODUCTS = PRODUCT_URL + "atlassearch";
 export const ADD_PRODUCT_URL = PRODUCT_URL + "addproduct";
 export const GET_PRODUCT_DATA_BY_ID = PRODUCT_URL + "getproductbyid";

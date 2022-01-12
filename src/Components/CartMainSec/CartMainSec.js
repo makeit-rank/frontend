@@ -10,7 +10,7 @@ import CartItem from "./CartItem";
 import Button from "./../Button/index";
 import { ReactComponent as PlusIcon } from "../../Assets/Cart/Plus.svg";
 
-function CartMainSec({ cartData, addresses }) {
+function CartMainSec({ cartData, addresses, refreshDataFunction }) {
   const dispatch = useDispatch();
   const [currentAddressIndex, setCurrentAddressIndex] = React.useState(0);
 
@@ -24,6 +24,7 @@ function CartMainSec({ cartData, addresses }) {
               <CartItem
                 itemData={cartItemData}
                 isLast={index === cartData.length - 1}
+                refreshDataFunction={refreshDataFunction}
               />
             </div>
           );

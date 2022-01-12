@@ -8,6 +8,7 @@ import {
   ADD_TO_CART_URL,
   ADD_TO_WISHLIST_URL,
   REMOVE_FROM_WISHLIST_URL,
+  MOVE_TO_WISHLIST_URL,
 } from "../Utils/Constants/ApiConstants";
 
 export const getUserData = async (accessToken) => {
@@ -77,17 +78,14 @@ export const getCartItemsData = async (accessToken) => {
 
 export const removeCartItem = async (accessToken, cart_id) => {
   try {
-    const { data } = await axios.delete(
-      REMOVE_CART_ITEM,
-      {
+    const { data } = await axios.delete(REMOVE_CART_ITEM, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      data: {
         cart_id,
       },
-      {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-      }
-    );
+    });
     return data;
   } catch (err) {
     throw err;
@@ -149,6 +147,25 @@ export const removeProductFromWishlist = async (accessToken, product_id) => {
         product_id,
       },
     });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const moveProductFromCartToWishlist = async (accessToken, cart_id) => {
+  try {
+    const { data } = await axios.post(
+      MOVE_TO_WISHLIST_URL,
+      {
+        cart_id,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
     return data;
   } catch (err) {
     throw err;
