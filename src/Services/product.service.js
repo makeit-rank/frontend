@@ -3,6 +3,7 @@ import {
   SEARCH_PRODUCTS,
   ADD_PRODUCT_URL,
   GET_PRODUCT_DATA_BY_ID,
+  ADD_REVIEW_URL,
 } from "../Utils/Constants/ApiConstants";
 
 export const searchProducts = async (query) => {
@@ -31,6 +32,32 @@ export const getProductDataById = async (productId) => {
   try {
     const { data } = await axios.get(
       GET_PRODUCT_DATA_BY_ID + `?product_id="${productId}"`
+    );
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const addReviewToProduct = async (
+  authToken,
+  product_id,
+  star,
+  description
+) => {
+  try {
+    const { data } = await axios.post(
+      ADD_REVIEW_URL,
+      {
+        product_id,
+        star,
+        description,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      }
     );
     return data;
   } catch (err) {

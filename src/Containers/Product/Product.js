@@ -35,7 +35,7 @@ function Product() {
   return (
     <div className={styles.Wrapper}>
       {productDetails ? (
-        <ProductPageMainComp productDetails={productDetails} />
+        <ProductPageMainComp productDetails={productDetails} refreshDataFun={getProductDetails} />
       ) : (
         <Preloader />
       )}

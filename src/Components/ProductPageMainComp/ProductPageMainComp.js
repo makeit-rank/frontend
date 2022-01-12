@@ -6,7 +6,7 @@ import ProductImageSec from "./ProductImageSec";
 import ProductInfoSec from "./ProductInfoSec";
 import ProductReviewSec from "./ProductReviewSec";
 
-function ProductPageMainComp({ productDetails }) {
+function ProductPageMainComp({ productDetails, refreshDataFun }) {
   return (
     <div className={styles.Wrapper}>
       <div className={styles.UpperSection}>
@@ -18,7 +18,10 @@ function ProductPageMainComp({ productDetails }) {
         </div>
       </div>
       <div className={styles.LowerSection}>
-        <ProductReviewSec productDetails={productDetails} />
+        <ProductReviewSec
+          productDetails={productDetails}
+          refreshDataFun={refreshDataFun}
+        />
       </div>
     </div>
   );
