@@ -17,7 +17,12 @@
   display: flex;
   grid-gap: 2rem;
 }
-
+.ImageWrapperLink {
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  height: fit-content;
+}
 .Image {
   height: 12rem;
   width: 12rem;

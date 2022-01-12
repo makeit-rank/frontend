@@ -12,6 +12,7 @@ import {
   removeCartItem,
 } from "./../../../Services/user.service";
 import notify from "./../../../Utils/Helpers/notifyToast";
+import { Link } from "react-router-dom";
 
 function CartItem({ itemData, isLast, refreshDataFunction }) {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -48,11 +49,13 @@ function CartItem({ itemData, isLast, refreshDataFunction }) {
     >
       <div className={styles.UpperSec}>
         <div className={styles.LeftSec}>
-          <img
-            src={itemData.product_details.images[0]}
-            alt="product"
-            className={styles.Image}
-          />
+          <Link to={`/p/${itemData.product_id}`} className={styles.ImageWrapperLink}>
+            <img
+              src={itemData.product_details.images[0]}
+              alt="product"
+              className={styles.Image}
+            />
+          </Link>
           <div className={styles.SubRightSec}>
             <div className={styles.ProductInfo}>
               <div className={styles.ProductName}>
@@ -115,11 +118,11 @@ function CartItem({ itemData, isLast, refreshDataFunction }) {
           />
         </div>
       </div>
-      {itemData.product_details.attachedImages?.length > 0 && (
+      {itemData.attachedFiles?.length > 0 && (
         <div className={styles.LowerSec}>
           <h4 className={styles.LowerHeading}>{CART_DATA.attachedFiles}</h4>
           <div className={styles.AttachedFilesList}>
-            {itemData.product_details.attachedImages.map((image, index) => {
+            {itemData.attachedFiles.map((image, index) => {
               return (
                 <img
                   src={image}
