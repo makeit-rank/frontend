@@ -8,7 +8,7 @@ import WishListItem from "./WishListItem/index";
 import { getWishlist } from "../../../../Services/user.service";
 import notify from "./../../../../Utils/Helpers/notifyToast";
 
-function WishList() {
+function WishList({ refreshUserData }) {
   const userData = useSelector((state) => state.userReducer.userData);
   const [wishlist, setWishlist] = useState(null);
 
@@ -40,7 +40,10 @@ function WishList() {
                   index === wishlist.length - 1 ? { borderBottom: "none" } : {}
                 }
               >
-                <WishListItem wishlistItem={listItem} />
+                <WishListItem
+                  wishlistItem={listItem}
+                  refreshUserData={refreshUserData}
+                />
               </div>
             );
           })}

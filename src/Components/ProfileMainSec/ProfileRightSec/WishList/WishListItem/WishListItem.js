@@ -8,12 +8,14 @@ import Ratings from "./../../../../Ratings";
 import Button from "./../../../../Button";
 import { ReactComponent as DeleteIcon } from "../../../../../Assets/Wishlist/Delete.svg";
 import { Link } from "react-router-dom";
+import { removeProductFromWishlist } from "../../../../../Services/user.service";
+import { useSelector } from "react-redux";
 
-function WishListItem({ wishlistItem }) {
+function WishListItem({ wishlistItem, refreshUserData }) {
   const smoothLoading = (e) => {
     e.target.style.opacity = "1";
   };
-  console.log(wishlistItem);
+  const userData = useSelector((state) => state.userReducer.userData);
 
   return (
     <Link className={styles.Wrapper} to={`/p/${wishlistItem._id}`}>
@@ -47,6 +49,8 @@ function WishListItem({ wishlistItem }) {
           name={PROFILE_DATA.wishlistSec.remove}
           onClick={(e) => {
             e.preventDefault();
+            removeProductFromWishlist(userData.accessToken, wishlistItem._id);
+            refreshUserData();
           }}
           inverted
           primaryColor={`var(--ter-black)`}
