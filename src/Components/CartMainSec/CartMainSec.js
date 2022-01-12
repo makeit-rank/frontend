@@ -9,8 +9,8 @@ import styles from "./CartMainSec.module.css";
 import CartItem from "./CartItem";
 import Button from "./../Button/index";
 import { ReactComponent as PlusIcon } from "../../Assets/Cart/Plus.svg";
-import { addCartToOrder } from "../../Services/user.service";
 import notify from "./../../Utils/Helpers/notifyToast";
+import { addCartToOrder } from "../../Services/order.service";
 
 function CartMainSec({ cartData, addresses, refreshDataFunction }) {
   const userData = useSelector((state) => state.userReducer.userData);
