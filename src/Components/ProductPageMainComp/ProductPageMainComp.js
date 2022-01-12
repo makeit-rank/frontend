@@ -17,7 +17,12 @@ function ProductPageMainComp({ productDetails, refreshDataFun }) {
     <div className={styles.Wrapper}>
       <div className={styles.UpperSection}>
         <div className={styles.LeftSecWrapper}>
-          <ProductImageSec images={productDetails.images} />
+          <ProductImageSec
+            images={productDetails.images}
+            productId={productDetails._id}
+            productDetails={productDetails}
+            currentSelections={currentSelections}
+          />
         </div>
         <div className={styles.RightSecWrapper}>
           <ProductInfoSec
