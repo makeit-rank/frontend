@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { UPDATE_ADD_ADDRESS_POPUP_STATE } from "../../Redux/ActionTypes";
 import { CART_DATA } from "./../../Utils/Constants/StaticData";
@@ -9,12 +9,29 @@ import styles from "./CartMainSec.module.css";
 import CartItem from "./CartItem";
 import Button from "./../Button/index";
 import { ReactComponent as PlusIcon } from "../../Assets/Cart/Plus.svg";
+import { addCartToOrder } from "../../Services/user.service";
+import notify from "./../../Utils/Helpers/notifyToast";
 
 function CartMainSec({ cartData, addresses, refreshDataFunction }) {
+  const userData = useSelector((state) => state.userReducer.userData);
   const dispatch = useDispatch();
+
   const [currentAddressIndex, setCurrentAddressIndex] = React.useState(0);
 
-  console.log("cartData", cartData);
+  const placeOrder = async () => {
+    try {
+      const response = await addCartToOrder(
+        userData.accessToken,
+        userData.address[currentAddressIndex]
+      );
+      await refreshDataFunction();
+      notify("Order Placed Successfully", "success");
+    } catch (err) {
+      console.log(err);
+      notify("Something went wrong", "error");
+    }
+  };
+
   return (
     <div className={styles.Wrapper}>
       <div className={styles.LeftSec}>
@@ -88,7 +105,7 @@ function CartMainSec({ cartData, addresses, refreshDataFunction }) {
               </div>
               <div className={styles.PaymentListItemValue}>
                 {`₹${cartData.reduce((acc, item) => {
-                  return acc + item.price;
+                  return acc + item.product_details.price;
                 }, 0)}`}
               </div>
             </div>
@@ -96,7 +113,7 @@ function CartMainSec({ cartData, addresses, refreshDataFunction }) {
         </div>
         <Button
           name={CART_DATA.placeOrder}
-          onClick={() => {}}
+          onClick={placeOrder}
           wrapperClass={styles.PlaceOrderButton}
           primaryColor={`var(--primary-blue)`}
         />

@@ -30,5 +30,6 @@ export const ADD_PRODUCT_URL = PRODUCT_URL + "addproduct";
 export const GET_PRODUCT_DATA_BY_ID = PRODUCT_URL + "getproductbyid";
 export const ADD_REVIEW_URL = PRODUCT_URL + "addreview";
 export const ADD_PRODUCT_TO_ORDER_URL = ORDER_URL + "addorder";
+export const ADD_CART_TO_ORDER_URL = ORDER_URL + "addcartorder";
 
 export const UPLOAD_IMAGE_URL = STORAGE_API + "addImages";
