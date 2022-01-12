@@ -11,7 +11,6 @@ function UpperSec() {
   const navigate = useNavigate();
   const handleClick = (e) => {
     navigate("/search?search=top-picks");
-    
   };
 
   return (
@@ -19,6 +18,7 @@ function UpperSec() {
       <div className={styles.LeftSec}>
         <div className={styles.LeftSecTitle}>
           <h2>{HOME_DATA.title}</h2>
+          <h3>{HOME_DATA.description}</h3>
         </div>
         <Button
           name={HOME_DATA.button}

@@ -17,11 +17,15 @@
 }
 
 .LeftSecTitle h2 {
-  font-size: var(--font-45);
+  font-size: var(--font-40);
   font-weight: 500;
   color: var(--primary-black);
 }
-
+.LeftSecTitle h3 {
+  font-size: var(--font-24);
+  font-weight: 500;
+  color: var(--primary-black);
+}
 .MainImage {
   width: 40rem;
   height: 40rem;
