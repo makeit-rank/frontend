@@ -25,13 +25,15 @@ export const ADD_TO_CART_URL = USER_URL + "addtocart";
 export const ADD_TO_WISHLIST_URL = USER_URL + "addtowishlist";
 export const REMOVE_FROM_WISHLIST_URL = USER_URL + "removefromwishlist";
 export const MOVE_TO_WISHLIST_URL = USER_URL + "movetowishlist";
+export const GET_WISHLIST_DATA = USER_URL + "getwishlist";
 export const SEARCH_PRODUCTS = PRODUCT_URL + "atlassearch";
 export const ADD_PRODUCT_URL = PRODUCT_URL + "addproduct";
 export const GET_PRODUCT_DATA_BY_ID = PRODUCT_URL + "getproductbyid";
 export const ADD_REVIEW_URL = PRODUCT_URL + "addreview";
 export const ADD_PRODUCT_TO_ORDER_URL = ORDER_URL + "addorder";
 export const ADD_CART_TO_ORDER_URL = ORDER_URL + "addcartorder";
-export const GET_WISHLIST_DATA = USER_URL + "getwishlist";
+export const GET_USER_ORDERS_URL = ORDER_URL + "getorderforuser";
 export const GET_SELLER_PRODUCTS = PRODUCT_URL + "getproductseller";
+
 export const UPLOAD_IMAGE_URL = STORAGE_API + "addImages";
 export const GET_ORDER_FOR_SELLER = ORDER_URL + "getorderforseller";

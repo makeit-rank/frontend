@@ -63,3 +63,16 @@ export const addCartToOrder = async (accessToken, address) => {
     throw err;
   }
 };
+
+export const getUserOrders = async (accessToken) => {
+  try {
+    const { data } = await axios.get(GET_USER_ORDERS_URL, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
