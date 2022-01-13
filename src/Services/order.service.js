@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   ADD_PRODUCT_TO_ORDER_URL,
   ADD_CART_TO_ORDER_URL,
+  GET_ORDER_FOR_SELLER,
   GET_USER_ORDERS_URL,
   GET_ORDER_DATA_BY_ID,
   UPDATE_ORDER_STATUS_URL,
@@ -29,6 +30,18 @@ export const addProductToOrder = async (
         },
       }
     );
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+export const getOrderForSeller = async (accessToken) => {
+  try {
+    const { data } = await axios.get(GET_ORDER_FOR_SELLER, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
     return data;
   } catch (err) {
     throw err;

@@ -51,6 +51,19 @@ function OrdersSec() {
           <Preloader />
         </>
       )}
+      {orders && orders.length === 0 && (
+        <>
+          <div className={styles.TopSec}>
+            <h3 className={styles.Title}>{"Orders"}</h3>
+          </div>
+          <h4 className={styles.Stats}>
+            <span className={styles.StatsSmall}>{"Found "}</span>
+            <span className={styles.StatsBig}>&nbsp;{`0`}</span>
+            <span className={styles.StatsSmall}>&nbsp;{"orders"}</span>
+            <span className={styles.StatsSmall}>&nbsp;{"placed"}</span>
+          </h4>
+        </>
+      )}
     </>
   );
 }

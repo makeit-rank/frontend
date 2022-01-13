@@ -38,3 +38,4 @@ export const GET_ORDER_DATA_BY_ID = ORDER_URL + "getorderbyid";
 export const UPDATE_ORDER_STATUS_URL = ORDER_URL + "updatestatus";
 
 export const UPLOAD_IMAGE_URL = STORAGE_API + "addImages";
+export const GET_ORDER_FOR_SELLER = ORDER_URL + "getorderforseller";

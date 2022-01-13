@@ -29,6 +29,7 @@ function ProductReviewSec({ productDetails, refreshDataFun }) {
       }
       console.log(response);
       notify("Review Added Successfully", "success");
+      e.target.elements.ReviewText.value = "";
     } catch (err) {
       console.log(err);
       notify("Error adding review", "error");
