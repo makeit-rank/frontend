@@ -10,6 +10,8 @@ function DashboardItem({ OrderDetails }) {
 
   const getStatus = (status) => {
     switch (status) {
+      case "Delivered":
+        return "Delivered";
       case "Ordered":
         return "Not Confirmed";
       case "AskedForChange":
@@ -18,8 +20,6 @@ function DashboardItem({ OrderDetails }) {
         return "Waiting For Approval";
       case "Confirmed":
         return "Order Confirmed";
-      case "Delivered":
-        return "Delivered";
       default:
         return status;
     }
@@ -45,11 +45,13 @@ function DashboardItem({ OrderDetails }) {
         <div className={styles.KeyValuePair}>
           <h4 className={styles.Key}>{PROFILE_DATA.dashboardSec.status}</h4>
           <h5 className={styles.Value}>
-            {getStatus(
-              Object.keys(OrderDetails.status)[
-                Object.keys(OrderDetails.status).length - 1
-              ]
-            )}
+            {OrderDetails.status.Delivered
+              ? "Delivered"
+              : getStatus(
+                  Object.keys(OrderDetails.status)[
+                    Object.keys(OrderDetails.status).length - 1
+                  ]
+                )}
           </h5>
         </div>
       </div>

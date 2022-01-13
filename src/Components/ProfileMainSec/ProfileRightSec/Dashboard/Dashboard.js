@@ -20,11 +20,7 @@ function Dashboard() {
     let TotalEarnings = 0;
     let MonthEarnings = 0;
     for (let i = 0; i < orders.length; i++) {
-      if (
-        Object.keys(orders[i].status)[
-          Object.keys(orders[i].status).length - 1
-        ] === "Delivered"
-      ) {
+      if (orders[i].status.Delivered) {
         if (
           (new Date(orders[i].created_at).getMonth(),
           new Date().getMonth(),
