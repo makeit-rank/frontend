@@ -2,7 +2,7 @@
   <h1>Make-It </h1>
 </div>
 
-![Logo](https://user-images.githubusercontent.com/75676675/149187949-fb460b8d-944c-464f-90b9-29133312ae9c.jpg)
+
 
 ## Available Scripts
 
