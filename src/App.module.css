@@ -16,4 +16,7 @@
   margin-top: -11rem;
   margin-left: -2.5rem;
   width: 95%;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
 }

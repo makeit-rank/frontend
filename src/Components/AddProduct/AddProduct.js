@@ -36,8 +36,8 @@ function AddProduct({ closePopupFunction, refreshDataFunction }) {
       price: parseInt(formRef.current.AddAdressPrice.value),
       specification: specifications,
       images: images,
-      various_size: sizes,
-      requiredAttachments: requiredAttachments,
+      various_size: hasVariousSizes ? sizes : [],
+      requiredAttachments: isCustomizable ? requiredAttachments : [],
     };
 
     try {

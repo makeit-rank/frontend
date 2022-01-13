@@ -18,7 +18,7 @@ function UpperSec() {
       <div className={styles.LeftSec}>
         <div className={styles.LeftSecTitle}>
           <h2>{HOME_DATA.title}</h2>
-          <h3>{HOME_DATA.description}</h3>
+          {/* <h3>{HOME_DATA.description}</h3> */}
         </div>
         <Button
           name={HOME_DATA.button}
@@ -31,6 +31,9 @@ function UpperSec() {
           src={HOME_DATA.images.MAIN_IMAGE}
           alt=""
           className={styles.MainImage}
+          onLoad={(e) => {
+            e.target.style.opacity = 1;
+          }}
         />
       </div>
     </div>

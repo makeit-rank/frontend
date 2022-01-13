@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: space-between;
   height: 75rem;
-  width: var(--max-width);
+  width: calc(var(--max-width) );
   margin: 0 auto;
 }
 
@@ -13,20 +13,44 @@
   justify-content: center;
   flex-direction: column;
   grid-gap: 5rem;
-  width: 50rem;
+  width: 40rem;
+}
+
+.LeftSecTitle {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 2rem;
 }
 
 .LeftSecTitle h2 {
-  font-size: var(--font-40);
+  font-size: var(--font-52);
   font-weight: 500;
   color: var(--primary-black);
 }
 .LeftSecTitle h3 {
-  font-size: var(--font-24);
+  font-size: var(--font-20);
   font-weight: 500;
-  color: var(--primary-black);
+  color: var(--primary-blue);
+  width: 16.5rem;
+}
+
+.RightSec {
+  background-color: #e5e5e5;
+  animation: alterBgColor 0.5s ease-in-out infinite alternate;
+  border-radius: 3rem;
+  overflow: hidden;
+}
+@keyframes alterBgColor {
+  from {
+    background-color: #e5e5e5;
+  }
+  to {
+    background-color: #eeeeee;
+  }
 }
 .MainImage {
   width: 40rem;
   height: 40rem;
+  opacity: 0;
+  transition: opacity 0.2s ease-out;
 }
