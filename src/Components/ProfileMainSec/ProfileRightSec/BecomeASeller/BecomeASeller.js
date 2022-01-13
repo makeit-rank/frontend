@@ -12,7 +12,7 @@ import notify from "./../../../../Utils/Helpers/notifyToast";
 function BecomeASellerSec({ refreshUserData }) {
   const userData = useSelector((state) => state.userReducer.userData);
 
-  const handleSubmit  = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const elements = e.target.elements;
     console.log(elements.ShopName.value);
@@ -31,7 +31,7 @@ function BecomeASellerSec({ refreshUserData }) {
         }
       );
       refreshUserData();
-      console.log(refreshUserData)
+      console.log(refreshUserData);
       notify("Successfully become a seller", "success");
     } catch (err) {
       notify(err.response.data, "error");
@@ -96,7 +96,21 @@ function BecomeASellerSec({ refreshUserData }) {
             </div>
           </div>
         </div>
-        <p className={styles.TnC}>{PROFILE_DATA.becomeASellerSec.tnc}</p>
+        <p className={styles.TnC}>
+          <p className={styles.TnCTitle}>
+            {
+              "By Clicking on 'Registers as a Seller' you agree to our  following Terms and Conditions: "
+            }
+          </p>
+          {PROFILE_DATA.becomeASellerSec.tnc.map((value, index) => {
+            return (
+              <>
+                <span key={index}>• {value}</span>
+                <br />
+              </>
+            );
+          })}
+        </p>
         <Button
           wrapperClass={styles.RegisterBtn}
           name={PROFILE_DATA.becomeASellerSec.registerAsASeller}

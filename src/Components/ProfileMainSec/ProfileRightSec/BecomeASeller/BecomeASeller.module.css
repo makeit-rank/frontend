@@ -1,7 +1,12 @@
 .Wrapper {
   width: 100%;
 }
-
+.TnCTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+  margin-bottom: 10px;
+}
 .TopSec {
   width: 100%;
   display: flex;

@@ -208,7 +208,12 @@ export const PROFILE_DATA = {
         ],
       },
     ],
-    tnc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lobortis urna tortor, mollis morbi bibendum vitae. Convallis suspendisse tempus pulvinar lacinia porttitor eget felis. Purus nibh malesuada facilisi ac et donec vivamus. Velit urna, tristique enim lacus, cursus morbi consequat nisl. Eget quam morbi molestie aliquam ac faucibus felis arcu, tempor. A est neque sollicitudin aliquet in dui integer. Sed a morbi ultricies vestibulum diam.",
+    tnc: [
+      "Your purchase and use of delivery or related services are subject to the terms and conditions described on this page, the policies we make available in connection with your seller account, and the third-party carrier.",
+      "You are purchasing delivery and any related services you request (such as liability cover) from third parties and not from Make-It. Make-It is not responsible for and will not have any liability regarding services you purchase from third parties.",
+      "You will comply with all applicable laws and regulations with respect to delivery and related third-party services you purchase.",
+      "Third-Party Service Terms Apply. Your purchase and use of delivery and related services are also subject to the terms, conditions, and other agreements between you and the applicable carrier or other service provider. You are responsible for reviewing and complying with them.",
+    ],
     registerAsASeller: "Register as a Seller ->",
   },
   dashboardSec: {
