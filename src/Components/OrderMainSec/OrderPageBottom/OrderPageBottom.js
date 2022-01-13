@@ -138,179 +138,195 @@ function OrderPageBottom({
           timeStamp={status.Ordered}
         />
 
-        {status.Confirmed ? (
-          <StatusItemWrapper
-            title={staticData.titles.Confirmed}
-            timeStamp={status.Confirmed}
-          />
-        ) : (
-          sellerPerspective && (
-            <StatusItemWrapper
-              title={staticData.titles.Confirm}
-              timeStamp={status.Confirmed}
-            >
-              <Button
-                wrapperClass={
-                  styles.ConfirmOrderBtn + " " + styles.GeneralButton
-                }
-                name={staticData.approve}
-                primaryColor={`var(--green-primary)`}
-                hoverBgColor={`var(--white)`}
-                inverted
-                onClick={confirmOrder}
+        {orderDetails.product_details.requiredAttachments?.length > 0 && (
+          <>
+            {status.Confirmed ? (
+              <StatusItemWrapper
+                title={staticData.titles.Confirmed}
+                timeStamp={status.Confirmed}
               />
-            </StatusItemWrapper>
-          )
-        )}
-        {status.Confirmed &&
-          status.AskedForApprove?.map((item, index) => {
-            return (
-              <>
+            ) : (
+              sellerPerspective && (
                 <StatusItemWrapper
-                  title={staticData.titles.AskedForApprove}
-                  timeStamp={item.date}
+                  title={staticData.titles.Confirm}
+                  timeStamp={status.Confirmed}
                 >
-                  <div className={styles.ApprovalImages}>
-                    {item.data.map((image, index) => {
-                      return (
-                        <img
-                          src={image}
-                          alt="Approval"
-                          className={
-                            styles.ApprovalImage + " " + styles.SmoothLoading
-                          }
-                          onLoad={smoothLoading}
-                        />
-                      );
-                    })}
-                  </div>
+                  <Button
+                    wrapperClass={
+                      styles.ConfirmOrderBtn + " " + styles.GeneralButton
+                    }
+                    name={staticData.approve}
+                    primaryColor={`var(--green-primary)`}
+                    hoverBgColor={`var(--white)`}
+                    inverted
+                    onClick={confirmOrder}
+                  />
                 </StatusItemWrapper>
-                {status.AskedForChange?.[index] ? (
-                  status.AskedForChange[index].changeStatus ? (
+              )
+            )}
+            {status.Confirmed &&
+              status.AskedForApprove?.map((item, index) => {
+                return (
+                  <>
                     <StatusItemWrapper
-                      title={staticData.titles.AskedForChange}
-                      timeStamp={status.AskedForChange[index].date}
+                      title={staticData.titles.AskedForApprove}
+                      timeStamp={item.date}
                     >
-                      <p className={styles.AskChangesContentWrapper}>
-                        {status.AskedForChange[index].data}
-                      </p>
-                    </StatusItemWrapper>
-                  ) : (
-                    <StatusItemWrapper
-                      title={staticData.titles.ApprovedDesigns}
-                      timeStamp={status.AskedForChange[index].date}
-                    />
-                  )
-                ) : (
-                  !sellerPerspective && (
-                    <StatusItemWrapper title={staticData.titles.ApproveDesigns}>
-                      <div className={styles.ApproveWrapper}>
-                        <div className={styles.ApproveTopSec}>
-                          <Button
-                            name={staticData.approve}
-                            primaryColor={`var(--green-primary)`}
-                            wrapperClass={
-                              styles.ApproveButton + " " + styles.GeneralButton
-                            }
-                            hoverBgColor={`var(--white)`}
-                            inverted
-                            onClick={approveOrder}
-                          />
-                        </div>
-                        <span className={styles.ApproveOrText}> or </span>
-                        <form
-                          className={styles.ApproveBottomSec}
-                          onSubmit={askForChange}
-                        >
-                          <span className={styles.ApproveBottomText}>
-                            {staticData.suggestChange}
-                          </span>
-                          <textarea
-                            id="AskForChangeDescription"
-                            type="text"
-                            placeholder="Enter your reason"
-                            className={styles.ApproveInput}
-                          />
-                          <Button
-                            name={staticData.askForChanges}
-                            primaryColor={`var(--ter-black)`}
-                            wrapperClass={
-                              styles.AskForChangeButton +
-                              " " +
-                              styles.GeneralButton
-                            }
-                            inverted
-                            hoverBgColor={`var(--white)`}
-                          />
-                        </form>
+                      <div className={styles.ApprovalImages}>
+                        {item.data.map((image, index) => {
+                          return (
+                            <img
+                              src={image}
+                              alt="Approval"
+                              className={
+                                styles.ApprovalImage +
+                                " " +
+                                styles.SmoothLoading
+                              }
+                              onLoad={smoothLoading}
+                            />
+                          );
+                        })}
                       </div>
                     </StatusItemWrapper>
-                  )
-                )}
-              </>
-            );
-          })}
-        {(sellerPerspective && !status.AskedForApprove && status.Confirmed) ||
-        (sellerPerspective &&
-          status.AskedForApprove?.length === status.AskedForChange?.length &&
-          status.AskedForChange?.[status?.AskedForChange?.length - 1]
-            .changeStatus) ? (
-          <>
-            <StatusItemWrapper title={staticData.titles.AskForApprove}>
-              <div className={styles.ImagesSec}>
-                <div className={styles.ImagesList}>
-                  {images.map((image, index) => {
-                    return (
-                      <img
-                        src={image}
-                        alt="product"
-                        key={index}
-                        className={styles.Image}
-                        onLoad={(e) => {
-                          e.target.style.opacity = 1;
-                        }}
-                      />
-                    );
-                  })}
-                  <div className={styles.AddImageButtonWrapper}>
+                    {status.AskedForChange?.[index] ? (
+                      status.AskedForChange[index].changeStatus ? (
+                        <StatusItemWrapper
+                          title={staticData.titles.AskedForChange}
+                          timeStamp={status.AskedForChange[index].date}
+                        >
+                          <p className={styles.AskChangesContentWrapper}>
+                            {status.AskedForChange[index].data}
+                          </p>
+                        </StatusItemWrapper>
+                      ) : (
+                        <StatusItemWrapper
+                          title={staticData.titles.ApprovedDesigns}
+                          timeStamp={status.AskedForChange[index].date}
+                        />
+                      )
+                    ) : (
+                      !sellerPerspective && (
+                        <StatusItemWrapper
+                          title={staticData.titles.ApproveDesigns}
+                        >
+                          <div className={styles.ApproveWrapper}>
+                            <div className={styles.ApproveTopSec}>
+                              <Button
+                                name={staticData.approve}
+                                primaryColor={`var(--green-primary)`}
+                                wrapperClass={
+                                  styles.ApproveButton +
+                                  " " +
+                                  styles.GeneralButton
+                                }
+                                hoverBgColor={`var(--white)`}
+                                inverted
+                                onClick={approveOrder}
+                              />
+                            </div>
+                            <span className={styles.ApproveOrText}> or </span>
+                            <form
+                              className={styles.ApproveBottomSec}
+                              onSubmit={askForChange}
+                            >
+                              <span className={styles.ApproveBottomText}>
+                                {staticData.suggestChange}
+                              </span>
+                              <textarea
+                                id="AskForChangeDescription"
+                                type="text"
+                                placeholder="Enter your reason"
+                                className={styles.ApproveInput}
+                              />
+                              <Button
+                                name={staticData.askForChanges}
+                                primaryColor={`var(--ter-black)`}
+                                wrapperClass={
+                                  styles.AskForChangeButton +
+                                  " " +
+                                  styles.GeneralButton
+                                }
+                                inverted
+                                hoverBgColor={`var(--white)`}
+                              />
+                            </form>
+                          </div>
+                        </StatusItemWrapper>
+                      )
+                    )}
+                  </>
+                );
+              })}
+            {(sellerPerspective &&
+              !status.AskedForApprove &&
+              status.Confirmed) ||
+            (sellerPerspective &&
+              status.AskedForApprove?.length ===
+                status.AskedForChange?.length &&
+              status.AskedForChange?.[status?.AskedForChange?.length - 1]
+                .changeStatus) ? (
+              <>
+                <StatusItemWrapper title={staticData.titles.AskForApprove}>
+                  <div className={styles.ImagesSec}>
+                    <div className={styles.ImagesList}>
+                      {images.map((image, index) => {
+                        return (
+                          <img
+                            src={image}
+                            alt="product"
+                            key={index}
+                            className={styles.Image}
+                            onLoad={(e) => {
+                              e.target.style.opacity = 1;
+                            }}
+                          />
+                        );
+                      })}
+                      <div className={styles.AddImageButtonWrapper}>
+                        <Button
+                          name={staticData.addImage}
+                          primaryColor={`var(--primary-blue)`}
+                          wrapperClass={
+                            styles.GeneralButton + " " + styles.AddImageButton
+                          }
+                          inverted
+                          withIcon
+                          IconComp={PlusIcon}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            addImageInputRef.current.click();
+                          }}
+                        />
+                        <input
+                          type="file"
+                          ref={addImageInputRef}
+                          className={styles.AddImageInput}
+                          onChange={handleFileChange}
+                        />
+                      </div>
+                    </div>
                     <Button
-                      name={staticData.addImage}
-                      primaryColor={`var(--primary-blue)`}
+                      name={staticData.submit}
+                      primaryColor={`var(--green-primary)`}
                       wrapperClass={
-                        styles.GeneralButton + " " + styles.AddImageButton
+                        styles.GeneralButton +
+                        " " +
+                        styles.SubmitForReviewButton
                       }
+                      hoverBgColor={`var(--white)`}
                       inverted
-                      withIcon
-                      IconComp={PlusIcon}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        addImageInputRef.current.click();
-                      }}
-                    />
-                    <input
-                      type="file"
-                      ref={addImageInputRef}
-                      className={styles.AddImageInput}
-                      onChange={handleFileChange}
+                      onClick={submitForReview}
                     />
                   </div>
-                </div>
-                <Button
-                  name={staticData.submit}
-                  primaryColor={`var(--green-primary)`}
-                  wrapperClass={
-                    styles.GeneralButton + " " + styles.SubmitForReviewButton
-                  }
-                  hoverBgColor={`var(--white)`}
-                  inverted
-                  onClick={submitForReview}
-                />
-              </div>
-            </StatusItemWrapper>
+                </StatusItemWrapper>
+              </>
+            ) : (
+              <></>
+            )}
           </>
-        ) : (
-          <></>
         )}
+
         {status.Delivered && (
           <StatusItemWrapper
             title={staticData.titles.Delivered}

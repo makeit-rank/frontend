@@ -70,7 +70,7 @@ function ProductInfoSec({
         )}
         <h3 className={styles.Price}> {`₹${productDetails.price}`}</h3>
       </div>
-      {productDetails.various_size && (
+      {productDetails.various_size?.length > 0 && (
         <div className={styles.SizesSec}>
           <h5 className={styles.SizesTitle}>{PRODUCT_PAGE_DATA.sizes}</h5>
           <div className={styles.SizesWrapper}>
