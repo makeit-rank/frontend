@@ -2,17 +2,12 @@ export const PINCODE_TO_CITY_URL = "https://api.postalpincode.in/pincode/";
 
 export const BASE_URL =
   "http://makeit.centralindia.cloudapp.azure.com:8080/api/v1/";
-export const PRIMARY_API = "http://localhost:8080/api/v1/";
-export const STORAGE_API = "https://mongodb-storage.herokuapp.com/";
-// export const BASE_URL =
-//   "http://makeit.centralindia.cloudapp.azure.com:8080/api/v1/";
-// export const STORAGE_API =
-//   "http://makeit.centralindia.cloudapp.azure.com:8080/api/v1/";
+export const STORAGE_URL = "https://mongodb-storage.herokuapp.com/";
 
-export const AUTH_URL = PRIMARY_API + "auth/";
-export const USER_URL = PRIMARY_API + "user/";
-export const PRODUCT_URL = PRIMARY_API + "product/";
-export const ORDER_URL = PRIMARY_API + "order/";
+export const AUTH_URL = BASE_URL + "auth/";
+export const USER_URL = BASE_URL + "user/";
+export const PRODUCT_URL = BASE_URL + "product/";
+export const ORDER_URL = BASE_URL + "order/";
 
 export const SIGNUP_URL = AUTH_URL + "signup";
 export const LOGIN_URL = AUTH_URL + "login";
@@ -37,5 +32,5 @@ export const GET_SELLER_PRODUCTS = PRODUCT_URL + "getproductseller";
 export const GET_ORDER_DATA_BY_ID = ORDER_URL + "getorderbyid";
 export const UPDATE_ORDER_STATUS_URL = ORDER_URL + "updatestatus";
 
-export const UPLOAD_IMAGE_URL = STORAGE_API + "addImages";
+export const UPLOAD_IMAGE_URL = STORAGE_URL + "addImages";
 export const GET_ORDER_FOR_SELLER = ORDER_URL + "getorderforseller";
