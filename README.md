@@ -10,7 +10,7 @@
 </div>
 
 ## Overview of Make-It
-* Make-It is a E-Commerce platform for selling and buying items. This platform is build using MERN stack ( MongoDB, Express, React, Node js). with all the features of the E-Commerce platform, it has extra features to customize the product in which seller show-case the required attachments for customizing and customer upload desired images for customizing, after confirmation  of order, Customer can also ask for changes in desing and reject the design and from seller perspective seller can confirm customer order, make desings, Wait for approval and after approval from both side product get delivered. It was designed in Figma.
+* Make-It is an E-Commerce platform for selling and buying products with customization according to buyer affections. This platform is built using the MERN stack ( MongoDB, Express, React, Node js). With all the E-Commerce platform features, it also has unique features to customize the product to the buyer's needs. Sellers provide the required attachments for customizing, and customers upload desired product previews. After confirmation of the order, the Customer can also ask for changes in design and reject the designs provided by the seller. From the seller's perspective, the seller can confirm customer orders, make designs, Wait for approval, and get delivered after approval from both sides. It is designed in Figma.
 ## Technologies:
 * React version: 17.0.1
 * axios version: 0.21.1
