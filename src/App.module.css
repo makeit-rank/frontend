@@ -14,9 +14,16 @@
 .BgLine {
   position: absolute;
   margin-top: -11rem;
-  margin-left: -2.5rem;
+  margin-left: -3rem;
   width: 95%;
+  max-width: 145rem;
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;
+}
+
+@media (min-width: 1600px) {
+  .BgLine {
+    margin-left: calc(50% - 80rem);
+  }
 }
