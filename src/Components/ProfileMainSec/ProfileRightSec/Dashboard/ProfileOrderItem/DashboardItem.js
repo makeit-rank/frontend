@@ -18,8 +18,10 @@ function DashboardItem({ OrderDetails }) {
         return "Waiting For Approval";
       case "Confirmed":
         return "Order Confirmed";
+      case "Delivered":
+        return "Delivered";
       default:
-        return "Order Confirmed";
+        return status;
     }
   };
 
