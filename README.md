@@ -1,70 +1,71 @@
 <div align="center">
-  <h1>Make-It </h1>
+  <h1>MakeIt </h1>
+
+  <h3><a href="">MakeIt🔗</a> <a href="https://www.figma.com/file/PbxppSzixB0P8r2i6zFmL3/Makeit">Figma🔗</a></h3>
+   
+  
 </div>
 
-## Available Scripts
+## Overview of Make-It
+* Make-It is a E-Commerce platform for selling and buying items. This platform is build using MERN stack ( MongoDB, Express, React, Node js). with all the features of the E-Commerce platform, it has extra features to customize the product in which seller show-case the required attachments for customizing and customer upload desired images for customizing, after confirmation  of order, Customer can also ask for changes in desing and reject the design and from seller perspective seller can confirm customer order, make desings, Wait for approval and after approval from both side product get delivered. It was designed in Figma.
+## Technologies:
+* React version: 17.0.1
+* axios version: 0.21.1
+* react-cookie version: 4.1.1
+* react-toastify version: 8.1.0
+* redux version: 4.0.5
+* @mui/material version: 5.2.7
+* Figma 
+## Screens shots:
+#### Home Page
+![logo](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/1.jpg)
 
-In the project directory, you can run:
+#### Top-Picks 
+![toppicks](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/2.jpg)
 
-### `npm|yarn start`
+#### Product page
+![toppicks](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/3.jpg)
 
-Runs the app in the development mode.\
+#### Profile Page (Seller)
+![profilepage](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/4.jpg)
+To use this in your local server:
+
+#### Profile Page (Customer)
+![](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/5.jpg)
+
+#### Wishlist 
+![](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/6.jpg)
+
+#### Dashboard (Seller)
+![](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/7.jpg)
+
+#### Products (Seller)
+![](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/8.jpg)
+
+#### Order Page (Seller)
+![](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/9.jpg)
+
+#### Order Page (Customer)
+![](https://github.com/Makeit-S-Rank-Coders/frontend/blob/main/src/Assets/_Readme/compressed/10.jpg)
+
+## Run this on your local Server
+### Paste this line in your CLI 
+### `git clone https://github.com/Makeit-S-Rank-Coders/frontend.git`
+### `cd frontend`
+### `npm start`
+Runs the app in the development mode.
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-### `npm|yarn test`
+### To Connect with backend go tohttps://github.com/Makeit-S-Rank-Coders/backend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## S-Rank-Coders
+### Team members: 
+ * [Master Ayush](https://github.com/WeryZebra-Yue)  
+ * [Raj Varsani](https://github.com/RajVarsani)
 
-### `npm|yarn build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm|yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
