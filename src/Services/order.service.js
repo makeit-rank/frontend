@@ -2,7 +2,7 @@ import axios from "axios";
 import {
   ADD_PRODUCT_TO_ORDER_URL,
   ADD_CART_TO_ORDER_URL,
-  GET_USER_ORDERS_URL,
+  GET_ORDER_FOR_SELLER,
 } from "../Utils/Constants/ApiConstants";
 
 export const addProductToOrder = async (
@@ -27,6 +27,18 @@ export const addProductToOrder = async (
         },
       }
     );
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+export const getOrderForSeller = async (accessToken) => {
+  try {
+    const { data } = await axios.get(GET_ORDER_FOR_SELLER, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
     return data;
   } catch (err) {
     throw err;

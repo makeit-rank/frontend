@@ -34,3 +34,4 @@ export const ADD_CART_TO_ORDER_URL = ORDER_URL + "addcartorder";
 export const GET_WISHLIST_DATA = USER_URL + "getwishlist";
 export const GET_SELLER_PRODUCTS = PRODUCT_URL + "getproductseller";
 export const UPLOAD_IMAGE_URL = STORAGE_API + "addImages";
+export const GET_ORDER_FOR_SELLER = ORDER_URL + "getorderforseller";
