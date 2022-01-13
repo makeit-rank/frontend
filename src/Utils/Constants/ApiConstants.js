@@ -34,5 +34,7 @@ export const ADD_PRODUCT_TO_ORDER_URL = ORDER_URL + "addorder";
 export const ADD_CART_TO_ORDER_URL = ORDER_URL + "addcartorder";
 export const GET_USER_ORDERS_URL = ORDER_URL + "getorderforuser";
 export const GET_SELLER_PRODUCTS = PRODUCT_URL + "getproductseller";
+export const GET_ORDER_DATA_BY_ID = ORDER_URL + "getorderbyid";
+export const UPDATE_ORDER_STATUS_URL = ORDER_URL + "updatestatus";
 
 export const UPLOAD_IMAGE_URL = STORAGE_API + "addImages";

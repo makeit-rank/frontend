@@ -49,6 +49,11 @@
   margin-bottom: 0.5rem;
 }
 
+.SubmitForReviewButton {
+  margin-top: 1.5rem;
+  font-size: var(--font-15);
+  padding: 0.9rem 2.5rem;
+}
 .ApproveWrapper {
   display: flex;
   flex-direction: column;

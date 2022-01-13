@@ -3,6 +3,8 @@ import {
   ADD_PRODUCT_TO_ORDER_URL,
   ADD_CART_TO_ORDER_URL,
   GET_USER_ORDERS_URL,
+  GET_ORDER_DATA_BY_ID,
+  UPDATE_ORDER_STATUS_URL,
 } from "../Utils/Constants/ApiConstants";
 
 export const addProductToOrder = async (
@@ -59,6 +61,52 @@ export const getUserOrders = async (accessToken) => {
         Authorization: `Bearer ${accessToken}`,
       },
     });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const getOrderDataById = async (accessToken, order_id) => {
+  try {
+    const { data } = await axios.get(GET_ORDER_DATA_BY_ID, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+      params: {
+        order_id: `"${order_id}"`,
+      },
+    });
+    return data;
+  } catch (err) {
+    throw err;
+  }
+};
+
+export const updateOrderStatus = async (
+  accessToken,
+  order_id,
+  status,
+  Textdata,
+  ImageData,
+  changeStatus
+) => {
+  try {
+    const { data } = await axios.put(
+      UPDATE_ORDER_STATUS_URL,
+      {
+        order_id,
+        status,
+        Textdata,
+        ImageData,
+        changeStatus,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
     return data;
   } catch (err) {
     throw err;
