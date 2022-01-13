@@ -1,7 +1,7 @@
 export const PINCODE_TO_CITY_URL = "https://api.postalpincode.in/pincode/";
 
 export const BASE_URL =
-  "http://makeit.centralindia.cloudapp.azure.com:8080/api/v1/";
+  "https://makeit.centralindia.cloudapp.azure.com/api/v1/";
 export const STORAGE_URL = "https://mongodb-storage.herokuapp.com/";
 
 export const AUTH_URL = BASE_URL + "auth/";
