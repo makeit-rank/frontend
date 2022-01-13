@@ -1,9 +1,12 @@
 <div align="center">
   <h1>MakeIt </h1>
 
+  ![download-removebg-preview (1)](https://user-images.githubusercontent.com/74860406/149317179-c574250e-8689-483e-bdcf-bb53dd48b002.png)
+
   <h3><a href="">MakeIt🔗</a> <a href="https://www.figma.com/file/PbxppSzixB0P8r2i6zFmL3/Makeit">Figma🔗</a></h3>
-   
   
+
+
 </div>
 
 ## Overview of Make-It
