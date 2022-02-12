@@ -19,16 +19,20 @@ function CartMainSec({ cartData, addresses, refreshDataFunction }) {
   const [currentAddressIndex, setCurrentAddressIndex] = React.useState(0);
 
   const placeOrder = async () => {
-    try {
-      const response = await addCartToOrder(
-        userData.accessToken,
-        userData.address[currentAddressIndex]
-      );
-      await refreshDataFunction();
-      notify("Order Placed Successfully", "success");
-    } catch (err) {
-      console.log(err);
-      notify("Something went wrong", "error");
+    if (userData.address.length > 0) {
+      try {
+        const response = await addCartToOrder(
+          userData.accessToken,
+          userData.address[currentAddressIndex]
+        );
+        await refreshDataFunction();
+        notify("Order Placed Successfully", "success");
+      } catch (err) {
+        console.log(err);
+        notify("Something went wrong", "error");
+      }
+    } else {
+      notify("Please add address", "error");
     }
   };
 

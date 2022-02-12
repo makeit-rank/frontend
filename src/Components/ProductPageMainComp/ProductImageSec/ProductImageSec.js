@@ -8,6 +8,7 @@ import WishlistIcon from "./../../WishlistIcon/index";
 import notify from "./../../../Utils/Helpers/notifyToast";
 import { addProductToCart } from "../../../Services/user.service";
 import { addProductToOrder } from "./../../../Services/order.service";
+import { useNavigate } from "react-router-dom";
 
 function ProductImageSec({
   images,
@@ -15,6 +16,7 @@ function ProductImageSec({
   productDetails,
   currentSelections,
 }) {
+  const navigate = useNavigate();
   const userData = useSelector((state) => state.userReducer.userData);
 
   const [currentImage, setCurrentImage] = useState(0);
@@ -35,19 +37,24 @@ function ProductImageSec({
   };
 
   const placeOrder = async () => {
-    console.log("Place order");
-    try {
-      const response = await addProductToOrder(
-        userData.accessToken,
-        productId,
-        productDetails.various_size[currentSelections.size],
-        Object.values(currentSelections.attachments),
-        userData.address[currentSelections.address]
-      );
-      notify("Successfully placed order", "success");
-    } catch (err) {
-      console.log(err);
-      notify("Failed to place order", "error");
+    if (userData?.address?.length > 0) {
+      console.log("Place order");
+      try {
+        const response = await addProductToOrder(
+          userData.accessToken,
+          productId,
+          productDetails.various_size[currentSelections.size],
+          Object.values(currentSelections.attachments),
+          userData.address[currentSelections.address]
+        );
+        notify("Successfully placed order", "success");
+      } catch (err) {
+        console.log(err);
+        notify("Failed to place order", "error");
+      }
+    } else {
+      notify("Please add address", "error");
+      navigate("/profile/");
     }
   };
 
