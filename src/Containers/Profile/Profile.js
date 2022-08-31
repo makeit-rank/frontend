@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import styles from "./Profile.module.css";
 
 import ProfileMainSec from "./../../Components/ProfileMainSec/ProfileMainSec";
-import SecondaryFooter from "./../../Components/SecondaryFooter/index";
+import SecondaryFooter from "./../../Components/SecondaryFooter";
 
 const Profile = ({ refreshUserData }) => {
   return (

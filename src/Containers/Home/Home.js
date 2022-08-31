@@ -4,11 +4,11 @@ import { useSelector } from "react-redux";
 
 import styles from "./Home.module.css";
 
-import HomeMainSec from "./../../Components/HomeMainSec/index";
-import Footer from "./../../Components/Footer/index";
-import PopUp from "./../../Components/_General/PopUp/index";
+import HomeMainSec from "./../../Components/HomeMainSec";
+import Footer from "./../../Components/Footer";
+import PopUp from "./../../Components/_General/PopUp";
 import SignUp from "../../Components/SignUp";
-import SignIn from "./../../Components/SignIn/index";
+import SignIn from "./../../Components/SignIn";
 import { searchProducts } from "./../../Services/product.service";
 
 const Home = () => {
@@ -55,10 +55,7 @@ const Home = () => {
 
   return (
     <div className={styles.Wrapper}>
-      <HomeMainSec
-        // recommendedItems={highlightsData.recommended}
-        topPickItems={highlightsData.topPicks}
-      />
+      <HomeMainSec topPickItems={highlightsData.topPicks} />
       <Footer />
       <PopUp
         isOpen={location.pathname === "/signup"}

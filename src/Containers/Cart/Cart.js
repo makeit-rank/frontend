@@ -6,8 +6,8 @@ import styles from "./Cart.module.css";
 
 import Footer from "../../Components/Footer/index";
 import Preloader from "./../../Components/Preloader/Preloader";
-import CartMainSec from "./../../Components/CartMainSec/index";
-import EmptyCartComp from "./../../Components/EmptyCartComp/index";
+import CartMainSec from "./../../Components/CartMainSec";
+import EmptyCartComp from "./../../Components/EmptyCartComp";
 import { getCartItemsData } from "../../Services/user.service";
 import notify from "./../../Utils/Helpers/notifyToast";
 

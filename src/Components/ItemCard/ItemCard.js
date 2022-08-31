@@ -6,7 +6,7 @@ import styles from "./ItemCard.module.css";
 import Ratings from "../Ratings";
 
 import { HOME_DATA } from "./../../Utils/Constants/StaticData";
-import WishlistIcon from "./../WishlistIcon/index";
+import WishlistIcon from "./../WishlistIcon";
 
 export default function ItemCard({ itemData }) {
   const [selected, setSelected] = useState(false);

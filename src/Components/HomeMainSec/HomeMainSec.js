@@ -10,11 +10,6 @@ function HomeMainSec({ recommendedItems, topPickItems }) {
       <UpperSec />
       {topPickItems ? (
         <>
-          {/* <HighlightsItemSec
-            items={recommendedItems.slice(0, 4)}
-            redirectTo={"/recommended"}
-            title={HOME_DATA.recommended}
-          /> */}
           <HighlightsItemSec
             items={topPickItems.slice(0, 4)}
             redirectTo={`search?search=top-pick`}
