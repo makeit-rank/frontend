@@ -8,11 +8,21 @@ import arrorwImg from "../../Assets/Footer/Arrow.svg";
 
 import ImageStackComponent from "./Helpers";
 
-import importAll from "../../Utils/Helpers/importAll";
+import Linkedin from "../../Assets/Footer/Icons/Linkedin.svg";
+import Facebook from "../../Assets/Footer/Icons/Facebook.svg";
+import Instagram from "../../Assets/Footer/Icons/Instagram.svg";
+import LinkedinH from "../../Assets/Footer/Icons/LinkedinH.svg";
+import FacebookH from "../../Assets/Footer/Icons/FacebookH.svg";
+import InstagramH from "../../Assets/Footer/Icons/InstagramH.svg";
 
-const images = importAll(
-  require.context("../../Assets/Footer/Icons", false, /\.(png|jpe?g|svg)$/)
-);
+const images = {
+  Linkedin,
+  Facebook,
+  Instagram,
+  LinkedinH,
+  FacebookH,
+  InstagramH,
+};
 
 const Company = ["Who We Are", "Careers", "Team", "Report Fraud"];
 const CompanyRoutes = ["", "", "", ""];
@@ -59,8 +69,8 @@ const SocialMediaIconsList = SocialMediaIcons.map(
       <ImageStackComponent
         key={index}
         link={CONTACT_LINKS[SocialMediaIconName]}
-        normalDisplay={images[`${SocialMediaIconName}.svg`].default}
-        hoverDisplay={images[`${SocialMediaIconName}H.svg`].default}
+        normalDisplay={images[SocialMediaIconName]}
+        hoverDisplay={images[SocialMediaIconName + "H"]}
         iconsClass={Styles.Icons}
         iconsWrapperClass={Styles.IconsSubWrapper}
       />

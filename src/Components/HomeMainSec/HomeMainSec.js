@@ -1,3 +1,4 @@
+import React from "react";
 import HighlightsItemSec from "./HighlightsItemSec";
 import styles from "./HomeMainSec.module.css";
 import UpperSec from "./UpperSec";
