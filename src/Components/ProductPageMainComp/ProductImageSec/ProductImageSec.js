@@ -7,8 +7,12 @@ import { PRODUCT_PAGE_DATA } from "../../../Utils/Constants/StaticData";
 import WishlistIcon from "./../../WishlistIcon/index";
 import notify from "./../../../Utils/Helpers/notifyToast";
 import { addProductToCart } from "../../../Services/user.service";
-import { addProductToOrder } from "./../../../Services/order.service";
+import {
+  addProductToOrder,
+  fetchAllPaymentMethods,
+} from "./../../../Services/order.service";
 import { useNavigate } from "react-router-dom";
+import { getCurrencyAndCountry } from "../../../Services/location.locale.service";
 
 function ProductImageSec({
   images,
@@ -37,6 +41,12 @@ function ProductImageSec({
   };
 
   const placeOrder = async () => {
+    const localeObj = getCurrencyAndCountry();
+    const paymentMethods = await fetchAllPaymentMethods(userData.accessToken, {
+      country: localeObj.country,
+      currency: localeObj.currency,
+    });
+    console.log(paymentMethods);
     if (userData?.address?.length > 0) {
       console.log("Place order");
       try {
@@ -45,9 +55,64 @@ function ProductImageSec({
           productId,
           productDetails.various_size[currentSelections.size],
           Object.values(currentSelections.attachments),
-          userData.address[currentSelections.address]
+          userData.address[currentSelections.address],
+          localeObj.country,
+          localeObj.currency,
+          paymentMethods.map((method) => method.type).slice(0, 3)
         );
         notify("Successfully placed order", "success");
+
+        window.addEventListener("onCheckoutPaymentSuccess", (event) => {
+          console.log(event.detail);
+          // Returns 'Payment' object.
+          // Client code.
+        });
+
+        window.addEventListener("onCheckoutPaymentFailure", (event) => {
+          console.error(event.detail.error);
+          // Returns an error message from the API.
+          // Client code.
+        });
+
+        window.addEventListener("onLoading", (event) => {
+          console.log(event.detail.loading);
+          // returns true or false depending on the loading state
+          // client code
+        });
+
+        window.addEventListener("onCheckoutUpdateCardSuccess", (event) => {
+          console.log(event.detail);
+          // Returns payment method object.
+          // client code
+        });
+
+        window.addEventListener("onCheckoutDeleteCardSuccess", (event) => {
+          console.log(event.detail);
+          // Returns deleted payment method object.
+          // client code
+        });
+
+        let checkout = new RapydCheckoutToolkit({
+          pay_button_text: "Click to pay",
+          // Text that appears on the 'Pay' button.
+          // String. Maximum length is 16 characters.
+          // Default is "Place Your Order". Optional.
+          pay_button_color: "blue",
+          // Color of the 'Pay' button. String.
+          // Standard CSS color name or hexadecimal code such as #323fff.
+          // Default is the color that is returned in the 'merchant_color'
+          // field of the response to 'Create Checkout Page'. Optional.
+          id: response.checkout_id,
+          // ID of the 'Create Checkout Page' response. String. Required.
+          close_on_complete: false,
+          // Causes the embedded Rapyd Checkout Toolkit window to close
+          // when the payment is complete. Boolean. Default is 'true'. Optional.
+          page_type: "collection",
+          // Default is "collection". Optional.
+        });
+
+        // Instantiating ‘checkout’ with parametersInstantiating 'checkout' & setting variables
+        checkout.displayCheckout();
       } catch (err) {
         console.log(err);
         notify("Failed to place order", "error");

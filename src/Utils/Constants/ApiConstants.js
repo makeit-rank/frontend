@@ -1,7 +1,6 @@
+export const BASE_URL = import.meta.env.VITE_SOME_VALUE;
 export const PINCODE_TO_CITY_URL = "https://api.postalpincode.in/pincode/";
 
-export const BASE_URL =
-  "https://makeit.centralindia.cloudapp.azure.com/api/v1/";
 export const STORAGE_URL = "https://mongodb-storage.herokuapp.com/";
 
 export const AUTH_URL = BASE_URL + "auth/";
@@ -26,6 +25,7 @@ export const ADD_PRODUCT_URL = PRODUCT_URL + "addproduct";
 export const GET_PRODUCT_DATA_BY_ID = PRODUCT_URL + "getproductbyid";
 export const ADD_REVIEW_URL = PRODUCT_URL + "addreview";
 export const ADD_PRODUCT_TO_ORDER_URL = ORDER_URL + "addorder";
+export const FETCH_ALL_PAYMENT_METHODS_URL = ORDER_URL + "getAllPaymentMethods";
 export const ADD_CART_TO_ORDER_URL = ORDER_URL + "addcartorder";
 export const GET_USER_ORDERS_URL = ORDER_URL + "getorderforuser";
 export const GET_SELLER_PRODUCTS = PRODUCT_URL + "getproductseller";

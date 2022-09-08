@@ -29,6 +29,7 @@ import Search from "./Containers/Search";
 import Product from "./Containers/Product";
 import Cart from "./Containers/Cart";
 import Order from "./Containers/Order";
+import OrderCheckout from "./Components/OrderCheckout";
 
 const App = () => {
   const userData = useSelector((state) => state.userReducer.userData);
@@ -155,6 +156,14 @@ const App = () => {
                     closePopupFunction={closeAddProductPopup}
                     refreshDataFunction={fetchUserData}
                   />
+                }
+                closeFun={closeAddProductPopup}
+                withBorder={false}
+              />
+              <PopUp
+                isOpen={popupStates.orderCheckout}
+                ContentComp={
+                  <OrderCheckout closePopupFunction={closeAddProductPopup} />
                 }
                 closeFun={closeAddProductPopup}
                 withBorder={false}

@@ -1,0 +1,287 @@
+.Wrapper {
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 0.7rem;
+  width: 90rem;
+  height: fit-content;
+  max-height: 85vh;
+  overflow: scroll;
+
+  display: flex;
+  flex-direction: column;
+
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.Wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.HeadingPrimary {
+  font-size: var(--font-20);
+  color: var(--primary-black);
+  font-weight: 500;
+}
+
+.Form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Input {
+  outline: none;
+  border: none;
+  resize: none;
+  width: 100%;
+  font-size: var(--font-16);
+  color: var(--sec-black);
+  font-weight: 500;
+  outline: 1px solid var(--sec-grey);
+  border-radius: 0.3rem;
+  padding: 0.7rem 1.5rem;
+  transition: box-shadow 0.15s ease-out;
+}
+
+.Input:active,
+.Input:focus-within {
+  box-shadow: 0px 0px 0px 4px rgba(16, 140, 255, 0.2);
+  outline: 1px solid var(--primary-blue);
+}
+
+.Heading {
+  font-size: var(--font-16);
+  color: var(--primary-blue);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  grid-gap: 0.5rem;
+}
+
+.GeneralButton {
+  outline-width: 1px;
+  border-radius: 0.3rem;
+  padding: 0.7rem 1.5rem;
+  font-weight: 500;
+  font-size: var(--font-14);
+}
+
+.SubHeading {
+  font-size: var(--font-14);
+  color: var(--sec-black);
+  font-weight: 500;
+}
+
+.PrimaryInfoSec {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.8rem;
+}
+
+.PrimaryInfoSecKeyValuePair {
+  display: grid;
+  grid-template-columns: 5.8rem 1fr;
+  width: 64rem;
+  align-items: center;
+}
+
+.PrimaryInfoSecKey,
+.PrimaryInfoSecValue {
+  width: fit-content;
+  font-size: var(--font-16);
+  font-weight: 500;
+}
+
+.PrimaryInfoSecKey {
+  color: var(--primary-blue);
+}
+
+.Title {
+  width: 100%;
+}
+
+.ImagesSec {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.ImagesList {
+  display: flex;
+  grid-gap: 1rem;
+  align-items: center;
+}
+
+.Image {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  border-radius: 0.3rem;
+  cursor: pointer;
+
+  opacity: 0;
+  transition: opacity 0.15s ease-out;
+}
+
+.AddImageInput {
+  display: none;
+  visibility: hidden;
+}
+
+.SpecificationSec {
+  padding: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  border-top: 1px solid var(--sec-grey);
+}
+
+.SpecificationList {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.8rem;
+}
+
+.Specification {
+  display: grid;
+  grid-template-columns: 20rem 25rem auto;
+  grid-gap: 0.8rem;
+}
+
+.DeleteSpecificationButtonWrapper {
+  width: fit-content;
+  padding: 0 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  cursor: pointer;
+
+  outline: 1px solid var(--sec-grey);
+  transition: outline 0.1s ease-out, background 0.1s ease-out;
+}
+
+.DeleteIcon {
+  width: 1.3rem;
+  height: fit-content;
+}
+
+.DeleteSpecificationButtonWrapper:hover {
+  outline: 1px solid var(--red-primary);
+  background-color: var(--red-bg);
+}
+
+.DeleteSpecificationButtonWrapper:hover .DeleteIcon path {
+  fill: var(--red-primary);
+}
+
+.SizeSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.5rem;
+  border-top: 1px solid var(--sec-grey);
+  padding: 1.5rem 0;
+}
+
+.SizeListWrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.5rem;
+}
+
+.SizeList {
+  display: flex;
+  grid-gap: 0.8rem;
+}
+
+.SizeInput {
+  width: 4.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: var(--font-14);
+  text-align: center;
+  font-weight: 600;
+}
+
+.CustomizationSec {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+  border-top: 1px solid var(--sec-grey);
+  padding: 1.5rem 0;
+}
+
+.CustomizationListWrapper {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 1rem;
+}
+
+.CustomizationList {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.8rem;
+}
+
+.Customization {
+  display: flex;
+  grid-gap: 1rem;
+}
+
+.AttachmentInfoLeft {
+  background-color: var(--trans-blue-bg);
+  outline: 1px solid var(--primary-blue);
+  color: var(--primary-blue);
+  width: 3.3rem;
+  height: 3.3rem;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-16);
+  font-weight: 500;
+}
+
+.AttachmentInfoRight {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 0.8rem;
+}
+
+.CustomizationTitle {
+  width: fit-content;
+}
+
+.CustomizationDescription {
+  width: 50rem;
+  height: 7rem;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding-top: 0.9rem;
+}
+
+.AddCustomizationButtonWrapper {
+  padding-left: 4.3rem;
+}
+
+.ButtonsWrapper {
+  display: flex;
+  grid-gap: 2rem;
+  align-items: center;
+  border-top: 1px solid var(--sec-grey);
+  padding-top: 1.5rem;
+}
+
+.SubmitButton {
+  font-weight: 500;
+  border-radius: 0.5rem;
+}
+
+.DiscardButtonWrapper {
+  font-size: var(--font-16);
+  color: var(--ter-black);
+  font-weight: 500;
+  cursor: pointer;
+}
