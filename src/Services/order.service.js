@@ -7,6 +7,7 @@ import {
   GET_ORDER_DATA_BY_ID,
   UPDATE_ORDER_STATUS_URL,
   FETCH_ALL_PAYMENT_METHODS_URL,
+  MARK_ORDER_AS_PAID_URL,
 } from "../Utils/Constants/ApiConstants";
 
 export const addProductToOrder = async (
@@ -62,59 +63,21 @@ export const fetchAllPaymentMethods = async (accessToken, locationInfo) => {
   }
 };
 
-function sign(method, urlPath, salt, timestamp, body) {
+export const markOrderPaymentSuccess = async (accessToken, payload) => {
   try {
-    let bodyString = "";
-    if (body) {
-      bodyString = JSON.stringify(body);
-      bodyString = bodyString == "{}" ? "" : bodyString;
-    }
-
-    let toSign =
-      method.toLowerCase() +
-      urlPath +
-      salt +
-      timestamp +
-      accessKey +
-      secretKey +
-      bodyString;
-    log && console.log(`toSign: ${toSign}`);
-
-    let hash = crypto.createHmac("sha256", secretKey);
-    hash.update(toSign);
-    const signature = Buffer.from(hash.digest("hex")).toString("base64");
-    log && console.log(`signature: ${signature}`);
-
-    return signature;
-  } catch (error) {
-    console.error("Error generating signature");
-    throw error;
-  }
-}
-
-export const initializeOrder = async (accessToken, cartItems, address) => {
-  try {
-    const timestamp = Math.round(new Date().getTime() / 1000);
-    salt = "12345678";
-
-    const resp = await axios.post(
-      "https://sandboxapi.rapyd.net/v1/",
+    const { data } = await axios.post(
+      MARK_ORDER_AS_PAID_URL,
       {
-        amount: 100,
-        currency: "INR",
-        country: "IN",
+        ...payload,
       },
       {
         headers: {
-          access_key: "sbpb_NzQwZjQ5ZjctZjQwZS00ZjQwLWI2ZjItZjQwZjQ5ZjQwZjQw",
-          "Content-Type": "application/json",
-          salt: "1234567890",
-          timestamp: "1622020000",
+          Authorization: `Bearer ${accessToken}`,
         },
       }
     );
-    console.log(resp);
-    return resp;
+
+    return data;
   } catch (err) {
     throw err;
   }

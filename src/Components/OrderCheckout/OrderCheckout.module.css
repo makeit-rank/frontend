@@ -19,43 +19,24 @@
 }
 
 .HeadingPrimary {
-  font-size: var(--font-20);
+  font-size: var(--font-24);
   color: var(--primary-black);
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.HeadingSecondary {
+  font-size: var(--font-16);
+  color: var(--ter-black);
+  font-weight: 800;
+  margin-top: 1.2rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
 }
 
 .Form {
   display: flex;
   flex-direction: column;
-}
-
-.Input {
-  outline: none;
-  border: none;
-  resize: none;
-  width: 100%;
-  font-size: var(--font-16);
-  color: var(--sec-black);
-  font-weight: 500;
-  outline: 1px solid var(--sec-grey);
-  border-radius: 0.3rem;
-  padding: 0.7rem 1.5rem;
-  transition: box-shadow 0.15s ease-out;
-}
-
-.Input:active,
-.Input:focus-within {
-  box-shadow: 0px 0px 0px 4px rgba(16, 140, 255, 0.2);
-  outline: 1px solid var(--primary-blue);
-}
-
-.Heading {
-  font-size: var(--font-16);
-  color: var(--primary-blue);
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  grid-gap: 0.5rem;
 }
 
 .GeneralButton {

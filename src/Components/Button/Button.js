@@ -14,9 +14,11 @@ function Button({
   iconClass,
   hoverBgColor,
   hoverColor,
+  disabled,
 }) {
   return (
     <button
+      disabled={disabled === true}
       id={id}
       className={
         styles.Button +

@@ -10,6 +10,7 @@ import {
   UPDATE_USER_DATA,
   UPDATE_ADD_ADDRESS_POPUP_STATE,
   UPDATE_ADD_PRODUCT_POPUP_STATE,
+  UPDATE_ORDER_CHECKOUT_POPUP_STATE,
 } from "./Redux/ActionTypes";
 import { BG_LINE_IMG } from "./Utils/Constants/StaticData";
 
@@ -96,6 +97,13 @@ const App = () => {
     });
   };
 
+  const cloaseOrderCheckoutPopup = () => {
+    dispatch({
+      type: UPDATE_ORDER_CHECKOUT_POPUP_STATE,
+      value: false,
+    });
+  };
+
   return (
     <>
       <ToastContainer bodyClassName={styles.ToastBody} />
@@ -160,14 +168,20 @@ const App = () => {
                 closeFun={closeAddProductPopup}
                 withBorder={false}
               />
-              <PopUp
-                isOpen={popupStates.orderCheckout}
-                ContentComp={
-                  <OrderCheckout closePopupFunction={closeAddProductPopup} />
-                }
-                closeFun={closeAddProductPopup}
-                withBorder={false}
-              />
+              {popupStates.orderCheckout && (
+                <PopUp
+                  isOpen={popupStates.orderCheckout}
+                  ContentComp={
+                    <OrderCheckout
+                      closePopupFunction={cloaseOrderCheckoutPopup}
+                      {...popupStates.extraProps}
+                    />
+                  }
+                  closeFun={cloaseOrderCheckoutPopup}
+                  withBorder={false}
+                  isClosable={false}
+                />
+              )}
             </>
           )}
         </div>

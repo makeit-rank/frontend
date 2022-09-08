@@ -17,6 +17,7 @@ const store = ConfigureStore();
 const globalMUITheme = createTheme({
   typography: {
     fontFamily: ["Manrope", "Roboto", "sans-serif"].join(","),
+    htmlFontSize: 10,
   },
 });
 

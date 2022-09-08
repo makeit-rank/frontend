@@ -26,6 +26,7 @@ export const GET_PRODUCT_DATA_BY_ID = PRODUCT_URL + "getproductbyid";
 export const ADD_REVIEW_URL = PRODUCT_URL + "addreview";
 export const ADD_PRODUCT_TO_ORDER_URL = ORDER_URL + "addorder";
 export const FETCH_ALL_PAYMENT_METHODS_URL = ORDER_URL + "getAllPaymentMethods";
+export const MARK_ORDER_AS_PAID_URL = ORDER_URL + "markPaymentComplete";
 export const ADD_CART_TO_ORDER_URL = ORDER_URL + "addcartorder";
 export const GET_USER_ORDERS_URL = ORDER_URL + "getorderforuser";
 export const GET_SELLER_PRODUCTS = PRODUCT_URL + "getproductseller";
