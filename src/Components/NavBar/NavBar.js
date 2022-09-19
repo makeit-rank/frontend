@@ -143,7 +143,7 @@ function NavBar({ isLoggedIn }) {
             <h4 className={styles.LoginButtonText}>{NAVBAR_DATA.login}</h4>
           </Link>
         )}
-        {location.pathname !== "/cart" && (
+        {/* {location.pathname !== "/cart" && (
           <Link
             to="/cart"
             className={styles.CartButton + " " + styles.LinkButton}
@@ -157,7 +157,7 @@ function NavBar({ isLoggedIn }) {
               {NAVBAR_DATA.cart}
             </h4>
           </Link>
-        )}
+        )} */}
       </div>
     </div>
   );

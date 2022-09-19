@@ -173,13 +173,13 @@ function ProductImageSec({
           </div>
         </div>
         <div className={styles.ButtonsWrapper}>
-          <Button
+          {/* <Button
             name={PRODUCT_PAGE_DATA.addToCart}
             onClick={addToCart}
             primaryColor="var(--primary-blue)"
             inverted
             wrapperClass={styles.AddToCartButton + " " + styles.Button}
-          />
+          /> */}
           <Button
             name={PRODUCT_PAGE_DATA.placeOrder}
             onClick={placeOrder}

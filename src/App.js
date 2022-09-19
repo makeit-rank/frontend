@@ -125,14 +125,14 @@ const App = () => {
                 </PrivateRoute>
               }
             />
-            <Route
+            {/* <Route
               path="cart"
               element={
                 <PrivateRoute>
                   <Cart />
                 </PrivateRoute>
               }
-            />
+            /> */}
             <Route
               exact
               path="/profile/*"
